@@ -1,0 +1,12 @@
+{
+    "/js/vendor.js": "/js/vendor.js",
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/css/site.css": "/css/site.css",
+    "/css/acessibilidade.css": "/css/acessibilidade.css",
+    "/js/manifest.js": "/js/manifest.js",
+    "/css/vendor.css": "/css/vendor.css",
+    "/js/site.js": "/js/site.js",
+    "/js/acessibilidade.js": "/js/acessibilidade.js",
+    "/js/contraste.js": "/js/contraste.js"
+}

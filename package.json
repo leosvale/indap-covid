@@ -1,0 +1,38 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch-poll": "npm run watch -- --watch-poll",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "devDependencies": {
+    "axios": "^0.21.1",
+    "bootstrap-fileinput": "^4.4.1",
+    "bootstrap-sass": "^3.3.7",
+    "codemirror": "^5.61.1",
+    "cross-env": "^3.2.3",
+    "es6-promise": "^4.1.1",
+    "jquery": "^2.2.4",
+    "jquery-mask-plugin": "^1.14.11",
+    "js-cookie": "^2.1.4",
+    "laravel-mix": "^1.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "nib": "^1.1.2",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "summernote": "^0.8.18",
+    "vue": "^2.5.16",
+    "vue-tables-2": "^0.6.23"
+  },
+  "dependencies": {
+    "bootstrap": "^5.0.1",
+    "bootstrap-vue": "^2.21.2",
+    "text-mask-addons": "^3.8.0",
+    "v-mask": "^2.2.4"
+  }
+}
