@@ -9,7 +9,7 @@
         <div class="tracker_text">
           <h5>Covid-19</h5>
           <h2>Vacinômetro</h2>
-          <p>Última atualização: April 08, 2020, 01:43 GMT</p>
+          <!-- <p>Última atualização: April 08, 2020, 01:43 GMT</p> -->
         </div>
         <div class="row tracker_inner">
           <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="300">

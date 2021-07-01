@@ -13,5 +13,4 @@ npm-debug.log
 storage/documentos/
 storage/anexos/
 public/anexos/
-public/images/
 .DS_Store
