@@ -155,6 +155,9 @@ class SiteController extends Controller
 			->orderBy('dan.dan_data_documento');
 
 		$contratos = $contratos->get();
+		$contratos = $contratos->groupBy('documento_id');
+		$contratos = $contratos->toArray();
+		
 
 		$licitacoes = Documento::select($columns)
 			->join('documento_anexo AS dan', 'dan.documento_id', '=', 'documento.documento_id')
@@ -165,6 +168,8 @@ class SiteController extends Controller
 			->orderBy('dan.dan_data_documento');
 
 		$licitacoes = $licitacoes->get();
+		$licitacoes = $licitacoes->groupBy('documento_id');
+		$licitacoes = $licitacoes->toArray();
 
 		$contratacoesDiretas = Documento::select($columns)
 			->join('documento_anexo AS dan', 'dan.documento_id', '=', 'documento.documento_id')
@@ -175,6 +180,8 @@ class SiteController extends Controller
 			->orderBy('dan.dan_data_documento');
 
 		$contratacoesDiretas = $contratacoesDiretas->get();
+		$contratacoesDiretas = $contratacoesDiretas->groupBy('documento_id');
+		$contratacoesDiretas = $contratacoesDiretas->toArray();
 
 		$documentos = [
 			'Contratos' => $contratos,
@@ -184,7 +191,13 @@ class SiteController extends Controller
 
 		$this->data['documentos'] = $documentos;
 
-		//dd($documentos);
+		// Buscar categorias de processo
+		// ==============================
+		$categorias = DB::table('tipo_categoria_processo')->get()->mapWithKeys(function ($item) {
+			return [$item->tipo_categoria_processo_id => $item->tcp_nome];
+		});
+
+		$this->data['categorias'] = $categorias->toArray();
 
 		return view('site.home', $this->data);
 	}
@@ -717,7 +730,6 @@ class SiteController extends Controller
 		// Lista de meses
 		// ==============================
 		$this->data['meses'] = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-		// dd($this->data);
 
 		return view('site.licitacoes', $this->data);
 	}

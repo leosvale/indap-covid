@@ -414,7 +414,7 @@
   <script src="../../themes/epidemic-placeholder/assets/js/jquery.validate.min.js"></script>
   <script src="../../themes/epidemic-placeholder/assets/js/theme.js"></script>
   
-  <script src="{{asset('js/440bb498fbbd4e2c59166cf27e6837a5.js')}}" data-minify="1"></script>
+  <!-- <script src="{{asset('js/440bb498fbbd4e2c59166cf27e6837a5.js')}}" data-minify="1"></script> -->
   <script src="../../js/acessibilidade.js"></script>
   <script src="../../js/app.js"></script>
   <script src="../../js/bootstrap.min.js"></script>
@@ -422,7 +422,7 @@
   <script src="../../js/jquery.cookie.js"></script>
   <script src="../../js/jquery.dcjqaccordion.2.9.js"></script>
   <script src="../../js/jquery.jquery.hoverIntent.minified.js"></script>
-  <script src="../../js/manifest.js"></script>
+  <!-- <script src="../../js/manifest.js"></script> -->
   <script src="../../js/site.js"></script>
   <script src="../../js/vendor.js"></script>
 </body>

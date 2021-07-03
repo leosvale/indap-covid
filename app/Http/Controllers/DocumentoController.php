@@ -127,6 +127,71 @@ class DocumentoController extends Controller
 	        // Processar arquivos
 	        $index = 1;
 
+	        if($request->tipo_processo_id == 1){
+
+        		DB::table('documento_campos_especificos')->insert([
+		        	'documento_id'    => $documento->documento_id,
+		        	'orgao' => $request->orgao,
+			        'numero_licitacao' => $request->numero_licitacao,
+			        'numero_processo_adm' => $request->numero_processo_adm,
+			        'local_execucao' => $request->local_execucao,
+			        'numero_edital' => $request->numero_edital,
+			        'data_certame' => $request->data_certame,
+			        'local_certame' => $request->local_certame,
+			        'objeto' => $request->objeto,
+			        'inicio_vigencia' => $request->inicio_vigencia,
+			        'final_vigencia' => $request->final_vigencia,
+			        'publicacao' => $request->publicacao,
+			        'previsao_orcamentaria' => $request->previsao_orcamentaria,
+			        'relacionado_covid' => $request->relacionado_covid
+	        	]);
+
+        	}
+        	elseif($request->tipo_processo_id == 2){
+
+        		DB::table('documento_campos_especificos')->insert([
+		        	'documento_id'    => $documento->documento_id,
+		        	'cpf_cnpj' => $request->cpf_cnpj,
+			        'numero_contrato' => $request->numero_contrato,
+			        'numero_processo_adm' => $request->numero_processo_adm,
+			        'numero_processo_licitatorio' => $request->numero_processo_licitatorio,
+			        'valor' => $request->valor,
+			        'data_assinatura' => $request->data_assinatura,
+			        'inicio_vigencia' => $request->inicio_vigencia,
+			        'final_vigencia' => $request->final_vigencia,
+			        'objeto' => $request->objeto,
+			        'fundamento_legal' => $request->fundamento_legal,
+			        'possui_aditivo' => $request->possui_aditivo,
+			        'relacionado_covid' => $request->relacionado_covid
+	        	]);
+
+        	}
+        	elseif($request->tipo_processo_id == 7){
+
+        		DB::table('documento_campos_especificos')->insert([
+		        	'documento_id'    => $documento->documento_id,
+		        	'orgao' => $request->orgao,
+			        'numero_dispensa' => $request->numero_dispensa,
+			        'numero_processo_adm' => $request->numero_processo_adm,
+			        'local_execucao' => $request->local_execucao,
+			        'objeto' => $request->objeto,
+			        'inicio_vigencia' => $request->inicio_vigencia,
+			        'final_vigencia' => $request->final_vigencia,
+			        'publicacao' => $request->publicacao,
+			        'previsao_orcamentaria' => $request->previsao_orcamentaria,
+			        'possui_aditivo' => $request->possui_aditivo,
+			        'relacionado_covid' => $request->relacionado_covid
+	        	]);
+
+        	}
+        	else{
+
+        		DB::table('documento_campos_especificos')->insert([
+		        	'documento_id'    => $documento->documento_id,
+		        	'descricao'       => $request->descricao
+	        	]);
+        	}
+
 	        while($request->has('tipo_categoria_processo_id_'.$index)) {
 		        $arquivo = $request->file('doc_arquivo_'.$index);
 
@@ -156,71 +221,6 @@ class DocumentoController extends Controller
 		        ]);
 
 	        	$index++;
-
-	        	if($request->tipo_processo_id == 1){
-
-	        		DB::table('documento_campos_especificos')->insert([
-			        	'documento_id'    => $documento->documento_id,
-			        	'orgao' => $request->orgao,
-				        'numero_licitacao' => $request->numero_licitacao,
-				        'numero_processo_adm' => $request->numero_processo_adm,
-				        'local_execucao' => $request->local_execucao,
-				        'numero_edital' => $request->numero_edital,
-				        'data_certame' => $request->data_certame,
-				        'local_certame' => $request->local_certame,
-				        'objeto' => $request->objeto,
-				        'inicio_vigencia' => $request->inicio_vigencia,
-				        'final_vigencia' => $request->final_vigencia,
-				        'publicacao' => $request->publicacao,
-				        'previsao_orcamentaria' => $request->previsao_orcamentaria,
-				        'relacionado_covid' => $request->relacionado_covid
-		        	]);
-
-	        	}
-	        	elseif($request->tipo_processo_id == 2){
-
-	        		DB::table('documento_campos_especificos')->insert([
-			        	'documento_id'    => $documento->documento_id,
-			        	'cpf_cnpj' => $request->cpf_cnpj,
-				        'numero_contrato' => $request->numero_contrato,
-				        'numero_processo_adm' => $request->numero_processo_adm,
-				        'numero_processo_licitatorio' => $request->numero_processo_licitatorio,
-				        'valor' => $request->valor,
-				        'data_assinatura' => $request->data_assinatura,
-				        'inicio_vigencia' => $request->inicio_vigencia,
-				        'final_vigencia' => $request->final_vigencia,
-				        'objeto' => $request->objeto,
-				        'fundamento_legal' => $request->fundamento_legal,
-				        'possui_aditivo' => $request->possui_aditivo,
-				        'relacionado_covid' => $request->relacionado_covid
-		        	]);
-
-	        	}
-	        	elseif($request->tipo_processo_id == 7){
-
-	        		DB::table('documento_campos_especificos')->insert([
-			        	'documento_id'    => $documento->documento_id,
-			        	'orgao' => $request->orgao,
-				        'numero_dispensa' => $request->numero_dispensa,
-				        'numero_processo_adm' => $request->numero_processo_adm,
-				        'local_execucao' => $request->local_execucao,
-				        'objeto' => $request->objeto,
-				        'inicio_vigencia' => $request->inicio_vigencia,
-				        'final_vigencia' => $request->final_vigencia,
-				        'publicacao' => $request->publicacao,
-				        'previsao_orcamentaria' => $request->previsao_orcamentaria,
-				        'possui_aditivo' => $request->possui_aditivo,
-				        'relacionado_covid' => $request->relacionado_covid
-		        	]);
-
-	        	}
-	        	else{
-
-	        		DB::table('documento_campos_especificos')->insert([
-			        	'documento_id'    => $documento->documento_id,
-			        	'descricao'       => $request->descricao
-		        	]);
-	        	}
 	        }
 
             DB::commit();
