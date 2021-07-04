@@ -419,7 +419,7 @@
                     </a>
                   </div>
                   <div class="prevent_text">
-                    <a href="{{ url('/noticia/'.$boletim['publicacao_id']) }}">
+                    <a class="text_btn" href="{{ url('/noticia/'.$boletim['publicacao_id']) }}">
                       <h4>{{ $boletim['pub_titulo'] }}</h4>
                     </a>
                     <p>

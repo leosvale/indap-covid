@@ -1,8 +1,5 @@
 @extends('layouts.site')
 
-@section('titulo', $pagina['pub_titulo'])
-@section('descricao', get_excerpt($pagina['pub_conteudo'], 155))
-
 @section('content')
 
 <!--================Breadcrumb Area =================-->
@@ -23,15 +20,15 @@
         @endphp
 
         @if ($itens)
-        <div class="accordion md-accordion" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="accordion" id="accordion">
             @foreach ($itens as $index => $item)
             <div class="card">
                 {{-- TITULO --}}
 
-                <div class="card-header" role="tab" id="title-{{ $index }}">
+                <div class="card-header" id="title-{{ $index }}">
                     <h4 class="mb-0">
-                        <a class="text_btn" role="button" data-toggle="collapse" data-parent="#accordion" href="#{{ $index }}"
-                            aria-expanded="false" aria-controls="{{ $index }}">
+                        <a class="text_btn" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{ $index }}"
+                            aria-expanded="false" aria-controls="collapse{{ $index }}">
                             {{ $item->titulo }}
                             <i class="fas fa-angle-down rotate-icon"></i>
                         </a>
@@ -39,41 +36,38 @@
                 </div>
 
                 {{-- COLAPSE --}}
-                <div id="{{ $index }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="title-{{ $index }}">
+                <div id="collapse{{ $index }}" class="collapse" role="tabpanel" aria-labelledby="title-{{ $index }}" data-parent="accordion">
+
                     
+
                     {{-- CONTEUDO E ANEXOS --}}
-                    @if (strip_tags($item->conteudo) || !empty($item->anexos))    
-                    <div class="pad">
-                        <div class="bg-white pad">
-                            <div class="entry-content pagina ml-2 mt-1">
-                                {!! html_entity_decode($item->conteudo) !!}
-                            </div>
-                
-                            <div class="entry-content">
-                                @if(!empty($item->anexos))
-                                <table class="table table-striped table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th> Anexos</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($item->anexos as $anexo)
-                                        <tr>
-                                            <td>
-                                                <i class="fa fa-file-pdf-o"></i>
-                                                <a style="margin-left: 3.0em;"
-                                                    href="/pagina/exibir/anexo/ {{ $anexo->pub_anexo_id }}">{{ $anexo->pub_anexo_nome }}</a>
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
+                    @if (strip_tags($item->conteudo) || !empty($item->anexos))
+                        <div class="card-body">
+
+                            @if(!empty($item->anexos))
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th> Anexos</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($item->anexos as $anexo)
+                                    <tr>
+                                        <td>
+                                            <i class="fa fa-file-pdf-o"></i>
+                                            <a
+                                                href="/pagina/exibir/anexo/ {{ $anexo->pub_anexo_id }}">{{ $anexo->pub_anexo_nome }}</a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            @endif   
+                        </div> 
                     @endif
+                    
+                        
                     
                     {{-- SUBITEM --}}
                     @if (isset($item->subitens) && !empty($item->subitens))    
@@ -82,9 +76,9 @@
                         
                         <!-- TITULO -->
                         <div class="panel-heading" role="tab" id="title-{{$index}}-{{$subindex}}">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" href="#tipo-{{$index}}-{{$subindex}}" aria-expanded="false" aria-controls="tipo-{{$index}}-{{$subindex}}">
-                                    {{$subitem->titulo}}
+                            <h4 style="margin-left: 1.0em;" class="mb-0">
+                                <a class="text_btn" role="button" data-toggle="collapse" href="#tipo-{{$index}}-{{$subindex}}" aria-expanded="false" aria-controls="tipo-{{$index}}-{{$subindex}}">
+                                    {{ $subitem->titulo }}<i class="fas fa-angle-down rotate-icon"></i>
                                 </a>
                             </h4>
                         </div>
@@ -102,7 +96,7 @@
                         
                                     <div class="entry-content">
                                         @if(!empty($subitem->anexos))
-                                        <table class="table table-striped table-bordered table-hover">
+                                        <table style="margin-left: 2.0em;" class="table table-striped table-bordered table-hover">
                                             <thead>
                                                 <tr>
                                                     <th> Anexos</th>
