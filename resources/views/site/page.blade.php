@@ -44,11 +44,15 @@
                     @if (strip_tags($item->conteudo) || !empty($item->anexos))
                         <div class="card-body">
 
+                            <div class="entry-content pagina ml-2 mt-1">
+                                {!! html_entity_decode($item->conteudo) !!}
+                            </div>
+
                             @if(!empty($item->anexos))
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th> Anexos</th>
+                                        <th>Anexos</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -240,11 +244,11 @@
             @endforeach
         </div>
         @else
-        <div class="entry-content pagina">
+        <h4 class="entry-content pagina">
             {!! html_entity_decode($pagina['pub_conteudo']) !!}
-        </div>
+        </h4>
 
-        <div class="entry-content">
+        <div class="card">
             @if(!empty($anexos))
             <table class="table table-striped table-bordered table-hover">
                 <thead>

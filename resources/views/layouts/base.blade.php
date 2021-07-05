@@ -162,7 +162,7 @@
                         </button>
                       </div>
 
-                      <div id="collapse{{$count}}" class="collapse show" aria-labelledby="headingZero"
+                      <div id="collapse{{$count}}" class="collapse" aria-labelledby="headingZero"
                         data-parent="#accordionExampleZero">
                         <div class="card-body">
                           <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -175,7 +175,7 @@
                                           href="{{ url('/pagina/'.$pagina['publicacao_id']) }}"
                                       @endif
                                   >
-                                      {{ $pagina['pub_titulo'] }}
+                                      {{ $pagina['pub_titulo'] }}<hr class="text_btn">
                                   </a>
                               </li>
                             @endforeach
