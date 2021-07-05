@@ -2,77 +2,19 @@
 
 @section('content')
 
-    <!--================Worldwide Tracker Area =================-->
-    <section class="world_wide_tracker pad_top">
+  <!--================Breadcrumb Area =================-->
+  <section class="breadcrumb_area">
       <div class="container">
-        <img class="tracker_map" src="themes/epidemic-placeholder/assets/images/tracker-map-bg.png" alt="" />
-        <div class="tracker_text">
-          <h5>Covid-19</h5>
-          <h2>Vacinômetro</h2>
-          <!-- <p>Última atualização: April 08, 2020, 01:43 GMT</p> -->
-        </div>
-        <div class="row tracker_inner">
-          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="300">
-            <div class="media">
-              <div class="d-flex">
-                <img height="80" width="80" src="themes/epidemic-placeholder/assets/images/icon/syringe_full.png" alt="" />
-              </div>
-              <div class="media-body">
-                <h2>{{ $vacinometro['doses_recebidas']->valor }}</h2>
-                <p>Doses Recebidas</p>
-              </div>
-            </div>
+          <div class="breadcrumb_text">
           </div>
-          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="400">
-            <div class="media">
-              <div class="d-flex">
-                <img height="80" width="80" src="themes/epidemic-placeholder/assets/images/icon/syringe_empty.png" alt="" />
-              </div>
-              <div class="media-body">
-                <h2>{{ $vacinometro['doses_aplicadas']->valor }}</h2>
-                <p>Doses Aplicadas</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="500">
-            <div class="media">
-              <div class="d-flex">
-                <img height="80" width="80" src="themes/epidemic-placeholder/assets/images/icon/syringe_full.png" alt="" />
-              </div>
-              <div class="media-body">
-                <h2>{{ $vacinometro['primeira_dose']->valor }}</h2>
-                <p>1˚ Dose</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="600">
-            <div class="media">
-              <div class="d-flex">
-                <img height="80" width="80" src="themes/epidemic-placeholder/assets/images/icon/syringe_empty.png" alt=""/>
-              </div>
-              <div class="media-body">
-                <h2>{{ $vacinometro['segunda_dose']->valor }}</h2>
-                <p>2˚ Dose</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="tracker_btn">
-          <!-- <a class="green_btn wow fadeInUp" data-wow-delay="500" href="#"><i class="linearicons-earth-lock"></i> See
-            Live
-            Track</a> -->
-        </div>
       </div>
-    </section>
-    <!--================End Worldwide Tracker Area =================-->
+  </section>
+  <!--================End Breadcrumb Area =================-->
 
-    <!--================Home Latest Blog Area =================-->
+<!--================Home Latest Blog Area =================-->
     <section class="home_latest_blog_area">
 
       @if (!empty($destaques))
-
-
-
             
         @php
             $destaque = $destaques[0];
@@ -147,6 +89,70 @@
       @endif
     </section>
     <!--================End Home Latest Blog Area =================-->
+
+    <!--================Worldwide Tracker Area =================-->
+    <section class="world_wide_tracker pad_top">
+      <div class="container">
+        <img class="tracker_map" src="themes/epidemic-placeholder/assets/images/tracker-map-bg.png" alt="" />
+        <div class="tracker_text">
+          <h5>Covid-19</h5>
+          <h2>Vacinômetro</h2>
+          <!-- <p>Última atualização: April 08, 2020, 01:43 GMT</p> -->
+        </div>
+        <div class="row tracker_inner">
+          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="300">
+            <div class="media">
+              <div class="d-flex">
+                <img height="80" width="80" src="themes/epidemic-placeholder/assets/images/icon/syringe_full.png" alt="" />
+              </div>
+              <div class="media-body">
+                <h2>{{ $vacinometro['doses_recebidas']->valor }}</h2>
+                <p>Doses Recebidas</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="400">
+            <div class="media">
+              <div class="d-flex">
+                <img height="80" width="80" src="themes/epidemic-placeholder/assets/images/icon/syringe_empty.png" alt="" />
+              </div>
+              <div class="media-body">
+                <h2>{{ $vacinometro['doses_aplicadas']->valor }}</h2>
+                <p>Doses Aplicadas</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="500">
+            <div class="media">
+              <div class="d-flex">
+                <img height="80" width="80" src="themes/epidemic-placeholder/assets/images/icon/syringe_full.png" alt="" />
+              </div>
+              <div class="media-body">
+                <h2>{{ $vacinometro['primeira_dose']->valor }}</h2>
+                <p>1˚ Dose</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="600">
+            <div class="media">
+              <div class="d-flex">
+                <img height="80" width="80" src="themes/epidemic-placeholder/assets/images/icon/syringe_empty.png" alt=""/>
+              </div>
+              <div class="media-body">
+                <h2>{{ $vacinometro['segunda_dose']->valor }}</h2>
+                <p>2˚ Dose</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tracker_btn">
+          <!-- <a class="green_btn wow fadeInUp" data-wow-delay="500" href="#"><i class="linearicons-earth-lock"></i> See
+            Live
+            Track</a> -->
+        </div>
+      </div>
+    </section>
+    <!--================End Worldwide Tracker Area =================-->
 
     <!--================Protect Yourself Area =================-->
     <section class="answers_area p_100">
