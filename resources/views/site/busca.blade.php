@@ -22,9 +22,9 @@
                         <div class="post-meta">
                             <span class="published">{{ date('d/m/Y', strtotime($item->data)) }}</span>
                             @if($item->tipo == 'DOC')
-                                <span class="categories">{{ $item->processo }}</span>
+                                <span class="categories"> - {{ $item->processo }}</span>
                             @elseif($item->tipo != 'DOC' && !empty($item->categorias))
-                                <span class="categories">{{ join(', ', $item->categorias) }}</span>
+                                <span class="categories"> - {{ join(', ', $item->categorias) }}</span>
                             @endif
                         </div>
                         <h4 class="media-heading">
@@ -47,25 +47,32 @@
                                 @foreach($item->anexos as $anexo)
                                     <li>
                                         {{ date('d/m/Y', strtotime($anexo->dan_data_documento)) }} - {{ $anexo->tcp_nome }} -
-                                        <i class="fa fa-file-text-o fa-fw"></i> <a href="{{ url('processo/anexo/'.$anexo->anexo_id) }}" target="_blank">{{ $anexo->ane_nome }}</a>
+                                        <i class="fa fa-file-text-o fa-fw"></i> 
+                                        <a href="{{ url('processo/anexo/'.$anexo->anexo_id) }}" target="_blank">{{ $anexo->ane_nome }}</a>
                                     </li>
                                 @endforeach
                             </ul>
                         @endif
                     </div>
                 </div>
+                <hr>
             @endforeach
 
-            @if($prev_link || $next_link)
-                <ul class="default-wp-page clearfix">
+            <div class="row blog_pagination">
+                <div class="col-md-2">
                     @if($prev_link)
-                        <li class="previous"><a href="{{ $prev_link }}">← Mais Antigos</a></li>
+                        <a class="pagi_btn prev" href="{{ $prev_link }}">← Anterior</a>
                     @endif
+                </div>
+                <div class="col-md-8">
+                        
+                </div>
+                <div class="col-md-2 text-right">
                     @if($next_link)
-                        <li class="next"><a href="{{ $next_link }}">Mais Recentes →</a></li>
+                        <a class="pagi_btn next" href="{{ $next_link }}">Próxima →</a>
                     @endif
-                </ul>
-            @endif
+                </div>
+            </div>
         </div>
     </section>
 @endsection

@@ -89,29 +89,6 @@
                     @endif
                 </div>
             </div>
-            <!-- <div class="row blog_pagination">
-                @if($prev_link || $next_link)
-                    <ul class="default-wp-page clearfix">
-                        @if($prev_link)
-                            <li class="previous"><a class="pagi_btn prev" href="{{ $prev_link }}">← Anterior</a></li>
-                        @endif
-                        @if($next_link)
-                            <li class="next"><a class="pagi_btn next" href="{{ $next_link }}">Próximo →</a></li>
-                        @endif
-                    </ul>
-                @endif
-            </div> -->
         </div>
     </section>
-    <!--================End Blog Area =================-->
-    <!-- @if($prev_link || $next_link)
-        <ul class="default-wp-page clearfix">
-            @if($prev_link)
-                <li class="previous"><a href="{{ $prev_link }}">← Anterior</a></li>
-            @endif
-            @if($next_link)
-                <li class="next"><a href="{{ $next_link }}">Próximo →</a></li>
-            @endif
-        </ul>
-    @endif -->
 @endsection

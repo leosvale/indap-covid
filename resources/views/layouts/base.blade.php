@@ -224,7 +224,7 @@
       <div class="main_menu">
         <div class="container">
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="/">
                 <img width="265" height="90" style="width: auto; max-height: 90px" class="custom-logo" alt="{{ $configuracao['nome'] }}" src="{{ asset($configuracao['logo']) }}" />
               </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

@@ -151,7 +151,7 @@ class SiteController extends Controller
 			->join('documento_campos_especificos AS esp', 'esp.documento_id', '=', 'documento.documento_id')
 			->join('anexo AS ane', 'ane.anexo_id', '=', 'dan.anexo_id')
 			->where('tipo_processo_id', '=', 2)
-			->limit(8)
+			->limit(3)
 			->orderBy('dan.dan_data_documento');
 
 		$contratos = $contratos->get();
@@ -164,7 +164,7 @@ class SiteController extends Controller
 			->join('documento_campos_especificos AS esp', 'esp.documento_id', '=', 'documento.documento_id')
 			->join('anexo AS ane', 'ane.anexo_id', '=', 'dan.anexo_id')
 			->where('tipo_processo_id', '=', 1)
-			->limit(8)
+			->limit(3)
 			->orderBy('dan.dan_data_documento');
 
 		$licitacoes = $licitacoes->get();
@@ -176,7 +176,7 @@ class SiteController extends Controller
 			->join('documento_campos_especificos AS esp', 'esp.documento_id', '=', 'documento.documento_id')
 			->join('anexo AS ane', 'ane.anexo_id', '=', 'dan.anexo_id')
 			->where('tipo_processo_id', '=', 7)
-			->limit(8)
+			->limit(3)
 			->orderBy('dan.dan_data_documento');
 
 		$contratacoesDiretas = $contratacoesDiretas->get();
