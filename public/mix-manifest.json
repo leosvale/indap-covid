@@ -1,12 +1,12 @@
 {
-    "/js/vendor.js": "/js/vendor.js",
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-    "/css/site.css": "/css/site.css",
-    "/css/acessibilidade.css": "/css/acessibilidade.css",
-    "/js/manifest.js": "/js/manifest.js",
-    "/css/vendor.css": "/css/vendor.css",
-    "/js/site.js": "/js/site.js",
-    "/js/acessibilidade.js": "/js/acessibilidade.js",
-    "/js/contraste.js": "/js/contraste.js"
+    "/js/vendor.js": "/js/vendor.js?id=d1b331783d1e986365bc",
+    "/js/app.js": "/js/app.js?id=2b584c4d8a561e80fdd9",
+    "/css/app.css": "/css/app.css?id=e6882bd549250d4c3787",
+    "/css/site.css": "/css/site.css?id=06c0f35cf077bbddc47a",
+    "/css/acessibilidade.css": "/css/acessibilidade.css?id=11bcae7ed4630f8592f2",
+    "/js/manifest.js": "/js/manifest.js?id=2d315777967b6001bcf1",
+    "/css/vendor.css": "/css/vendor.css?id=9d39a371d541331ecf21",
+    "/js/site.js": "/js/site.js?id=07f0e307282cb8613d4e",
+    "/js/acessibilidade.js": "/js/acessibilidade.js?id=65c962e7f8d8508f19c4",
+    "/js/contraste.js": "/js/contraste.js?id=81df517b22edc2ff9c93"
 }
