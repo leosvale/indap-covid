@@ -46,48 +46,6 @@
           <li><a href="{{ url('/boletins') }}">Boletins</a></li>
           <li><a href="{{ url('/licitacoes') }}">Licitações e Contratos</a></li>
           <li><a href="{{ url('/ouvidoria') }}">Ouvidoria</a></li>
-          <!-- <li>
-            <a href="index.html">Prevention
-              <i class="linearicons-chevron-down"></i>
-            </a>
-            <ul class="list">
-              <li><a href="../themes/epidemic-placeholder/symptom.html">Typical Symptoms</a></li>
-              <li><a href="../themes/epidemic-placeholder/symptom-checker.html">Symptom Checker</a></li>
-              <li><a href="../themes/epidemic-placeholder/prevention.html">Prevention</a></li>
-              <li><a href="../themes/epidemic-placeholder/virus-checker.html">Coronavirus Checker</a></li>
-              <li><a href="../themes/epidemic-placeholder/tracker.html">Tracker</a></li>
-              <li><a href="../themes/epidemic-placeholder/maintenance.html">Maintenance</a></li>
-              <li><a href="../themes/epidemic-placeholder/faq.html">Faqs</a></li>
-            </ul>
-          </li> -->
-          <!-- <li><a href="../themes/epidemic-placeholder/appointment.html">Appointment</a></li>
-          <li>
-            <a href="../themes/epidemic-placeholder/#">Pages
-              <i class="linearicons-chevron-down"></i>
-            </a>
-            <ul class="list">
-              <li><a href="../themes/epidemic-placeholder/about.html">About</a></li>
-              <li><a href="../themes/epidemic-placeholder/doctors.html">Doctors</a></li>
-              <li><a href="../themes/epidemic-placeholder/sample-right-sidebar.html">Simple Sidebar</a></li>
-              <li><a href="../themes/epidemic-placeholder/typography.html">Typhography</a></li>
-              <li><a href="../themes/epidemic-placeholder/search.html">Search</a></li>
-              <li><a href="../themes/epidemic-placeholder/search-nothing.html">Not Found</a></li>
-              <li><a href="../themes/epidemic-placeholder/comingsoon.html">Coming Soon</a></li>
-              <li><a href="../themes/epidemic-placeholder/404.html">Error</a></li>
-            </ul>
-          </li>
-
-          <li>
-            <a href="../themes/epidemic-placeholder/index.html">Blog
-              <i class="linearicons-chevron-down"></i>
-            </a>
-            <ul class="list">
-              <li><a href="../themes/epidemic-placeholder/blog.html">Blog</a></li>
-              <li><a href="../themes/epidemic-placeholder/single-blog.html">Blog Details</a></li>
-
-            </ul>
-          </li>
-          <li><a href="contact.html">Contact</a></li> -->
         </ul>
       </div>
       <div class="menu_btm">
@@ -238,66 +196,45 @@
                 <li><a href="{{ url('/boletins') }}">Boletins</a></li>
                 <li><a href="{{ url('/licitacoes') }}">Licitações e Contratos</a></li>
                 <li><a href="{{ url('/ouvidoria') }}">Ouvidoria</a></li>
+
                 <!-- <li class="dropdown submenu">
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="prevention.html" role="button"
-                    aria-haspopup="true" aria-expanded="false">Prevention </a>
-                  <i class="linearicons-chevron-down mobile_dropdown" aria-hidden="true" data-toggle="dropdown"></i>
-                  <ul class="dropdown-menu">
-                    <li class="dropdown submenu">
-                      <a class="dropdown-toggle" data-toggle="dropdown" href="symptom.html" role="button"
-                        aria-haspopup="true" aria-expanded="false">Symptoms
-                        <i class="linearicons-chevron-right mobile_dropdown" aria-hidden="true"
-                          data-toggle="dropdown"></i>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                      aria-expanded="false">Mais</a>
+                    <i class="linearicons-chevron-down mobile_dropdown" aria-hidden="true" data-toggle="dropdown"></i>
+                    <ul class="dropdown-menu">
+                      <li><a href="about.html">About</a></li>
+                      <li><a href="doctors.html">Doctors</a></li>
+                      <li><a href="sample-right-sidebar.html">Simple Sidebar</a></li>
+                      <li><a href="typography.html">Typhography</a></li>
+                      <li class="dropdown submenu">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="search.html" role="button"
+                          aria-haspopup="true" aria-expanded="false">Search
+                          <i class="linearicons-chevron-right mobile_dropdown" aria-hidden="true"
+                            data-toggle="dropdown"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a href="search.html">Search</a></li>
+                          <li><a href="search-nothing.html">Not Found</a></li>
+                        </ul>
+                      </li>
+                      <li><a href="comingsoon.html">Coming Soon</a></li>
+                      <li><a href="404.html">Error</a></li>
+                    </ul>
+                  </li> -->
+
+                  <li>
+                    @if (isset($configuracao['banner_home_img']) && 
+                    isset($configuracao['banner_home_url']) && 
+                    $configuracao['banner_home_img'] &&
+                    $configuracao['banner_home_url'])  
+                      <a href="{{ $configuracao['banner_home_url'] }}">
+                        <img src="{{ $configuracao['banner_home_img'] }}" width="340" height="50" alt="">
                       </a>
-                      <ul class="dropdown-menu">
-                        <li><a href="../themes/epidemic-placeholder/symptom.html">Typical Symptoms</a></li>
-                        <li><a href="../themes/epidemic-placeholder/symptom-checker.html">Symptom Checker</a></li>
-                        <li><a href="../themes/epidemic-placeholder/prevention.html">Prevention</a></li>
-                        <li><a href="../themes/epidemic-placeholder/virus-checker.html">Coronavirus Checker</a></li>
-                        <li><a href="../themes/epidemic-placeholder/tracker.html">Tracker</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="../themes/epidemic-placeholder/maintenance.html">Maintenance</a></li>
-                    <li><a href="../themes/epidemic-placeholder/faq.html">FAQS</a></li>
-                  </ul>
-                </li>
-                <li><a href="../themes/epidemic-placeholder/appointment.html">Appointment</a></li>
-                <li class="dropdown submenu">
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="../themes/epidemic-placeholder/#" role="button" aria-haspopup="true"
-                    aria-expanded="false">Pages</a>
-                  <i class="linearicons-chevron-down mobile_dropdown" aria-hidden="true" data-toggle="dropdown"></i>
-                  <ul class="dropdown-menu">
-                    <li><a href="../themes/epidemic-placeholder/about.html">About</a></li>
-                    <li><a href="../themes/epidemic-placeholder/doctors.html">Doctors</a></li>
-                    <li><a href="../themes/epidemic-placeholder/sample-right-sidebar.html">Simple Sidebar</a></li>
-                    <li><a href="../themes/epidemic-placeholder/typography.html">Typhography</a></li>
-                    <li class="dropdown submenu">
-                      <a class="dropdown-toggle" data-toggle="dropdown" href="../themes/epidemic-placeholder/search.html" role="button"
-                        aria-haspopup="true" aria-expanded="false">Search
-                        <i class="linearicons-chevron-right mobile_dropdown" aria-hidden="true"
-                          data-toggle="dropdown"></i>
-                      </a>
-                      <ul class="dropdown-menu">
-                        <li><a href="../themes/epidemic-placeholder/search.html">Search</a></li>
-                        <li><a href="../themes/epidemic-placeholder/search-nothing.html">Not Found</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="../themes/epidemic-placeholder/comingsoon.html">Coming Soon</a></li>
-                    <li><a href="../themes/epidemic-placeholder/404.html">Error</a></li>
-                  </ul>
-                </li>
-                <li class="dropdown submenu">
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="../themes/epidemic-placeholder/blog.html" role="button" aria-haspopup="true"
-                    aria-expanded="false">Blog
-                  </a>
-                  <i class="linearicons-chevron-down mobile_dropdown" aria-hidden="true" data-toggle="dropdown"></i>
-                  <ul class="dropdown-menu">
-                    <li><a href="../themes/epidemic-placeholder/blog.html">Blog</a></li>
-                    <li><a href="../themes/epidemic-placeholder/single-blog.html">Blog Details</a></li>
-                  </ul>
-                </li>
-                <li><a href="../themes/epidemic-placeholder/contact.html">Contact Us</a></li> -->
+                    @endif
+                  </li>
+
               </ul>
+
               <!-- <ul class="nav navbar-nav navbar-right">
                 <li class="checker_btn">
                   <a href="../themes/epidemic-placeholder/#"><i class="linearicons-pulse"></i> Symptom Checker</a>
@@ -306,6 +243,7 @@
             </div>
           </nav>
         </div>
+
         <div class="right_burger">
           <ul class="nav">
             <li>

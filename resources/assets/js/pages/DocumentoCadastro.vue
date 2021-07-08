@@ -157,7 +157,7 @@
                             <div class="col-sm-4">
                                 <form-control>
                                     <label for="previsao_orcamentaria">Previsão Orçamentária</label>
-                                    <input type="text" v-mask="mask" placeholder="$100.00" id="previsao_orcamentaria" class="form-control" v-model="camposEspecificos.previsao_orcamentaria">
+                                    <input type="text" v-mask="mask" placeholder="R$100.00" id="previsao_orcamentaria" class="form-control" v-model="camposEspecificos.previsao_orcamentaria">
                                 </form-control>
                             </div>
                         </div>
@@ -216,7 +216,7 @@
                             <div class="col-sm-4">
                                 <form-control>
                                     <label for="valor">Valor</label>
-                                    <input type="text" v-mask="mask" placeholder="$100.00" id="valor" class="form-control" v-model="camposEspecificos.valor">
+                                    <input type="text" v-mask="mask" placeholder="R$100.00" id="valor" class="form-control" v-model="camposEspecificos.valor">
                                 </form-control>
                             </div>
                             <div class="col-sm-4">
@@ -347,7 +347,7 @@
                             <div class="col-sm-4">
                                 <form-control>
                                     <label for="previsao_orcamentaria">Previsão Orçamentária</label>
-                                    <input type="text" v-mask="mask" id="previsao_orcamentaria" placeholder="$100.00" class="form-control" v-model="camposEspecificos.previsao_orcamentaria">
+                                    <input type="text" v-mask="mask" id="previsao_orcamentaria" placeholder="R$100.00" class="form-control" v-model="camposEspecificos.previsao_orcamentaria">
                                 </form-control>
                             </div>
                         </div>
@@ -406,7 +406,7 @@
 
     import createNumberMask from 'text-mask-addons/dist/createNumberMask';
     const currencyMask = createNumberMask({
-        prefix: '$',
+        prefix: 'R$',
         allowDecimal: true,
         includeThousandsSeparator: true,
         allowNegative: false,

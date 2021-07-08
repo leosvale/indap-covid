@@ -2,17 +2,8 @@
 
 @section('content')
 
-  <!--================Breadcrumb Area =================-->
-  <section class="breadcrumb_area">
-      <div class="container">
-          <div class="breadcrumb_text">
-          </div>
-      </div>
-  </section>
-  <!--================End Breadcrumb Area =================-->
-
-<!--================Home Latest Blog Area =================-->
-    <section class="home_latest_blog_area">
+    <!--================Home Latest Blog Area =================-->
+    <section class="related_posts_area">
 
       @if (!empty($destaques))
             
@@ -24,12 +15,12 @@
         @endphp
       <div class="container">
         <div class="main_title text-center">
-          <h2>Notícias</h2>
+          <!-- <h2>Notícias</h2>
           <p>
             Descubra as atualizações que você precisa saber sobre prevenção, isolamento e
              tratamento do coronavírus.
           </p>
-          <a class="text_btn" href="/noticias" style="float: right; font-size: 14px; padding: 12px 0px"><strong>mais notícias</strong></a>
+          <a class="text_btn" href="/noticias" style="float: right; font-size: 14px; padding: 12px 0px"><strong>mais notícias</strong></a> -->
         </div>
         
         <div class="row l_blog_inner">
@@ -54,7 +45,7 @@
                     <h3>{{ $destaque['pub_titulo'] }}</h3>
                   </a>
                   <a class="text_btn" href="{{ url('/noticia/'.$destaque['publicacao_id']) }}"
-                            title="{{ $destaque['pub_titulo'] }}">Leia mais <i class="linearicons-arrow-right"></i></a>
+                            title="{{ $destaque['pub_titulo'] }}">Leia mais <!-- <i class="linearicons-arrow-right"></i> --></a>
                 </div>
               </div>
             </div>
@@ -78,12 +69,16 @@
                   <div class="date">
                     <a href="{{ url('/noticia/'.$destaque['publicacao_id']) }}"><i class="linearicons-calendar-full"></i>{{ date('d/m/Y', strtotime($destaque['pub_data_visivel'] ? $destaque['pub_data_visivel'] : $destaque['pub_data_cadastro'])) }}</a>
                   </div>
-                  <a class="text_btn" href="{{ url('/noticia/'.$destaque['publicacao_id']) }}">{{ $destaque['pub_titulo'] }} <i class="linearicons-arrow-right"></i></a>
+                  <a class="text_btn" href="{{ url('/noticia/'.$destaque['publicacao_id']) }}">{{ $destaque['pub_titulo'] }} <!-- <i class="linearicons-arrow-right"></i> --></a>
                 </div>
               </div>
               @endif
             @endforeach
           </div>
+        </div>
+        <hr>
+        <div class="menu_btm  d-block mr-0 ml-auto">
+          <a class="green_btn" href="/noticias">mais notícias</a>
         </div>
       </div>
       @endif
@@ -200,7 +195,7 @@
                       </div>
                     @endif
                     <a class="text_btn" id="homeDoc{{$count}}-tab" data-toggle="modal" href="#" data-target="#modal{{ $contrato[0]['documento_id'] }}">Veja detalhes
-                      <i class="linearicons-arrow-right"></i>
+                      <!-- <i class="linearicons-arrow-right"></i> -->
                     </a>
 
                     <hr>
@@ -432,7 +427,7 @@
                       </div>
                     @endif
                     <a class="text_btn" id="homeDoc{{$count}}-tab" data-toggle="modal" href="#" data-target="#modal{{ $contrato[0]['documento_id'] }}">Veja detalhes
-                      <i class="linearicons-arrow-right"></i>
+                      <!-- <i class="linearicons-arrow-right"></i> -->
                     </a>
 
                     <hr>
@@ -664,8 +659,10 @@
                       </div>
                     @endif
                     <a class="text_btn" id="homeDoc{{$count}}-tab" data-toggle="modal" href="#" data-target="#modal{{ $contrato[0]['documento_id'] }}">Veja detalhes
-                      <i class="linearicons-arrow-right"></i>
+                      <!-- <i class="linearicons-arrow-right"></i> -->
                     </a>
+
+                    <hr>
 
                     <!-- Modal -->
                     <form method="get" action="{{ url('licitacoes/baixar/'.$contrato[0]['documento_id'] ) }}" target="_blank">
@@ -917,15 +914,15 @@
     <section class="washing_process_area pad_btm">
       <div class="container">
         <div class="text-center maintence_img img-fluid wow fadeInRight">
-              @if (isset($configuracao['banner_home_img']) && 
-                isset($configuracao['banner_home_url']) && 
-                $configuracao['banner_home_img'] &&
-                $configuracao['banner_home_url'])  
-                <a href="{{ $configuracao['banner_home_url'] }}">
-                  <img src="{{ $configuracao['banner_home_img'] }}" width="728" height="90" alt="">
-                </a>
-              @endif
-          </div>
+            @if (isset($configuracao['banner_home_img']) && 
+              isset($configuracao['banner_home_url']) && 
+              $configuracao['banner_home_img'] &&
+              $configuracao['banner_home_url'])  
+              <a href="{{ $configuracao['banner_home_url'] }}">
+                <img src="{{ $configuracao['banner_home_img'] }}" width="728" height="90" alt="">
+              </a>
+            @endif
+        </div>
       </div>
     </section>
     <!--================End Washing Process Area =================-->

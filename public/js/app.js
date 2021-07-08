@@ -2390,7 +2390,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "panel-heading" }, [
       _c("h3", { staticClass: "panel-title" }, [
-        _vm._v("Acesso ao Painel Administrativo")
+        _vm._v("Acesso ao Painel Portal Covid")
       ])
     ])
   }
@@ -3286,7 +3286,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var currencyMask = __WEBPACK_IMPORTED_MODULE_1_text_mask_addons_dist_createNumberMask___default()({
-    prefix: '$',
+    prefix: 'R$',
     allowDecimal: true,
     includeThousandsSeparator: true,
     allowNegative: false
@@ -4401,7 +4401,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "$100.00",
+                              placeholder: "R$100.00",
                               id: "previsao_orcamentaria"
                             },
                             domProps: {
@@ -4807,7 +4807,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "$100.00",
+                              placeholder: "R$100.00",
                               id: "valor"
                             },
                             domProps: { value: _vm.camposEspecificos.valor },
@@ -5626,7 +5626,7 @@ var render = function() {
                             attrs: {
                               type: "text",
                               id: "previsao_orcamentaria",
-                              placeholder: "$100.00"
+                              placeholder: "R$100.00"
                             },
                             domProps: {
                               value: _vm.camposEspecificos.previsao_orcamentaria

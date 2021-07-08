@@ -5,7 +5,7 @@
 
                 <div class="panel panel-form">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Acesso ao Painel Administrativo</h3>
+                        <h3 class="panel-title">Acesso ao Painel Portal Covid</h3>
                     </div>
                     <div class="panel-body">
                         <div class="alert alert-danger" role="alert" v-show="errorMsg">{{ errorMsg }}</div>
