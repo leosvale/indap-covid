@@ -3,7 +3,7 @@
 @section('content')
 
     <!--================Home Latest Blog Area =================-->
-    <section class="related_posts_area">
+    <section class="related_posts_area" style="padding-bottom: 25px;">
 
       @if (!empty($destaques))
             
@@ -86,7 +86,7 @@
     <!--================End Home Latest Blog Area =================-->
 
     <!--================Worldwide Tracker Area =================-->
-    <section class="world_wide_tracker pad_top">
+    <section class="world_wide_tracker pad_top" style="padding-top: 25px; padding-bottom: 25px;">
       <div class="container">
         <img class="tracker_map" src="themes/epidemic-placeholder/assets/images/tracker-map-bg.png" alt="" />
         <div class="tracker_text">
@@ -150,7 +150,7 @@
     <!--================End Worldwide Tracker Area =================-->
 
     <!--================Protect Yourself Area =================-->
-    <section class="answers_area p_100">
+    <section class="answers_area p_100" style="padding-bottom: 25px;">
       <div class="container">
         <div class="main_title text-center">
           <!-- <h5>Licitações e Contratos</h5> -->

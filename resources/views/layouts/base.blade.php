@@ -294,19 +294,120 @@
 
     <!--================Footer Area =================-->
     <footer class="footer_area">
+      <div class="footer_widgets_area pad_top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="f_title">
+                  <img style="width: auto; max-height: 90px" alt="{{ $configuracao['nome'] }}" src="{{ asset($configuracao['logo']) }}">
+                </div>
+                <div class="ct_wd_text">
+                  <div class="media-body">
+                    <p><span>&copy {{ date('Y') }} {{ $configuracao['nome'] }}</span></p>
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="f_title">
+                <h3>Fale Conosco</h3>
+              </div>
+              <aside class="f_widget contact_widget">
+                <div class="ct_wd_text">  
+                  <div class="media">
+                    @isset($configuracao['telefone_primario'])
+                      <div class="d-flex">
+                        <i class="linearicons-telephone"></i>
+                      </div>
+                      <div class="media-body">
+                        <h5>Telefone 1</h5>
+                        <a href="tel:+8801676790690">
+                          <h4>{{ $configuracao['telefone_primario'] }}</h4>
+                        </a>
+                      </div>
+                    @endisset
+                  </div>
+                  <div class="media">
+                    @isset($configuracao['telefone_secundario'])
+                      <div class="d-flex">
+                        <i class="linearicons-telephone"></i>
+                      </div>
+                      <div class="media-body">
+                        <h5>Telefone 2</h5>
+                        <a href="tel:+8801676790690">
+                          <h4>{{ $configuracao['telefone_secundario'] }}</h4>
+                        </a>
+                      </div>
+                    @endisset
+                  </div>
+                  <div class="media">
+                    @isset($configuracao['telefone_secundario'])
+                      <div class="d-flex">
+                        <i class="linearicons-telephone"></i>
+                      </div>
+                      <div class="media-body">
+                        <h5>Endereço</h5>
+                        <a href="tel:+8801676790690">
+                          <p>{!! nl2br($configuracao['endereco']) !!}</p>
+                        </a>
+                      </div>
+                    @endisset
+                  </div>
+                </div>
+              </aside>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="f_title">
+                  <h3>Siga-nos nas Redes Sociais</h3>
+                </div>
+                <aside class="f_widget about_widget">
+                  <ul class="nav">
+                    
+                    @if(!empty($configuracao['facebook']))
+                        <li>
+                          <a href="{{ $configuracao['facebook'] }}" target="_blank"><i class="fab fa-facebook"></i></a>
+                        </li>
+                    @endif
+                    @if(!empty($configuracao['twitter']))
+                        <li>
+                          <a href="{{ $configuracao['twitter'] }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                        </li>
+                    @endif
+                    @if(!empty($configuracao['instagram']))
+                        <li>
+                          <a href="{{ $configuracao['instagram'] }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </li>
+                    @endif
+                    @if(!empty($configuracao['youtube']))
+                        <li>
+                          <a href="{{ $configuracao['youtube'] }}" target="_blank"><i class="fab fa-youtube"></i></a>
+                        </li>
+                    @endif
+                    @if(!empty($configuracao['google']))
+                        <li>
+                          <a href="{{ $configuracao['google'] }}" target="_blank"><i class="fab fa-google-plus"></i></a>
+                        </li>
+                    @endif
+                    @if(!empty($configuracao['pinterest']))
+                        <li>
+                          <a href="{{ $configuracao['pinterest'] }}" target="_blank"><i class="fab fa-pinterest"></i></a>
+                        </li>
+                    @endif
+
+
+                  </ul>
+                </aside>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="footer_copyright">
         <div class="container">
-          <img style="width: auto; max-height: 90px" alt="{{ $configuracao['nome'] }}" src="{{ asset($configuracao['logo']) }}">
-          <p>{!! nl2br($configuracao['endereco']) !!}</p><br>
-          @isset($configuracao['telefone_primario'])
-              <p>Telefone(s): {{$configuracao['telefone_primario']}} @if(isset($configuracao['telefone_secundario']) & $configuracao['telefone_primario'] != $configuracao['telefone_secundario']) | {{$configuracao['telefone_secundario']}} @endif</p>
-          @endisset
-          <br>
+
           @if(!empty($configuracao['logo_indap']) && $configuracao['logo_indap'] == 'S')
               <div class="indap">
                   <p class="footer-developed-by"> <span> Desenvolvido pela: </span> </p>
                   <img src="{{ asset('images/logo-indap.png') }}" alt="Indap">
-                  <p><span>&copy {{ date('Y') }} {{ $configuracao['nome'] }}.<br> Todos os direitos reservados.</span></p>
+                  <p><span>&copy {{ date('Y') }} INDAP | Sistemas e Prestação de serviços .<br> Todos os direitos reservados.</span></p>
               </div>
           @endif
         </div>
