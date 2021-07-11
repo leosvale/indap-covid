@@ -92,7 +92,7 @@
         <div class="tracker_text">
           <h5>Covid-19</h5>
           <h2>Vacinômetro</h2>
-          <!-- <p>Última atualização: April 08, 2020, 01:43 GMT</p> -->
+          <!-- <p>Última atualização: {{ date('d/m/Y', strtotime($vacinometro['doses_recebidas']->updated_at )) }}</p> -->
         </div>
         <div class="row tracker_inner">
           <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="300">
@@ -141,16 +141,30 @@
           </div>
         </div>
         <div class="tracker_btn">
+          <p>Última atualização: {{ date('d/m/Y', strtotime($vacinometro['doses_recebidas']->updated_at )) }}</p>
+
           <!-- <a class="green_btn wow fadeInUp" data-wow-delay="500" href="#"><i class="linearicons-earth-lock"></i> See
             Live
-            Track</a> -->
+            Track</a>
+            <div class="row tracker_text">
+              <div class="col-lg-6">
+               <h5>Homens:</h5>
+              </div>
+              <div class="col-lg-6">
+                 <h5>Mulheres:</h5>
+              </div>
+              
+            </div> -->
+            
+            
+
         </div>
       </div>
     </section>
     <!--================End Worldwide Tracker Area =================-->
 
     <!--================Protect Yourself Area =================-->
-    <section class="answers_area p_100" style="padding-bottom: 25px;">
+    <section class="answers_area p_100" style="padding-top: 25px; padding-bottom: 25px;">
       <div class="container">
         <div class="main_title text-center">
           <!-- <h5>Licitações e Contratos</h5> -->
@@ -868,7 +882,7 @@
       <div class="container">
         <div class="main_title text-center">
           <br>
-          <h2>Boletins</h2>
+          <h2>Boletins Informativos</h2>
           <p>
             Acompanhe os boletins informativos.
           </p>
@@ -923,6 +937,171 @@
               </a>
             @endif
         </div>
+      </div>
+    </section>
+    <!--================End Washing Process Area =================-->
+
+    <!--================Answers Area =================-->
+    <section class="answers_area p_100">
+      <div class="container">
+        <div class="main_title">
+<!--           <h5>Have questions? Find answers!</h5>
+ -->          <h2>Legislação</h2>
+        </div>
+        <div class="row answer_inner">
+          <div class="col-lg-12">
+            <div class="question_list">
+              <div class="accordion" id="accordionExample">
+
+                @php
+                  $count = 0;
+                @endphp
+
+                @foreach($legislacoes as $key => $legislacao)
+                  @php
+                    $count++;
+                  @endphp
+                  <div class="card">
+                    <div class="card-header" id="headingLegislacao{{$count}}">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseLegislacao{{$count}}" aria-expanded="false" aria-controls="collapseLegislacao{{$count}}">
+                        {{ $key }}
+                        <i class="linearicons-chevron-down"></i>
+                      </button>
+                    </div>
+                    <div id="collapseLegislacao{{$count}}" class="collapse" aria-labelledby="headingLegislacao{{$count}}"
+                      data-parent="#accordionExample">
+                      <div class="card-body">
+                        <ul class="nav nav-tabs" id="myTab3" role="tablist">
+                          @foreach($legislacao as $lei)
+                            <li class="nav-item">
+                              <a class="text_btn" id="homeDoc{{$count}}-tab" data-toggle="modal" href="#" data-target="#lei{{ $lei[0]['documento_id'] }}">{{ $lei[0]['doc_numero_processo'] }} - {{ date('d/m/Y', strtotime($lei[0]['dan_data_documento'])) }}</a>
+                            </li>
+
+                            <!-- Modal -->
+                            <form method="get" action="{{ url('licitacoes/baixar/'.$contrato[0]['documento_id'] ) }}" target="_blank">
+                              <div class="modal fade" id="lei{{ $lei[0]['documento_id'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">Detalhes</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <!--================ Modal Body =================-->
+                                    <div class="modal-body">
+                                      <ul class="list-unstyled">
+                                        @if(isset($lei[0]['descricao']))
+                                          <h3 class="text_btn">Descricão:
+                                            <a class="btn btn-link">{{ $lei[0]['descricao'] }}</a>
+                                          </h3>
+                                        @endif
+                                      </ul>
+                                      <ul class="list-unstyled">
+                                        <h5 class="modal-title">Anexos</h5>
+                                        @foreach($lei as $anexo)
+                                        <h3>
+                                            @php $id2 = $anexo['anexo_id']; @endphp
+                                            <a class="text_btn" role="button" data-toggle="collapse" href="#anexo-{{ $id2 }}" aria-expanded="false" aria-controls="anexo-{{ $id2 }}">
+                                                {{ date('d/m/Y', strtotime($anexo['dan_data_documento'])) }} - {{ $categorias[$anexo['tipo_categoria_processo_id']] }}<i class="fas fa-angle-down rotate-icon"></i>
+                                            </a>
+                                            <div class="collapse category-content" id="anexo-{{ $id2 }}">
+                                              <a class="btn btn-link" href="{{ url('processo/anexo/'.$anexo['anexo_id']) }}" target="_blank">
+                                                {{ $anexo['ane_nome'] }}
+                                              </a>
+                                            </div>
+                                        </h3>
+                                        @endforeach
+                                      </ul>
+                                      <ul class="list-unstyled">
+                                        <h5>
+                                          <a class="modal-title">Formato:</a>
+                                          <select id="formato" name="formato" class="form-control">
+                                            <option value="1">PDF</option>
+                                            <option value="2">CSV</option>
+                                            <option value="3">JSON</option>
+                                            <option value="4">XML</option>
+                                          </select>
+                                        </h5>
+                                      </ul>
+                                    </div>
+                                    <!--================ End Modal Body =================-->
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
+                                      <button type="submit" class="btn btn-primary">Baixar</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </form>
+                          @endforeach
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                @endforeach
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--================End Answers Area =================-->
+
+    <!--================Washing Process Area =================-->
+    <section class="washing_process_area pad_btm">
+      <div class="container">
+
+        <div class="main_title text-center white">
+          <h5>Vamos fazer a nossa parte</h5>
+          <h2>Previna a Covid-19</h2>
+        </div>
+
+
+        <div class="prevent_item_inner row">
+              <div class="col-sm-3 wow fadeInUp" data-wow-delay="400ms">
+                <div class="prevent_item">
+                  <div class="prevent_img">
+                    <img class="img-fluid" src="themes/epidemic-placeholder/assets/images/prevent/prevent-1.png" alt="" />
+                  </div>
+                  <div class="prevent_text" style="background: white;">
+                    <h4>Use máscaras em locais públicos</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 wow fadeInUp" data-wow-delay="500ms">
+                <div class="prevent_item">
+                  <div class="prevent_img">
+                    <img class="img-fluid" src="themes/epidemic-placeholder/assets/images/prevent/prevent-2.png" alt="" />
+                  </div>
+                  <div class="prevent_text" style="background: white;">
+                    <h4>Mantenha uma distância segura</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 wow fadeInUp" data-wow-delay="600ms">
+                <div class="prevent_item">
+                  <div class="prevent_img">
+                    <img class="img-fluid" src="themes/epidemic-placeholder/assets/images/prevent/prevent-3.png" alt="" />
+                  </div>
+                  <div class="prevent_text" style="background: white;">
+                    <h4>Não toque nos olhos no nariz ou na boca</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 wow fadeInUp" data-wow-delay="700ms">
+                <div class="prevent_item">
+                  <div class="prevent_img">
+                    <img class="img-fluid" src="themes/epidemic-placeholder/assets/images/prevent/prevent-4.png" alt="" />
+                  </div>
+                  <div class="prevent_text" style="background: white;">
+                    <h4>Fique em casa se você se sentir indisposto</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+
       </div>
     </section>
     <!--================End Washing Process Area =================-->

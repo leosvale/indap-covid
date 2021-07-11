@@ -191,6 +191,63 @@ class SiteController extends Controller
 
 		$this->data['documentos'] = $documentos;
 
+		$leis = Documento::select($columns)
+			->join('documento_anexo AS dan', 'dan.documento_id', '=', 'documento.documento_id')
+			->join('documento_campos_especificos AS esp', 'esp.documento_id', '=', 'documento.documento_id')
+			->join('anexo AS ane', 'ane.anexo_id', '=', 'dan.anexo_id')
+			->where('tipo_processo_id', '=', 5)
+			->limit(3)
+			->orderBy('dan.dan_data_documento');
+
+		$leis = $leis->get();
+		$leis = $leis->groupBy('documento_id');
+		$leis = $leis->toArray();
+
+		$decretos = Documento::select($columns)
+			->join('documento_anexo AS dan', 'dan.documento_id', '=', 'documento.documento_id')
+			->join('documento_campos_especificos AS esp', 'esp.documento_id', '=', 'documento.documento_id')
+			->join('anexo AS ane', 'ane.anexo_id', '=', 'dan.anexo_id')
+			->where('tipo_processo_id', '=', 3)
+			->limit(3)
+			->orderBy('dan.dan_data_documento');
+
+		$decretos = $decretos->get();
+		$decretos = $decretos->groupBy('documento_id');
+		$decretos = $decretos->toArray();
+
+		$portarias = Documento::select($columns)
+			->join('documento_anexo AS dan', 'dan.documento_id', '=', 'documento.documento_id')
+			->join('documento_campos_especificos AS esp', 'esp.documento_id', '=', 'documento.documento_id')
+			->join('anexo AS ane', 'ane.anexo_id', '=', 'dan.anexo_id')
+			->where('tipo_processo_id', '=', 4)
+			->limit(3)
+			->orderBy('dan.dan_data_documento');
+
+		$portarias = $portarias->get();
+		$portarias = $portarias->groupBy('documento_id');
+		$portarias = $portarias->toArray();
+
+		$atos = Documento::select($columns)
+			->join('documento_anexo AS dan', 'dan.documento_id', '=', 'documento.documento_id')
+			->join('documento_campos_especificos AS esp', 'esp.documento_id', '=', 'documento.documento_id')
+			->join('anexo AS ane', 'ane.anexo_id', '=', 'dan.anexo_id')
+			->where('tipo_processo_id', '=', 6)
+			->limit(3)
+			->orderBy('dan.dan_data_documento');
+
+		$atos = $atos->get();
+		$atos = $atos->groupBy('documento_id');
+		$atos = $atos->toArray();
+
+		$legislacoes = [
+			'Leis' => $leis,
+			'Decretos' => $decretos,
+			'Portarias' => $portarias,
+			'Atos Admissionais' => $atos
+		];
+
+		$this->data['legislacoes'] = $legislacoes;
+
 		// Buscar categorias de processo
 		// ==============================
 		$categorias = DB::table('tipo_categoria_processo')->get()->mapWithKeys(function ($item) {

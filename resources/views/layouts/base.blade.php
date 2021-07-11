@@ -200,7 +200,7 @@
                 <li class="dropdown submenu">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                       aria-expanded="false">Mais</a>
-                    <i class="linearicons-chevron-down mobile_dropdown" aria-hidden="true" data-toggle="dropdown"></i>
+                    <i class="fas fa-angle-down rotate-icon" aria-hidden="true" data-toggle="dropdown"></i>
                     <ul class="dropdown-menu">
                       @php
                           $count = 0;

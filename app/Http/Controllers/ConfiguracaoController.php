@@ -211,19 +211,31 @@ class ConfiguracaoController extends Controller
 
 			DB::table('vacinometro')
               ->where('campo', '=', 'doses_recebidas')
-              ->update(['valor' => $request->input('doses_recebidas')]);
+              ->update([
+              	'valor' => $request->input('doses_recebidas'),
+              	'updated_at' => \Carbon\Carbon::now()
+              ]);
 
             DB::table('vacinometro')
               ->where('campo', '=', 'doses_aplicadas')
-              ->update(['valor' => $request->input('doses_aplicadas')]);
+              ->update([
+              	'valor' => $request->input('doses_aplicadas'),
+              	'updated_at' => \Carbon\Carbon::now()
+              ]);
 
             DB::table('vacinometro')
               ->where('campo', '=', 'primeira_dose')
-              ->update(['valor' => $request->input('primeira_dose')]);
+              ->update([
+              	'valor' => $request->input('primeira_dose'),
+              	'updated_at' => \Carbon\Carbon::now()
+              ]);
 
             DB::table('vacinometro')
               ->where('campo', '=', 'segunda_dose')
-              ->update(['valor' => $request->input('segunda_dose')]);
+              ->update([
+              	'valor' => $request->input('segunda_dose'),
+              	'updated_at' => \Carbon\Carbon::now()
+              ]);
 
 			DB::commit();
 		}
