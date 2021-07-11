@@ -13,35 +13,6 @@
             <div class="panel-body">
                 <form role="form" accept-charset="UTF-8" @submit.prevent="save">
 
-                    <h4>Vacinômetro</h4>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <form-control :error="errors.doses_recebidas">
-                                <label for="doses_recebidas">Doses Recebidas</label>
-                                <input id="doses_recebidas" type="text" class="form-control" name="doses_recebidas" v-model="vacinometro.doses_recebidas">
-                            </form-control>
-                        </div>
-                        <div class="col-md-6">
-                            <form-control :error="errors.doses_aplicadas">
-                                <label for="doses_aplicadas">Doses Aplicadas</label>
-                                <input id="doses_aplicadas" type="text" class="form-control" name="doses_aplicadas" v-model="vacinometro.doses_aplicadas">
-                            </form-control>
-                        </div>
-                        <div class="col-md-6">
-                            <form-control :error="errors.primeira_dose">
-                                <label for="primeira_dose">1˚ Dose</label>
-                                <input id="primeira_dose" type="text" class="form-control" name="primeira_dose" v-model="vacinometro.primeira_dose">
-                            </form-control>
-                        </div>
-                        <div class="col-md-6">
-                            <form-control :error="errors.segunda_dose">
-                                <label for="segunda_dose">2˚ Dose</label>
-                                <input id="segunda_dose" type="text" class="form-control" name="segunda_dose" v-model="vacinometro.segunda_dose">
-                            </form-control>
-                        </div>
-                    </div>
-
                     <div class="row">
                         <div class="col-md-6">
                             <form-control :error="errors.nome">
@@ -313,12 +284,6 @@
                     telefone_primario: '1',
                     telefone_secundario: '2',
             	},
-              vacinometro: {
-                  doses_aplicadas: '',
-                  doses_recebidas: '',
-                  primeira_dose: '',
-                  segunda_dose: ''
-              },
               columns: [
                   'banner_nome',
                   'banner_tipo',
@@ -377,11 +342,6 @@
                         this.$set(this.configuracao, 'alterar_senha', false);
                         this.$set(this.configuracao, 'logo_midia', null);
 
-                        this.vacinometro.doses_recebidas = response.data.data.vacinometro.doses_recebidas.valor;
-                        this.vacinometro.doses_aplicadas = response.data.data.vacinometro.doses_aplicadas.valor;
-                        this.vacinometro.primeira_dose = response.data.data.vacinometro.primeira_dose.valor;
-                        this.vacinometro.segunda_dose = response.data.data.vacinometro.segunda_dose.valor;
-
                         Loading.hide();
                         $(this.$refs.submit).prop("disabled", false);
                     })
@@ -406,12 +366,6 @@
                 for (var i in this.configuracao) {
                     if(this.configuracao[i]) {
                         data.append(i, this.configuracao[i]);
-                    }
-                }
-
-                for (var i in this.vacinometro) {
-                    if(this.vacinometro[i]) {
-                        data.append(i, this.vacinometro[i]);
                     }
                 }
 

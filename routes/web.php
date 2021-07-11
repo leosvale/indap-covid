@@ -126,6 +126,9 @@ Route::group(['middleware' => 'web'], function () {
 			Route::get( 'configuracoes', 'ConfiguracaoController@cadastro' );
 			Route::get( 'usuarios',      'ConfiguracaoController@usuarios' );
 
+			Route::get( 'vacinometro',   'VacinometroController@vacinometro' );
+
+
 			Route::get( 'ajax/tipo-processo/{id}', 'TipoProcessoController@show' );
 			Route::get( 'ajax/tipo-processo', 'TipoProcessoController' );
 			Route::get( 'ajax/categoria-processo', 'CategoriaProcessoController' );
@@ -152,6 +155,7 @@ Route::group(['middleware' => 'web'], function () {
 			Route::resource('ajax/contato',      'ContatoController', ['only' => ['index', 'show']]);
 			Route::get('ajax/resposta_contato/{id}',      'ContatoController@respostaContato');
 			Route::resource('ajax/configuracao', 'ConfiguracaoController', ['only' => ['index', 'store']]);
+			Route::resource('ajax/vacinometro', 'VacinometroController', ['only' => ['index', 'store']]);
 			Route::resource('ajax/categoria-publicacao', 'CategoriaPublicacaoController', ['only' => ['index', 'store', 'destroy']]);
 			Route::resource('ajax/categoria-servico', 'CategoriaServicoController', ['only' => ['index', 'store', 'destroy']]);
 

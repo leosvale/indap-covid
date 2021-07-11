@@ -72,21 +72,8 @@ class ConfiguracaoController extends Controller
 			return [$item['configuracao_id'] => $item['cfg_valor']];
 		});
 
-		$doses_recebidas = DB::table('vacinometro')->where('campo', '=', 'doses_recebidas')->first();
-		$doses_aplicadas = DB::table('vacinometro')->where('campo', '=', 'doses_aplicadas')->first();
-		$primeira_dose = DB::table('vacinometro')->where('campo', '=', 'primeira_dose')->first();
-		$segunda_dose = DB::table('vacinometro')->where('campo', '=', 'segunda_dose')->first();
-
-		$vacinometro = [
-			'doses_recebidas' => $doses_recebidas, 
-			'doses_aplicadas' => $doses_aplicadas, 
-			'primeira_dose' => $primeira_dose, 
-			'segunda_dose' => $segunda_dose]
-			;
-
 		$data = [
-			'configuracoes' => $configuracoes,
-			'vacinometro' => $vacinometro
+			'configuracoes' => $configuracoes
 		];
 
 		return $this->success($data);
@@ -208,35 +195,7 @@ class ConfiguracaoController extends Controller
 				$usuario->usu_senha = Hash::make( $request->input('usu_senha') );
 				$usuario->save();
 			}
-
-			DB::table('vacinometro')
-              ->where('campo', '=', 'doses_recebidas')
-              ->update([
-              	'valor' => $request->input('doses_recebidas'),
-              	'updated_at' => \Carbon\Carbon::now()
-              ]);
-
-            DB::table('vacinometro')
-              ->where('campo', '=', 'doses_aplicadas')
-              ->update([
-              	'valor' => $request->input('doses_aplicadas'),
-              	'updated_at' => \Carbon\Carbon::now()
-              ]);
-
-            DB::table('vacinometro')
-              ->where('campo', '=', 'primeira_dose')
-              ->update([
-              	'valor' => $request->input('primeira_dose'),
-              	'updated_at' => \Carbon\Carbon::now()
-              ]);
-
-            DB::table('vacinometro')
-              ->where('campo', '=', 'segunda_dose')
-              ->update([
-              	'valor' => $request->input('segunda_dose'),
-              	'updated_at' => \Carbon\Carbon::now()
-              ]);
-
+			
 			DB::commit();
 		}
 		catch(\Exception $e) {

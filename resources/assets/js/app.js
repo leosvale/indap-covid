@@ -108,6 +108,9 @@ const app = new Vue({
         'configuracao-cadastro-usuario': require('./pages/ConfiguracaoCadastroUsuario.vue'),
         'configuracao-usuarios': require('./pages/ConfiguracaoUsuarios.vue'),
 
+        'vacinometro-cadastro': require('./pages/VacinometroCadastro.vue'),
+
+
         'solicitante-acesso': require('./pages/SolicitanteAcesso.vue'),
         'solicitante-cadastro': require('./pages/SolicitanteCadastro.vue'),
         'solicitante-recuperar-senha': require('./pages/SolicitanteRecuperarSenha.vue'),
