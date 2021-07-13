@@ -133,7 +133,7 @@
                                           href="{{ url('/pagina/'.$pagina['publicacao_id']) }}"
                                       @endif
                                   >
-                                      {{ $pagina['pub_titulo'] }}<hr class="text_btn">
+                                      {{ $pagina['pub_titulo'] }}<hr class="text_btn" color="white">
                                   </a>
                               </li>
                             @endforeach
@@ -234,7 +234,7 @@
                     </ul>
                   </li>
 
-                  <li>
+                  <!-- <li>
                     @if (isset($configuracao['banner_home_img']) && 
                     isset($configuracao['banner_home_url']) && 
                     $configuracao['banner_home_img'] &&
@@ -243,7 +243,7 @@
                         <img src="{{ $configuracao['banner_home_img'] }}" width="340" height="50" alt="">
                       </a>
                     @endif
-                  </li>
+                  </li> -->
 
               </ul>
 

@@ -76,8 +76,8 @@
             @endforeach
           </div>
         </div>
-        <hr>
-        <div class="menu_btm  d-block mr-0 ml-auto">
+        <br>
+        <div class="text-center maintence_img img-fluid wow fadeInRight">   
           <a class="green_btn" href="/noticias">mais notícias</a>
         </div>
       </div>
@@ -400,8 +400,7 @@
                 @else
                   <ul class="nav nav-tabs" id="myTabDoc{{$count}}" role="tablist">
                     <li class="nav-item">
-                      <a class="nav-link" id="profileDoc{{$count}}-tab" data-toggle="tab" href="#" role="tab"
-                        aria-controls="profileDoc{{$count}}" aria-selected="false">Sem arquivos</a>
+                      Sem arquivos
                     </li>
                   </ul>
                 @endif
@@ -632,8 +631,7 @@
                 @else
                   <ul class="nav nav-tabs" id="myTabDoc{{$count}}" role="tablist">
                     <li class="nav-item">
-                      <a class="nav-link" id="profileDoc{{$count}}-tab" data-toggle="tab" href="#" role="tab"
-                        aria-controls="profileDoc{{$count}}" aria-selected="false">Sem arquivos</a>
+                      Sem arquivos
                     </li>
                   </ul>
                 @endif
@@ -863,8 +861,7 @@
                 @else
                   <ul class="nav nav-tabs" id="myTabDoc{{$count}}" role="tablist">
                     <li class="nav-item">
-                      <a class="nav-link" id="profileDoc{{$count}}-tab" data-toggle="tab" href="#" role="tab"
-                        aria-controls="profileDoc{{$count}}" aria-selected="false">Sem arquivos</a>
+                      Sem arquivos
                     </li>
                   </ul>
                 @endif
@@ -877,16 +874,12 @@
     <!--================End Protect Yourself Area =================-->
 
     <!--================Home Latest Blog Area =================-->
-    <section class="home_latest_blog_area">
+    <section class="home_latest_blog_area" style="padding-bottom: 25px;">
       @if ($boletins)
       <div class="container">
         <div class="main_title text-center">
           <br>
           <h2>Boletins Informativos</h2>
-          <p>
-            Acompanhe os boletins informativos.
-          </p>
-          <a class="text_btn" href="/boletins" style="float: right; font-size: 14px; padding: 12px 0px"><strong>mais boletins</strong></a>
         </div>
         
         <div class="row prevent_inner">
@@ -919,6 +912,9 @@
           @endforeach
         </div>
         <br>
+        <div class="text-center maintence_img img-fluid wow fadeInRight">   
+          <a class="green_btn" href="/boletins">mais boletins</a>
+        </div>
       </div>
       @endif
     </section>
