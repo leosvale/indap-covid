@@ -48,9 +48,6 @@
           <li><a href="{{ url('/ouvidoria') }}">Ouvidoria</a></li>
         </ul>
       </div>
-      <div class="menu_btm">
-        <a class="green_btn" href="#"><i class="linearicons-pulse"></i> Symptom Checker</a>
-      </div>
     </div>
     <!--================End Mobile Canvus Menu Area =================-->
 
@@ -229,9 +226,14 @@
                             @endforeach
                             </ul>
                           </li>
-                        @else 
+                        @endif
+                      @endforeach 
+                      @foreach ($menu_principal as $categoria => $paginas)
+                        @if ($categoria == '')
+                          @php
+                              $count++;
+                          @endphp
                           @foreach ($paginas as $pagina)
-                            @if($pagina['pub_titulo'] != 'Notícias' && $pagina['pub_titulo'] != 'Licitações E Contrato'  )
                               <li>
                                   <a 
                                       @if ($pagina['pub_url'])
@@ -243,7 +245,6 @@
                                       {{ $pagina['pub_titulo'] }}
                                   </a>
                               </li>
-                            @endif
                           @endforeach  
                         @endif
                       @endforeach
@@ -262,12 +263,6 @@
                   </li> -->
 
               </ul>
-
-              <!-- <ul class="nav navbar-nav navbar-right">
-                <li class="checker_btn">
-                  <a href="../themes/epidemic-placeholder/#"><i class="linearicons-pulse"></i> Symptom Checker</a>
-                </li>
-              </ul> -->
             </div>
           </nav>
         </div>
