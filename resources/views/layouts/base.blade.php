@@ -211,7 +211,7 @@
                               $count++;
                           @endphp
                           <li class="dropdown submenu">
-                            <a class="dropdown-toggle" data-toggle="dropdown"role="button"  aria-haspopup="true" aria-expanded="false">{{$categoria}}</a>
+                            <a class="dropdown-toggle" data-toggle="dropdown"role="button"  aria-haspopup="true" aria-expanded="false">{{$categoria}} <i class="fas fa-angle-right rotate-icon" aria-hidden="true" data-toggle="dropdown"></i></a>
                             <ul class="dropdown-menu">
                             @foreach ($paginas as $pagina)  
                               <li>
@@ -229,6 +229,22 @@
                             @endforeach
                             </ul>
                           </li>
+                        @else 
+                          @foreach ($paginas as $pagina)
+                            @if($pagina['pub_titulo'] != 'Notícias' && $pagina['pub_titulo'] != 'Licitações E Contrato'  )
+                              <li>
+                                  <a 
+                                      @if ($pagina['pub_url'])
+                                          href="{{ $pagina['pub_url'] }}"
+                                      @else
+                                          href="{{ url('/pagina/'.$pagina['publicacao_id']) }}"
+                                      @endif
+                                  >
+                                      {{ $pagina['pub_titulo'] }}
+                                  </a>
+                              </li>
+                            @endif
+                          @endforeach  
                         @endif
                       @endforeach
                     </ul>
