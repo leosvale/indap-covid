@@ -14,7 +14,45 @@
 
     <section class="isolation_area isolation_margin_bottom">
       <div class="container">
+
+        <h5 style="color: white;">Utilize os campos abaixo para pesquisar</h5>
+
         <form method="get" action="{{ url('licitacoes') }}">
+          <div class="row">
+            
+            <div class="col-lg-2">
+                <div class="media isolation_item wow fadeInUp">
+                  <div class="media-body">
+                    <h5 for="filtro-ano">Objeto</h5>
+                    <input type="text" name="objeto" class="form-control">
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="media isolation_item wow fadeInUp">
+                  <div class="media-body">
+                    <h5 for="filtro-ano">Valor</h5>
+                    <input type="text" id="valor" name="valor" class="form-control">
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="media isolation_item wow fadeInUp">
+                  <div class="media-body">
+                    <h5 for="filtro-ano">Início Vigência</h5>
+                    <input type="date" id="inicio_vigencia" name="inicio_vigencia" class="form-control">
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="media isolation_item wow fadeInUp">
+                  <div class="media-body">
+                    <h5 for="filtro-ano">Final Vigência</h5>
+                    <input type="date" id="final_vigencia" name="final_vigencia" class="form-control">
+                  </div>
+                </div>
+            </div>
+          </div>
           <div class="row">
               <div class="col-lg-4">
                   <div class="media isolation_item wow fadeInUp">
@@ -45,6 +83,14 @@
                     </div>
                   </div>
               </div>
+              <div class="col-lg-2">
+                <div class="media isolation_item wow fadeInUp">
+                  <div class="media-body">
+                    <h5 for="ctt_cpf_cnpj">CPF/CNPJ</h5>
+                    <input type="text" id="cpfcnpj" name="cpfcnpj" class="form-control">
+                  </div>
+                </div>
+            </div>
               <div class="col-sm-2">
                 <div class="media isolation_item wow fadeInUp">
                     <div class="media-body">
@@ -308,7 +354,7 @@
           </div>
       </div>
     @else
-        <p>Nenhum processo cadastrado nesse ano.</p>
+        <p style="color: white;">Nenhum processo encontrado.</p>
     @endif
     </section>
 @endsection

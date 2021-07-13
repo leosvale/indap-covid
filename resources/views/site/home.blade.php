@@ -3,7 +3,7 @@
 @section('content')
 
     <!--================Home Latest Blog Area =================-->
-    <section class="related_posts_area" style="padding-bottom: 25px;">
+    <section class="related_posts_area" style="padding-top: 75px; padding-bottom: 25px;">
 
       @if (!empty($destaques))
             

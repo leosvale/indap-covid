@@ -126,7 +126,7 @@
                           <ul class="nav nav-tabs" id="myTab" role="tablist">
                             @foreach ($paginas as $pagina)
                               <li class="nav-item">
-                                  <a 
+                                  <a style="color: white;" 
                                       @if ($pagina['pub_url'])
                                           href="{{ $pagina['pub_url'] }}"
                                       @else
@@ -144,7 +144,7 @@
                   @else 
                     @foreach ($paginas as $pagina)
                     <li  class="nav-item">
-                        <a 
+                        <a style="color: white;" 
                             @if ($pagina['pub_url'])
                                 href="{{ $pagina['pub_url'] }}"
                             @else
@@ -476,4 +476,24 @@
   <!-- <script src="../../js/manifest.js"></script> -->
   <script src="../../js/site.js"></script>
   <script src="../../js/vendor.js"></script>
+
+  <script src="https://code.jquery.com/jquery-1.10.0.min.js"></script>
+  <script src="https://rawgit.com/RobinHerbots/Inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
+  <script src="https://cdn.rawgit.com/plentz/jquery-maskmoney/master/dist/jquery.maskMoney.min.js"></script>
+
+  <script type="text/javascript">
+    $("input[id*='cpfcnpj']").inputmask({
+      mask: ['999.999.999-99', '99.999.999/9999-99'],
+      keepStatic: true
+    });
+  </script>
+
+  <script>
+    $("input[id*='valor']").maskMoney({
+         prefix: "R$",
+         decimal: ".",
+         thousands: ","
+     });
+  </script>
+
 </body>

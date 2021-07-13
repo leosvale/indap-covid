@@ -688,6 +688,11 @@ class SiteController extends Controller
 		// Filtros
 		$tipo = $request->input('tipo');
 		$ano  = $request->input('ano');
+		$objeto  = $request->input('objeto');
+		$cpfcnpj  = $request->input('cpfcnpj');
+		$inicio_vigencia  = $request->input('inicio_vigencia');
+		$final_vigencia  = $request->input('final_vigencia');
+		$valor  = $request->input('valor');
 
 		if(!$ano || !DateTime::createFromFormat('Y', $ano)) {
 			$ano = date('Y');
@@ -695,6 +700,11 @@ class SiteController extends Controller
 
 		$this->data['tipo'] = $tipo;
 		$this->data['ano'] = $ano;
+		$this->data['objeto'] = $objeto;
+		$this->data['cpfcnpj'] = $cpfcnpj;
+		$this->data['inicio_vigencia'] = $inicio_vigencia;
+		$this->data['final_vigencia'] = $final_vigencia;
+		$this->data['valor'] = $valor;
 
 		// Buscar documentos
 		// ==============================
@@ -741,6 +751,30 @@ class SiteController extends Controller
 
 		if($tipo) {
 			$documentos = $documentos->where('tipo_processo_id', $tipo);
+		}
+
+		if($cpfcnpj) {
+			$documentos = $documentos->where('cpf_cnpj', $cpfcnpj);
+		}
+
+		if($inicio_vigencia) {
+			$documentos = $documentos->where('inicio_vigencia', $inicio_vigencia);
+		}
+
+		if($final_vigencia) {
+			$documentos = $documentos->where('final_vigencia', $final_vigencia);
+		}
+
+		if($valor) {
+			$documentos = $documentos->where('valor', $valor)
+			->orWhere('previsao_orcamentaria', $valor);
+		}
+
+		if($objeto) {
+			
+			$search = strip_tags($objeto);
+			$search_term = '%'.$search.'%';
+			$documentos = $documentos->where('objeto', 'LIKE', $search_term);
 		}
 
 		$documentos = $documentos->get();
