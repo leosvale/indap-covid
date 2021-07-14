@@ -148,7 +148,7 @@
                                 href="{{ url('/pagina/'.$pagina['publicacao_id']) }}"
                             @endif
                         >
-                            {{ $pagina['pub_titulo'] }}
+                            <i class="fas fa-angle-right rotate-icon" aria-hidden="true" data-toggle="dropdown"></i> {{ $pagina['pub_titulo'] }}
                         </a>
                     </li>
                     @endforeach  

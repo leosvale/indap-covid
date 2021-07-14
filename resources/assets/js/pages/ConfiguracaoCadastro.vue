@@ -48,16 +48,16 @@
 
                     <div class="row">
                         <div class="col-md-6">
-                            <form-control :error="errors.email">
+                            <form-control :error="errors.telefone_primario">
                                 <label for="telefone_primario">Telefone primário</label>
-                                <input id="fone_primario" type="phone" class="form-control" name="telefone_primario" required v-model="configuracao.telefone_primario">
+                                <input id="fone_primario" type="phone" class="form-control" name="telefone_primario" v-model="configuracao.telefone_primario">
                             </form-control>
                         </div>
 
                         <div class="col-md-6">
-                            <form-control :error="errors.email">
+                            <form-control :error="errors.telefone_secundario">
                                 <label for="telefone_secundario">Telefone secundário</label>
-                                <input id="fone_secundario" type="phone" class="form-control" name="telefone_secundario" required v-model="configuracao.telefone_secundario">
+                                <input id="fone_secundario" type="phone" class="form-control" name="telefone_secundario" v-model="configuracao.telefone_secundario">
                             </form-control>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
 
                     <div class="form-group form-inline">                            
                         <label for="cor" class="mr-1">Cor Primária do Portal:</label>
-                        <input id="cor" type="color" class="form-control" style="width:50px" name="cor" required v-model="configuracao.cor">
+                        <input id="cor" type="color" class="form-control" style="width:50px" name="cor" v-model="configuracao.cor">
                     </div>
 
                     <hr>

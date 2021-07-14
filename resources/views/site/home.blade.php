@@ -923,13 +923,13 @@
     <!--================Washing Process Area =================-->
     <section class="washing_process_area pad_btm">
       <div class="container">
-        <div class="text-center maintence_img img-fluid wow fadeInRight">
+        <div class="item text-center maintence_img img-fluid wow fadeInRight">
             @if (isset($configuracao['banner_home_img']) && 
               isset($configuracao['banner_home_url']) && 
               $configuracao['banner_home_img'] &&
               $configuracao['banner_home_url'])  
               <a href="{{ $configuracao['banner_home_url'] }}">
-                <img src="{{ $configuracao['banner_home_img'] }}" width="728" height="90" alt="">
+                <img class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image" src="{{ $configuracao['banner_home_img'] }}" width="600" height="100" alt="">
               </a>
             @endif
         </div>

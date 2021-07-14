@@ -107,6 +107,10 @@ class ConfiguracaoController extends Controller
 			'logo_midia.max'        => 'O tamanho máximo permitido é de 1 megabyte.',
 			'logo_midia.mimetypes'  => 'O arquivo deve ser uma imagem no formato JPG ou PNG.',
 			'usu_senha.regex' => 'A senha deve ter de 8 a 20 caracteres e pelo menos 1 letra e 1 número.',
+			'nome.required' => 'Esse campo é obrigatório',
+			'portal.required' => 'Esse campo é obrigatório',
+			'email.required' => 'Esse campo é obrigatório',
+			'uf.required' => 'Esse campo é obrigatório',
 		];
 
 		$this->validate( $request, $rules, $messages );
