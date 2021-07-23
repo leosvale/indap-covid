@@ -194,7 +194,7 @@ class SiteController extends Controller
 			->join('anexo AS ane', 'ane.anexo_id', '=', 'dan.anexo_id')
 			->where('tipo_processo_id', '=', 2)
 			->limit(3)
-			->orderBy('dan.dan_data_documento');
+			->orderByDesc('dan.dan_data_documento');
 
 		$contratos = $contratos->get();
 		$contratos = $contratos->groupBy('documento_id');
@@ -207,7 +207,7 @@ class SiteController extends Controller
 			->join('anexo AS ane', 'ane.anexo_id', '=', 'dan.anexo_id')
 			->where('tipo_processo_id', '=', 1)
 			->limit(3)
-			->orderBy('dan.dan_data_documento');
+			->orderByDesc('dan.dan_data_documento');
 
 		$licitacoes = $licitacoes->get();
 		$licitacoes = $licitacoes->groupBy('documento_id');
@@ -219,7 +219,7 @@ class SiteController extends Controller
 			->join('anexo AS ane', 'ane.anexo_id', '=', 'dan.anexo_id')
 			->where('tipo_processo_id', '=', 7)
 			->limit(3)
-			->orderBy('dan.dan_data_documento');
+			->orderByDesc('dan.dan_data_documento');
 
 		$contratacoesDiretas = $contratacoesDiretas->get();
 		$contratacoesDiretas = $contratacoesDiretas->groupBy('documento_id');
@@ -239,7 +239,7 @@ class SiteController extends Controller
 			->join('anexo AS ane', 'ane.anexo_id', '=', 'dan.anexo_id')
 			->where('tipo_processo_id', '=', 5)
 			->limit(3)
-			->orderBy('dan.dan_data_documento');
+			->orderByDesc('dan.dan_data_documento');
 
 		$leis = $leis->get();
 		$leis = $leis->groupBy('documento_id');
@@ -251,7 +251,7 @@ class SiteController extends Controller
 			->join('anexo AS ane', 'ane.anexo_id', '=', 'dan.anexo_id')
 			->where('tipo_processo_id', '=', 3)
 			->limit(3)
-			->orderBy('dan.dan_data_documento');
+			->orderByDesc('dan.dan_data_documento');
 
 		$decretos = $decretos->get();
 		$decretos = $decretos->groupBy('documento_id');
@@ -263,7 +263,7 @@ class SiteController extends Controller
 			->join('anexo AS ane', 'ane.anexo_id', '=', 'dan.anexo_id')
 			->where('tipo_processo_id', '=', 4)
 			->limit(3)
-			->orderBy('dan.dan_data_documento');
+			->orderByDesc('dan.dan_data_documento');
 
 		$portarias = $portarias->get();
 		$portarias = $portarias->groupBy('documento_id');
@@ -275,7 +275,7 @@ class SiteController extends Controller
 			->join('anexo AS ane', 'ane.anexo_id', '=', 'dan.anexo_id')
 			->where('tipo_processo_id', '=', 6)
 			->limit(3)
-			->orderBy('dan.dan_data_documento');
+			->orderByDesc('dan.dan_data_documento');
 
 		$atos = $atos->get();
 		$atos = $atos->groupBy('documento_id');
