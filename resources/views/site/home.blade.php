@@ -44,10 +44,10 @@
                       @endforeach
                   @endif
                   <a href="{{ url('/noticia/'.$destaque['publicacao_id']) }}">
-                    <h3>{{ $destaque['pub_titulo'] }}</h3>
+                    <h3 style="margin-right: 2.5em;">{{ $destaque['pub_titulo'] }}</h3>
                   </a>
                   <a class="text_btn" href="{{ url('/noticia/'.$destaque['publicacao_id']) }}"
-                            title="{{ $destaque['pub_titulo'] }}">Leia mais <!-- <i class="linearicons-arrow-right"></i> --></a>
+                    title="{{ $destaque['pub_titulo'] }}">Leia mais <!-- <i class="linearicons-arrow-right"></i> --></a>
                 </div>
               </div>
             </div>
