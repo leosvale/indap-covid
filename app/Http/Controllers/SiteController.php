@@ -100,12 +100,54 @@ class SiteController extends Controller
 		$doses_aplicadas = DB::table('vacinometro')->where('campo', '=', 'doses_aplicadas')->first();
 		$primeira_dose = DB::table('vacinometro')->where('campo', '=', 'primeira_dose')->first();
 		$segunda_dose = DB::table('vacinometro')->where('campo', '=', 'segunda_dose')->first();
+		
+		$homens = DB::table('vacinometro')->where('campo', '=', 'homens')->first();
+		
+		$mulheres = DB::table('vacinometro')->where('campo', '=', 'mulheres')->first();
+		
+		$adultos = DB::table('vacinometro')->where('campo', '=', 'adultos')->first();
+		
+		$adolescentes = DB::table('vacinometro')->where('campo', '=', 'adolescentes')->first();
+		
+		$criancas = DB::table('vacinometro')->where('campo', '=', 'criancas')->first();
+		
+		$cem = DB::table('vacinometro')->where('campo', '=', 'cem_anos')->first();
+		
+		$noventa = DB::table('vacinometro')->where('campo', '=', 'noventa_anos')->first();
+		
+		$oitenta = DB::table('vacinometro')->where('campo', '=', 'oitenta_anos')->first();
+		
+		$setenta = DB::table('vacinometro')->where('campo', '=', 'setenta_anos')->first();
+		
+		$sessenta = DB::table('vacinometro')->where('campo', '=', 'sessenta_anos')->first();
+		
+		$cinquenta = DB::table('vacinometro')->where('campo', '=', 'cinquenta_anos')->first();
+		
+		$quarenta = DB::table('vacinometro')->where('campo', '=', 'quarenta_anos')->first();
+		
+		$trinta = DB::table('vacinometro')->where('campo', '=', 'trinta_anos')->first();
+		
+		$vinte = DB::table('vacinometro')->where('campo', '=', 'vinte_anos')->first();
 
 		$vacinometro = [
 			'doses_recebidas' => $doses_recebidas, 
 			'doses_aplicadas' => $doses_aplicadas, 
 			'primeira_dose' => $primeira_dose, 
-			'segunda_dose' => $segunda_dose
+			'segunda_dose' => $segunda_dose,
+			'homens' => $homens,
+			'mulheres' => $mulheres,
+			'adultos' => $adultos,
+			'adolescentes' => $adolescentes,
+			'criancas' => $criancas,
+			'cem' => $cem,
+			'noventa' => $noventa,
+			'oitenta' => $oitenta,
+			'setenta' => $setenta,
+			'sessenta' => $sessenta,
+			'cinquenta' => $cinquenta,
+			'quarenta' => $quarenta,
+			'trinta' => $trinta,
+			'vinte' => $vinte
 		];
 
 		$this->data['vacinometro'] = $vacinometro;
@@ -905,6 +947,10 @@ class SiteController extends Controller
 			$item->categoria = $item->categorias()->first() ? 
 				$item->categorias()->first()->tcp_nome : '';
 		});
+
+		if(!isset($menu_principal[''])){
+			$menu_principal[''] = null;
+		}
 
 		$data['menu_principal'] = $menu_principal->groupBy('categoria')->toArray();
 

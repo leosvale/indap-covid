@@ -193,8 +193,58 @@
                 <li><a href="{{ url('/boletins') }}">Boletins</a></li>
                 <li><a href="{{ url('/licitacoes') }}">Licitações e Contratos</a></li>
                 <li><a href="{{ url('/ouvidoria') }}">Ouvidoria</a></li>
-
-                <li class="dropdown submenu">
+                @if( count($menu_principal) + count($menu_principal['']) - 2 < 4)
+                @php
+                    $count = 0;
+                @endphp
+                @foreach ($menu_principal as $categoria => $paginas)
+                  @if ($categoria != '')
+                    @php
+                        $count++;
+                    @endphp
+                    <li class="dropdown submenu">
+                      <a class="dropdown-toggle" data-toggle="dropdown"role="button"  aria-haspopup="true" aria-expanded="false">{{$categoria}} <i class="fas fa-angle-down rotate-icon" aria-hidden="true" data-toggle="dropdown"></i></a>
+                      <ul class="dropdown-menu">
+                      @foreach ($paginas as $pagina)  
+                        <li>
+                          <a title="{{ $pagina['pub_titulo'] }}" 
+                              rel="noopener noreferrer"
+                              @if ($pagina['pub_url'])
+                                  href="{{ $pagina['pub_url'] }}"
+                              @else
+                                  href="{{ url('/pagina/'.$pagina['publicacao_id']) }}"
+                              @endif
+                          >
+                            {{ $pagina['pub_titulo'] }}
+                          </a>
+                        </li>
+                      @endforeach
+                      </ul>
+                    </li>
+                  @endif
+                @endforeach 
+                @foreach ($menu_principal as $categoria => $paginas)
+                  @if ($categoria == '')
+                    @php
+                        $count++;
+                    @endphp
+                    @foreach ($paginas as $pagina)
+                        <li>
+                            <a 
+                                @if ($pagina['pub_url'])
+                                    href="{{ $pagina['pub_url'] }}"
+                                @else
+                                    href="{{ url('/pagina/'.$pagina['publicacao_id']) }}"
+                                @endif
+                            >
+                                {{ $pagina['pub_titulo'] }}
+                            </a>
+                        </li>
+                    @endforeach  
+                  @endif
+                @endforeach
+                  @else
+                  <li class="dropdown submenu">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                       aria-expanded="false">Mais</a>
                     <i class="fas fa-angle-down rotate-icon" aria-hidden="true" data-toggle="dropdown"></i>
@@ -250,7 +300,7 @@
                       @endforeach
                     </ul>
                   </li>
-
+                  @endif
                   <!-- <li>
                     @if (isset($configuracao['banner_home_img']) && 
                     isset($configuracao['banner_home_url']) && 
@@ -302,6 +352,14 @@
     <!--================End Home Banner Area =================-->
         <div class="inner-wrap clearfix">
             @yield('carousel-home')
+
+            <div vw class="enabled">
+              <div vw-access-button class="active"></div>
+              <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+              </div>
+            </div>
+
             <div class="main-content-section clearfix" style="min-height: 50vh">
                 <div id="primary">
                     <div id="content" class="clearfix">
@@ -428,9 +486,9 @@
 
           @if(!empty($configuracao['logo_indap']) && $configuracao['logo_indap'] == 'S')
               <div class="indap">
-                  <p class="footer-developed-by"> <span> Desenvolvido pela: </span> </p>
+                  <h6 class="footer-developed-by"> <span> Desenvolvido pela: </span> </h6>
                   <img src="{{ asset('images/logo-indap.png') }}" alt="Indap">
-                  <p><span>&copy {{ date('Y') }} INDAP | Sistemas e Prestação de serviços .<br> Todos os direitos reservados.</span></p>
+                  <h6><span>&copy {{ date('Y') }} INDAP | Sistemas e Prestação de serviços .<br> Todos os direitos reservados.</span></h6>
               </div>
           @endif
         </div>
@@ -505,6 +563,11 @@
          decimal: ".",
          thousands: ","
      });
+  </script>
+
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
   </script>
 
 </body>

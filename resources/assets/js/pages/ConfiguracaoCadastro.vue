@@ -65,7 +65,7 @@
                     <form-control :error="errors.logo">
                         <label for="logo_midia">Logotipo/Brasão *</label>
                         <div class="thumbnail thumbnail-preview" v-if="configuracao.logo">
-                            <img :src="baseUrl(configuracao.logo)" class="img-responsive" />
+                            <img :src="baseUrl(configuracao.logo)" height="300" width="150" class="img-responsive" />
                         </div>
                         <label for="logo_midia" class="btn btn-primary btn-sm">Selecionar imagem</label>
                         <input type="file" id="logo_midia" class="form-control" @change="onFileChange" accept="image/*" style="display: none" >
@@ -86,10 +86,10 @@
                         <textarea id="endereco" class="form-control" rows="3" v-model="configuracao.endereco"></textarea>
                     </form-control>
 
-                    <div class="form-group form-inline">                            
+<!--                     <div class="form-group form-inline">                            
                         <label for="cor" class="mr-1">Cor Primária do Portal:</label>
                         <input id="cor" type="color" class="form-control" style="width:50px" name="cor" v-model="configuracao.cor">
-                    </div>
+                    </div> -->
 
                     <hr>
 
@@ -182,7 +182,7 @@
 
                     <hr>
 
-                    <form-control :error="errors.banners">
+<!--                     <form-control :error="errors.banners">
                         <h4>Banners</h4>
 
                         <div class="panel panel-form">
@@ -190,11 +190,7 @@
                             <a class="btn btn-primary pull-right" :href="baseUrl('/painel/banner/cadastro/')">Adicionar</a>
                         </div>
 
-                        <!--
-                        <textarea id="banners" class="form-control" rows="6" v-model="configuracao.banners"></textarea>
-                        -->
-
-                    </form-control>
+                    </form-control> -->
 
                     <div class="form-group">
                         <div class="checkbox">

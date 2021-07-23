@@ -52,8 +52,10 @@
                 <div class="col-lg-4 todas {{ $stringCategorias }}">
                     <div class="small_l_blog_item">
                         <div class="l_blog_img">
-                          <img  width="370" height="200" src="{{ $noticia_img }}" alt="{{ $noticia['pub_titulo'] }}" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image"
+                            <div class='slideshow-wrapper'>
+                                <img  width="370" height="200" src="{{ $noticia_img }}" alt="{{ $noticia['pub_titulo'] }}" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image"
                                     alt="" />
+                            </div>
                         </div>
                         <div class="l_blog_text">
                           <div class="date">

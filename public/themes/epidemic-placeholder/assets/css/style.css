@@ -76,7 +76,9 @@ h1,
 h2,
 h3,
 h4,
-h5,
+h5 {
+  font-family: "Quicksand", sans-serif;
+}
 h6 {
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
@@ -3227,6 +3229,31 @@ button:focus {
 .small_l_blog_item .l_blog_img {
   border-radius: 20px;
   overflow: hidden;
+}
+
+.slideshow-wrapper {
+    position:relative;
+    float: left;
+}
+.title {
+    position: absolute;
+    color: #fff;
+    font-size: 25px;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 2;
+}
+.slideshow-wrapper:before {
+    content: '';
+    position:absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%);
+    z-index: 1;
 }
 
 .small_l_blog_item .l_blog_img img {

@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-
+    
     <!--================Home Latest Blog Area =================-->
     <section class="related_posts_area" style="padding-top: 75px; padding-bottom: 25px;">
 
@@ -27,9 +27,11 @@
           <div class="col-lg-8">
             <div class="big_l_blog_item">
               <div class="l_blog_img">
-                <img width="770" height="430" src="{{ $destaque_img }}"
+                <div class='slideshow-wrapper'>
+                  <img width="770" height="430" src="{{ $destaque_img }}"
                             class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image"
                             alt=""/>
+                </div>
               </div>
               <div class="l_blog_text">
                 <div class="date">
@@ -61,9 +63,10 @@
               @if (!$loop->first)
               <div class="small_l_blog_item">
                 <div class="l_blog_img">
-                  <!-- <img class="img-fluid" src="themes/epidemic-placeholder/assets/images/blog/latest-blog/l-blog-2.jpg" alt="" /> -->
-                  <img width="370" height="200" src="{{ $destaque_img }}" alt="{{ $destaque['pub_titulo'] }}" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image"
+                  <div class='slideshow-wrapper'>
+                    <img width="370" height="200" src="{{ $destaque_img }}" alt="{{ $destaque['pub_titulo'] }}" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image"
                             alt="" />
+                  </div>
                 </div>
                 <div class="l_blog_text">
                   <div class="date">
@@ -92,7 +95,7 @@
         <div class="tracker_text">
           <h5>Covid-19</h5>
           <h2>Vacinômetro</h2>
-          <!-- <p>Última atualização: {{ date('d/m/Y', strtotime($vacinometro['doses_recebidas']->updated_at )) }}</p> -->
+          <p>Última atualização: {{ date('d/m/Y', strtotime($vacinometro['doses_recebidas']->updated_at )) }}</p>
         </div>
         <div class="row tracker_inner">
           <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="300">
@@ -141,23 +144,49 @@
           </div>
         </div>
         <div class="tracker_btn">
-          <p>Última atualização: {{ date('d/m/Y', strtotime($vacinometro['doses_recebidas']->updated_at )) }}</p>
-
-          <!-- <a class="green_btn wow fadeInUp" data-wow-delay="500" href="#"><i class="linearicons-earth-lock"></i> See
-            Live
-            Track</a>
-            <div class="row tracker_text">
-              <div class="col-lg-6">
-               <h5>Homens:</h5>
-              </div>
-              <div class="col-lg-6">
-                 <h5>Mulheres:</h5>
-              </div>
-              
-            </div> -->
+          <div class="card">
+            <div class="card-header">
+              <h3>Classificação de vacinados</h3>
+            </div>
             
-            
-
+            <div class="row">
+              <div class="col-lg-4 justify-content-center align-self-center">
+                <ul class="list_style_common">
+                  <li><b>80 a 100 anos:</b> {{ $vacinometro['cem']->valor }}</li>
+                  <li><b>70 a 90 anos:</b> {{ $vacinometro['noventa']->valor }}</li>
+                  <li><b>60 a 80 anos:</b> {{ $vacinometro['oitenta']->valor }}</li>
+                  <li><b>50 a 70 anos:</b> {{ $vacinometro['setenta']->valor }}</li>
+                  <li><b>40 a 60 anos:</b> {{ $vacinometro['sessenta']->valor }}</li>
+                  <li><b>30 a 50 anos:</b> {{ $vacinometro['cinquenta']->valor }}</li>
+                  <li><b>20 a 40 anos:</b> {{ $vacinometro['quarenta']->valor }}</li>
+                  <li><b>10 a 30 anos:</b> {{ $vacinometro['trinta']->valor }}</li>
+                  <li><b>00 a 20 anos:</b> {{ $vacinometro['vinte']->valor }}</li>
+                </ul>
+                
+              </div>
+              <div class="col-lg-8 justify-content-center align-self-center"> 
+                <div class="row">
+                  <div class="col-lg-4">
+                    <h4><b>Homens:</b> {{ $vacinometro['homens']->valor }}</h4>
+                  </div>
+                  <div class="col-lg-4">
+                    <h4><b>Mulheres:</b> {{ $vacinometro['mulheres']->valor }}</h4>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-3">
+                    <h5>Adultos: {{ $vacinometro['adultos']->valor }}</h5>
+                  </div>
+                  <div class="col-lg-3">
+                    <h5>Adolescentes: {{ $vacinometro['adolescentes']->valor }}</h5>
+                  </div>
+                  <div class="col-lg-3">
+                    <h5>Crianças: {{ $vacinometro['criancas']->valor }}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1059,7 +1088,7 @@
               <div class="col-sm-3 wow fadeInUp" data-wow-delay="400ms">
                 <div class="prevent_item">
                   <div class="prevent_img">
-                    <img class="img-fluid" src="themes/epidemic-placeholder/assets/images/prevent/prevent-1.png" alt="" />
+                    <img class="img-fluid" src="themes/epidemic-placeholder/assets/images/prevencao-mascara.png" alt="" />
                   </div>
                   <div class="prevent_text" style="background: white;">
                     <h4>Use máscaras em locais públicos</h4>
@@ -1069,7 +1098,7 @@
               <div class="col-sm-3 wow fadeInUp" data-wow-delay="500ms">
                 <div class="prevent_item">
                   <div class="prevent_img">
-                    <img class="img-fluid" src="themes/epidemic-placeholder/assets/images/prevent/prevent-2.png" alt="" />
+                    <img class="img-fluid" src="themes/epidemic-placeholder/assets/images/distancia-segura.png" alt="" />
                   </div>
                   <div class="prevent_text" style="background: white;">
                     <h4>Mantenha uma distância segura</h4>
@@ -1079,7 +1108,7 @@
               <div class="col-sm-3 wow fadeInUp" data-wow-delay="600ms">
                 <div class="prevent_item">
                   <div class="prevent_img">
-                    <img class="img-fluid" src="themes/epidemic-placeholder/assets/images/prevent/prevent-3.png" alt="" />
+                    <img class="img-fluid" src="themes/epidemic-placeholder/assets/images/Nao-toque-rosto.png" alt="" />
                   </div>
                   <div class="prevent_text" style="background: white;">
                     <h4>Não toque nos olhos no nariz ou na boca</h4>
@@ -1089,7 +1118,7 @@
               <div class="col-sm-3 wow fadeInUp" data-wow-delay="700ms">
                 <div class="prevent_item">
                   <div class="prevent_img">
-                    <img class="img-fluid" src="themes/epidemic-placeholder/assets/images/prevent/prevent-4.png" alt="" />
+                    <img class="img-fluid" src="themes/epidemic-placeholder/assets/images/ficar-casa.png" alt="" />
                   </div>
                   <div class="prevent_text" style="background: white;">
                     <h4>Fique em casa se você se sentir indisposto</h4>

@@ -13,11 +13,6 @@
         <div class="panel panel-form">
             <div class="panel-body">
                 <form role="form" accept-charset="UTF-8" @submit.prevent="save">
-                    <form-control :error="errors.doc_numero_processo">
-                        <label for="doc_numero_processo">Número do Processo</label>
-                        <input type="text" id="doc_numero_processo" class="form-control" v-model="documento.doc_numero_processo">
-                    </form-control>
-
                     <form-control :error="errors.tipo_processo_id">
                         <label for="tipo_processo_id">Tipo de Processo</label>
                         <select id="tipo_processo_id" class="form-control" v-model="documento.tipo_processo_id">
@@ -27,6 +22,11 @@
                             </template>
                         </select>
                     </form-control>
+                    
+                    <form-control :error="errors.doc_numero_processo">
+                        <label for="doc_numero_processo">Número do Processo</label>
+                        <input type="text" id="doc_numero_processo" class="form-control" v-model="documento.doc_numero_processo">
+                    </form-control>
 
                     <div class="row" v-for="(item, index) in anexos">
                         <div class="col-sm-3">
@@ -35,7 +35,10 @@
                                 <input type="date" :id="'dan_data_documento_'+(index+1)" class="form-control" v-model="item.dan_data_documento">
                             </form-control>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-3 form-group" v-if="documento.tipo_processo_id != '3' &&
+                             documento.tipo_processo_id != '4' &&
+                             documento.tipo_processo_id != '5' &&
+                             documento.tipo_processo_id != '6' ">
                             <form-control :error="errors['tipo_categoria_processo_id_'+(index+1)]">
                                 <label :for="'tipo_categoria_processo_id_'+(index+1)">Categoria do Processo</label>
                                 <select :id="'tipo_categoria_processo_id_'+(index+1)" class="form-control" v-model="item.tipo_categoria_processo_id">
@@ -72,15 +75,17 @@
                         <button type="button" class="btn btn-success" @click="addArquivo">Adicionar outro arquivo</button>
                     </div>
 
-                    <span>Campos Específicos:</span>
                     <form-control v-if="documento.tipo_processo_id == '3' || documento.tipo_processo_id == '4' ||
                         documento.tipo_processo_id == '5' ||
                         documento.tipo_processo_id == '6' " :error="errors.descricao">
+                        <span>Campos Específicos:</span><br>
+
                         <label for="descricao">Descrição</label>
                         <textarea type="text" id="descricao" class="form-control"v-model="camposEspecificos.descricao"></textarea>
                     </form-control>
 
                     <div class="form-group" v-if="documento.tipo_processo_id == '1'">
+                        <span>Campos Específicos:</span><br>
                         <div class="row">
                             <div class="col-sm-4">
                                 <form-control>
@@ -183,6 +188,7 @@
                     </div>
 
                     <div class="form-group" v-if="documento.tipo_processo_id == '2'">
+                        <span>Campos Específicos:</span><br>
                         <div class="row">
                             <div class="col-sm-4">
                                 <form-control>
@@ -291,6 +297,7 @@
                     </div>
 
                     <div class="form-group" v-if="documento.tipo_processo_id == '7'">
+                        <span>Campos Específicos:</span><br>
                         <div class="row">
                             <div class="col-sm-4">
                                 <form-control>
@@ -495,6 +502,15 @@
 
                 if(!this.resource) {
                     for (var i in this.anexos) {
+
+                        if(this.documento.tipo_processo_id == '3' ||
+                            this.documento.tipo_processo_id == '4' ||
+                            this.documento.tipo_processo_id == '5' ||
+                            this.documento.tipo_processo_id == '6' )
+                        {
+                            this.anexos[i].tipo_categoria_processo_id = 20;   
+                        }
+
                         data.append('dan_data_documento_' + (parseInt(i) + 1), this.anexos[i].dan_data_documento);
                         data.append('tipo_categoria_processo_id_' + (parseInt(i) + 1), this.anexos[i].tipo_categoria_processo_id);
                         data.append('doc_arquivo_' + (parseInt(i) + 1), this.anexos[i].doc_arquivo);
