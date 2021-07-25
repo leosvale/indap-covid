@@ -269,7 +269,7 @@
                               $count++;
                           @endphp
                           <li class="dropdown submenu">
-                            <a class="dropdown-toggle" data-toggle="dropdown"role="button"  aria-haspopup="true" aria-expanded="false">{{$categoria}} <i class="fas fa-angle-right rotate-icon" aria-hidden="true" data-toggle="dropdown"></i></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown"role="button"  aria-haspopup="true" aria-expanded="false">{{$categoria}} <i class="fas fa-angle-left rotate-icon" aria-hidden="true" data-toggle="dropdown"></i></a>
                             <ul class="dropdown-menu">
                             @foreach ($paginas as $pagina)  
                               <li>

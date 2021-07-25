@@ -140,9 +140,9 @@ class VacinometroController extends Controller
               ]);
 
             DB::table('vacinometro')
-              ->where('campo', '=', 'crianca')
+              ->where('campo', '=', 'criancas')
               ->update([
-              	'valor' => $request->input('crianca'),
+              	'valor' => $request->input('criancas'),
               	'updated_at' => \Carbon\Carbon::now()
               ]);
 

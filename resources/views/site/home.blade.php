@@ -150,7 +150,7 @@
             </div>
             
             <div class="row">
-              <div class="col-lg-4 justify-content-center align-self-center">
+              <div class="col-lg-3 justify-content-center align-self-center">
                 <ul class="list_style_common">
                   <li><b>80 a 100 anos:</b> {{ $vacinometro['cem']->valor }}</li>
                   <li><b>70 a 90 anos:</b> {{ $vacinometro['noventa']->valor }}</li>
@@ -164,7 +164,7 @@
                 </ul>
                 
               </div>
-              <div class="col-lg-8 justify-content-center align-self-center"> 
+              <div class="col-lg-9 justify-content-center align-self-center"> 
                 <div class="row">
                   <div class="col-lg-4">
                     <h4><b>Homens:</b> {{ $vacinometro['homens']->valor }}</h4>
