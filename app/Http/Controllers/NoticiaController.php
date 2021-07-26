@@ -328,7 +328,9 @@ class NoticiaController extends Controller
 	 */
 	public function destroy(Request $request, $id)
 	{
-		$noticia = Publicacao::where('pub_tipo', 'NOT')->findOrFail($id);
+		$noticia = Publicacao::where('pub_tipo', 'NOT')
+                                ->orWhere('pub_tipo', 'BOL')
+                                ->findOrFail($id);
 
 		if($noticia->pub_fixa == 'S') {
 			return $this->error('Não é possível remover uma publicação fixa. Para ocultá-la altere seu Status para Rascunho.', 400);
