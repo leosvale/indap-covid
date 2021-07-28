@@ -70,55 +70,55 @@
                         </div>
                         <div class="col-md-6">
                             <form-control :error="errors.cem_anos">
-                                <label for="cem_anos">100 anos</label>
+                                <label for="cem_anos">80 a 100 anos</label>
                                 <input id="cem_anos" type="text" class="form-control" name="cem_anos" v-model="vacinometro.cem_anos">
                             </form-control>
                         </div>
                         <div class="col-md-6">
                             <form-control :error="errors.noventa_anos">
-                                <label for="noventa_anos">90 anos</label>
+                                <label for="noventa_anos">70 a 90 anos</label>
                                 <input id="noventa_anos" type="text" class="form-control" name="noventa_anos" v-model="vacinometro.noventa_anos">
                             </form-control>
                         </div>
                         <div class="col-md-6">
                             <form-control :error="errors.oitenta_anos">
-                                <label for="oitenta_anos">80 anos</label>
+                                <label for="oitenta_anos">60 a 80 anos</label>
                                 <input id="oitenta_anos" type="text" class="form-control" name="oitenta_anos" v-model="vacinometro.oitenta_anos">
                             </form-control>
                         </div>
                         <div class="col-md-6">
                             <form-control :error="errors.setenta_anos">
-                                <label for="setenta_anos">70 anos</label>
+                                <label for="setenta_anos">50 a 70 anos</label>
                                 <input id="setenta_anos" type="text" class="form-control" name="setenta_anos" v-model="vacinometro.setenta_anos">
                             </form-control>
                         </div>
                         <div class="col-md-6">
                             <form-control :error="errors.sessenta_anos">
-                                <label for="sessenta_anos">60 anos</label>
+                                <label for="sessenta_anos">40 a 60 anos</label>
                                 <input id="sessenta_anos" type="text" class="form-control" name="sessenta_anos" v-model="vacinometro.sessenta_anos">
                             </form-control>
                         </div>
                         <div class="col-md-6">
                             <form-control :error="errors.cinquenta_anos">
-                                <label for="cinquenta_anos">50 anos</label>
+                                <label for="cinquenta_anos">30 a 50 anos</label>
                                 <input id="cinquenta_anos" type="text" class="form-control" name="cinquenta_anos" v-model="vacinometro.cinquenta_anos">
                             </form-control>
                         </div>
                         <div class="col-md-6">
                             <form-control :error="errors.quarenta_anos">
-                                <label for="quarenta_anos">40 anos</label>
+                                <label for="quarenta_anos">20 a 40 anos</label>
                                 <input id="quarenta_anos" type="text" class="form-control" name="quarenta_anos" v-model="vacinometro.quarenta_anos">
                             </form-control>
                         </div>
                         <div class="col-md-6">
                             <form-control :error="errors.trinta_anos">
-                                <label for="trinta_anos">30 anos</label>
+                                <label for="trinta_anos">10 a 30 anos</label>
                                 <input id="trinta_anos" type="text" class="form-control" name="trinta_anos" v-model="vacinometro.trinta_anos">
                             </form-control>
                         </div>
                         <div class="col-md-6">
                             <form-control :error="errors.vinte_anos">
-                                <label for="vinte_anos">20 anos</label>
+                                <label for="vinte_anos">00 a 20 anos</label>
                                 <input id="vinte_anos" type="text" class="form-control" name="vinte_anos" v-model="vacinometro.vinte_anos">
                             </form-control>
                         </div>
