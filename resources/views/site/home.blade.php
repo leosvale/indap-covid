@@ -1004,7 +1004,7 @@
                             </li>
 
                             <!-- Modal -->
-                            <form method="get" action="{{ url('licitacoes/baixar/'.$contrato[0]['documento_id'] ) }}" target="_blank">
+                            <form method="get" action="{{ url('licitacoes/baixar/'.$lei[0]['documento_id'] ) }}" target="_blank">
                               <div class="modal fade" id="lei{{ $lei[0]['documento_id'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                   <div class="modal-content">
