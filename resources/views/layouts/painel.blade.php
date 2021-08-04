@@ -103,7 +103,7 @@
                             @endif
 
                             @if (Auth::user()->privilegio_ouvidoria || Auth::user()->usu_administrador == 'S')
-                                <li><a href="{{ url('/painel/vacinometro') }}">Vacinômetro</a></li>
+                                <li><a href="{{ url('/painel/vacinometro') }}">Vacinômetro e Boletim</a></li>
                             @endif
 
                             <li><a href="{{ url('/painel/configuracoes') }}">Configurações</a></li>

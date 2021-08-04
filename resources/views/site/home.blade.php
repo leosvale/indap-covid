@@ -89,18 +89,18 @@
     <!--================End Home Latest Blog Area =================-->
 
     <!--================Worldwide Tracker Area =================-->
-    <section class="world_wide_tracker pad_top" style="padding-top: 25px; padding-bottom: 25px;">
+    <section class="world_wide_tracker pad_top" style="padding-top: 0px; padding-bottom: 25px;">
       <div class="container">
-        <img class="tracker_map" src="themes/epidemic-placeholder/assets/images/tracker-map-bg.png" alt="" />
+        <!-- <img class="tracker_map" src="themes/epidemic-placeholder/assets/images/tracker-map-bg.png" alt="" /> -->
         <div class="tracker_text">
           <h5>Covid-19</h5>
           <h2>Vacinômetro</h2>
-          <p>Última atualização: {{ date('d/m/Y', strtotime($vacinometro['doses_recebidas']->updated_at )) }}</p>
+          <p>Última atualização: {{ date('d/m/Y - H:m', strtotime($vacinometro['doses_recebidas']->updated_at )) }}</p>
         </div>
         <div class="row tracker_inner">
-          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="300">
+          <div style="width:20%" data-wow-delay="300">
             <div class="media">
-              <div class="d-flex">
+              <div class="d-flex text-center">
                 <img height="80" width="80" src="themes/epidemic-placeholder/assets/images/icon/syringe_full.png" alt="" />
               </div>
               <div class="media-body">
@@ -109,9 +109,9 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="400">
+          <div style="width:20%" data-wow-delay="400">
             <div class="media">
-              <div class="d-flex">
+              <div class="d-flex justify-content-center">
                 <img height="80" width="80" src="themes/epidemic-placeholder/assets/images/icon/syringe_empty.png" alt="" />
               </div>
               <div class="media-body">
@@ -120,9 +120,9 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="500">
+          <div style="width:20%" data-wow-delay="500">
             <div class="media">
-              <div class="d-flex">
+              <div class="d-flex justify-content-center">
                 <img height="80" width="80" src="themes/epidemic-placeholder/assets/images/icon/syringe_full.png" alt="" />
               </div>
               <div class="media-body">
@@ -131,9 +131,9 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="600">
+          <div style="width:20%" data-wow-delay="600">
             <div class="media">
-              <div class="d-flex">
+              <div class="d-flex justify-content-center">
                 <img height="80" width="80" src="themes/epidemic-placeholder/assets/images/icon/syringe_empty.png" alt=""/>
               </div>
               <div class="media-body">
@@ -142,51 +142,79 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="tracker_btn">
-          <div class="card">
-            <div class="card-header">
-              <h3>Classificação de vacinados</h3>
-            </div>
-            
-            <div class="row">
-              <div class="col-lg-3 justify-content-center align-self-center">
-                <ul class="list_style_common">
-                  <li><b>80 a 100 anos:</b> {{ $vacinometro['cem']->valor }}</li>
-                  <li><b>70 a 90 anos:</b> {{ $vacinometro['noventa']->valor }}</li>
-                  <li><b>60 a 80 anos:</b> {{ $vacinometro['oitenta']->valor }}</li>
-                  <li><b>50 a 70 anos:</b> {{ $vacinometro['setenta']->valor }}</li>
-                  <li><b>40 a 60 anos:</b> {{ $vacinometro['sessenta']->valor }}</li>
-                  <li><b>30 a 50 anos:</b> {{ $vacinometro['cinquenta']->valor }}</li>
-                  <li><b>20 a 40 anos:</b> {{ $vacinometro['quarenta']->valor }}</li>
-                  <li><b>10 a 30 anos:</b> {{ $vacinometro['trinta']->valor }}</li>
-                  <li><b>00 a 20 anos:</b> {{ $vacinometro['vinte']->valor }}</li>
-                </ul>
-                
+          <div style="width:20%" data-wow-delay="500">
+            <div class="media">
+              <div class="d-flex justify-content-center">
+                <img height="80" width="80" src="themes/epidemic-placeholder/assets/images/icon/syringe_full.png" alt="" />
               </div>
-              <div class="col-lg-9 justify-content-center align-self-center"> 
-                <div class="row">
-                  <div class="col-lg-4">
-                    <h4><b>Homens:</b> {{ $vacinometro['homens']->valor }}</h4>
-                  </div>
-                  <div class="col-lg-4">
-                    <h4><b>Mulheres:</b> {{ $vacinometro['mulheres']->valor }}</h4>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-3">
-                    <h5>Adultos: {{ $vacinometro['adultos']->valor }}</h5>
-                  </div>
-                  <div class="col-lg-3">
-                    <h5>Adolescentes: {{ $vacinometro['adolescentes']->valor }}</h5>
-                  </div>
-                  <div class="col-lg-3">
-                    <h5>Crianças: {{ $vacinometro['criancas']->valor }}</h5>
-                  </div>
-                </div>
+              <div class="media-body">
+                <h2>{{ $vacinometro['dose_unica']->valor }}</h2>
+                <p>Doses Únicas</p>
               </div>
             </div>
           </div>
+        </div>
+        <div class="tracker_btn">
+          <div class="row answer_inner">
+          <div class="col-lg-12">
+            <div class="question_list">
+
+              <!---------- Inicio Accordion ---------------->
+              <div class="accordion" id="accordionVacinometro">
+                <div class="card">
+                  <div class="card-header">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                            data-target="#collapseVacinometro" aria-expanded="false" aria-controls="collapseVacinometro">
+                      Classificação de vacinados
+                    </button>
+                  </div>
+                  <div id="collapseVacinometro" class="collapse" aria-labelledby="headingVacinometro" data-parent="#accordionVacinometro">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-lg-3 justify-content-center align-self-center">
+                          <ul class="list_style_common">
+                            <li><b>80 a 100 anos:</b> {{ $vacinometro['cem']->valor }}</li>
+                            <li><b>70 a 90 anos:</b> {{ $vacinometro['noventa']->valor }}</li>
+                            <li><b>60 a 80 anos:</b> {{ $vacinometro['oitenta']->valor }}</li>
+                            <li><b>50 a 70 anos:</b> {{ $vacinometro['setenta']->valor }}</li>
+                            <li><b>40 a 60 anos:</b> {{ $vacinometro['sessenta']->valor }}</li>
+                            <li><b>30 a 50 anos:</b> {{ $vacinometro['cinquenta']->valor }}</li>
+                            <li><b>20 a 40 anos:</b> {{ $vacinometro['quarenta']->valor }}</li>
+                            <li><b>10 a 30 anos:</b> {{ $vacinometro['trinta']->valor }}</li>
+                            <li><b>00 a 20 anos:</b> {{ $vacinometro['vinte']->valor }}</li>
+                          </ul> 
+                        </div>
+                        <div class="col-lg-9 justify-content-center align-self-center"> 
+                          <div class="row">
+                            <div class="col-lg-4">
+                              <h4><b>Homens:</b> {{ $vacinometro['homens']->valor }}</h4>
+                            </div>
+                            <div class="col-lg-4">
+                              <h4><b>Mulheres:</b> {{ $vacinometro['mulheres']->valor }}</h4>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-3">
+                              <h5>Adultos: {{ $vacinometro['adultos']->valor }}</h5>
+                            </div>
+                            <div class="col-lg-3">
+                              <h5>Adolescentes: {{ $vacinometro['adolescentes']->valor }}</h5>
+                            </div>
+                            <div class="col-lg-3">
+                              <h5>Crianças: {{ $vacinometro['criancas']->valor }}</h5>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!----------- Final Accordion ------------------------->
+
+            </div>
+          </div>
+        </div>
         </div>
       </div>
     </section>
@@ -903,14 +931,124 @@
     <!--================End Protect Yourself Area =================-->
 
     <!--================Home Latest Blog Area =================-->
-    <section class="home_latest_blog_area" style="padding-bottom: 25px;">
-      @if ($boletins)
+    <section class="world_wide_tracker pad_top" style="padding-top: 75px; padding-bottom: 25px;">
       <div class="container">
         <div class="main_title text-center">
-          <br>
-          <h2>Boletins Informativos</h2>
+          <h2>Boletim Epidemiológico</h2>
+          <p><b>Última atualização:</b> {{ date('d/m/Y - H:m', strtotime($boletim_epidemiologico['casos_ativos']->updated_at )) }} /
+          <b>Fonte:</b> {{ $boletim_epidemiologico['casos_ativos']->fonte }}</p>
         </div>
-        
+
+        <div class="row tracker_inner" style="padding-bottom: 75px;">
+          <div class="col-lg-4 col-6 wow fadeIn" data-wow-delay="300">
+            <div class="media">
+              <div class="d-flex">
+                <img src="themes/epidemic-placeholder/assets/images/icon/corona-red-1.png" alt="" />
+              </div>
+              <div class="media-body">
+                <h2>{{ $boletim_epidemiologico['casos_ativos']->valor }}</h2>
+                <p>Casos Ativos</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-6 wow fadeIn" data-wow-delay="400">
+            <div class="media">
+              <div class="d-flex">
+                <img src="themes/epidemic-placeholder/assets/images/icon/corona-green-1.png" alt="" />
+              </div>
+              <div class="media-body">
+                <h2>{{ $boletim_epidemiologico['casos_curados']->valor }}</h2>
+                <p>Casos Curados</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-6 wow fadeIn" data-wow-delay="500">
+            <div class="media">
+              <div class="d-flex">
+                <img src="themes/epidemic-placeholder/assets/images/icon/corona-yellow-1.png" alt="" />
+              </div>
+              <div class="media-body">
+                <h2>{{ $boletim_epidemiologico['casos_aguardando_resultado']->valor }}</h2>
+                <p>Casos Aguardando resultado</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row tracker_inner" style="padding-bottom: 75px;">
+          <div class="col-lg-4 col-6 wow fadeIn" data-wow-delay="400">
+            <div class="media">
+              <div class="d-flex">
+                <img src="themes/epidemic-placeholder/assets/images/icon/corona-black-1.png" alt="" />
+              </div>
+              <div class="media-body">
+                <h2>{{ $boletim_epidemiologico['casos_confirmados']->valor }}</h2>
+                <p>Casos Confirmados</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-6 wow fadeIn" data-wow-delay="500">
+            <div class="media">
+              <div class="d-flex">
+                <img src="themes/epidemic-placeholder/assets/images/icon/corona-green-1.png" alt="" />
+              </div>
+              <div class="media-body">
+                <h2>{{ $boletim_epidemiologico['resultados_negativos']->valor }}</h2>
+                <p>Resultados Negativos</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-6 wow fadeIn" data-wow-delay="600">
+            <div class="media">
+              <div class="d-flex">
+                <img src="themes/epidemic-placeholder/assets/images/icon/corona-yellow-1.png" alt="" />
+              </div>
+              <div class="media-body">
+                <h2>{{ $boletim_epidemiologico['exames_realizados']->valor }}</h2>
+                <p>Exames Realizados</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row tracker_inner" style="padding-bottom: 75px;">
+          <div class="col-lg-4 col-6 wow fadeIn" data-wow-delay="400">
+            <div class="media">
+              <div class="d-flex">
+                <img src="themes/epidemic-placeholder/assets/images/icon/corona-black-1.png" alt="" />
+              </div>
+              <div class="media-body">
+                <h2>{{ $boletim_epidemiologico['obitos']->valor }}</h2>
+                <p>Óbitos</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-8 col-6 wow fadeIn" data-wow-delay="500">
+            <div class="card">
+              <div class="card-header text-center">
+                <label>
+                  <b>Dados do dia</b> {{ date('d/m/Y - H:m', strtotime($boletim_epidemiologico['casos_ativos_do_dia']->updated_at )) }}
+                </label>
+
+              </div>
+              <div class="card-body">
+                <div class="col-lg-12 text-center">
+                  <h4>Casos Ativos: 
+                    <b>{{ $boletim_epidemiologico['casos_ativos_do_dia']->valor }}</b>
+                  </h4>
+                  <h4>Casos Curados:
+                    <b>{{ $boletim_epidemiologico['casos_curados_do_dia']->valor }}</b>
+                  </h4>
+                  <h4>Óbitos:
+                    <b>{{ $boletim_epidemiologico['obitos_do_dia']->valor }}</b>
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        @if ($boletins)
         <div class="row prevent_inner">
           @foreach($boletins as $boletim)
 
@@ -1029,7 +1167,7 @@
                                         <h3>
                                             @php $id2 = $anexo['anexo_id']; @endphp
                                             <a class="text_btn" role="button" data-toggle="collapse" href="#anexo-{{ $id2 }}" aria-expanded="false" aria-controls="anexo-{{ $id2 }}">
-                                                {{ date('d/m/Y', strtotime($anexo['dan_data_documento'])) }} - {{ $categorias[$anexo['tipo_categoria_processo_id']] }}<i class="fas fa-angle-down rotate-icon"></i>
+                                                {{ date('d/m/Y', strtotime($anexo['dan_data_documento'])) }}<i class="fas fa-angle-down rotate-icon"></i>
                                             </a>
                                             <div class="collapse category-content" id="anexo-{{ $id2 }}">
                                               <a class="btn btn-link" href="{{ url('processo/anexo/'.$anexo['anexo_id']) }}" target="_blank">

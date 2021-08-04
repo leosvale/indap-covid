@@ -100,6 +100,8 @@ class SiteController extends Controller
 		$doses_aplicadas = DB::table('vacinometro')->where('campo', '=', 'doses_aplicadas')->first();
 		$primeira_dose = DB::table('vacinometro')->where('campo', '=', 'primeira_dose')->first();
 		$segunda_dose = DB::table('vacinometro')->where('campo', '=', 'segunda_dose')->first();
+
+		$dose_unica = DB::table('vacinometro')->where('campo', '=', 'dose_unica')->first();
 		
 		$homens = DB::table('vacinometro')->where('campo', '=', 'homens')->first();
 		
@@ -134,6 +136,7 @@ class SiteController extends Controller
 			'doses_aplicadas' => $doses_aplicadas, 
 			'primeira_dose' => $primeira_dose, 
 			'segunda_dose' => $segunda_dose,
+			'dose_unica' => $dose_unica,
 			'homens' => $homens,
 			'mulheres' => $mulheres,
 			'adultos' => $adultos,
@@ -151,6 +154,32 @@ class SiteController extends Controller
 		];
 
 		$this->data['vacinometro'] = $vacinometro;
+
+		$casos_ativos = DB::table('boletim')->where('campo', '=', 'casos_ativos')->first();
+	    $casos_curados = DB::table('boletim')->where('campo', '=', 'casos_curados')->first();
+	    $casos_aguardando_resultado = DB::table('boletim')->where('campo', '=', 'casos_aguardando_resultado')->first();
+	    $casos_confirmados = DB::table('boletim')->where('campo', '=', 'casos_confirmados')->first();
+	    $resultados_negativos = DB::table('boletim')->where('campo', '=', 'resultados_negativos')->first();
+	    $exames_realizados = DB::table('boletim')->where('campo', '=', 'exames_realizados')->first();
+	    $obitos = DB::table('boletim')->where('campo', '=', 'obitos')->first();
+	    $casos_ativos_do_dia = DB::table('boletim')->where('campo', '=', 'casos_ativos_do_dia')->first();
+	    $casos_curados_do_dia = DB::table('boletim')->where('campo', '=', 'casos_curados_do_dia')->first();
+	    $obitos_do_dia = DB::table('boletim')->where('campo', '=', 'obitos_do_dia')->first();
+
+	    $boletim_epidemiologico = [
+	      'casos_ativos' => $casos_ativos, 
+	      'casos_curados' => $casos_curados, 
+	      'casos_aguardando_resultado' => $casos_aguardando_resultado, 
+	      'casos_confirmados' => $casos_confirmados,
+	      'resultados_negativos' => $resultados_negativos,
+	      'exames_realizados' => $exames_realizados,
+	      'obitos' => $obitos,
+	      'casos_ativos_do_dia' => $casos_ativos_do_dia,
+	      'casos_curados_do_dia' => $casos_curados_do_dia,
+	      'obitos_do_dia' => $obitos_do_dia
+	    ];
+
+	    $this->data['boletim_epidemiologico'] = $boletim_epidemiologico;
 
 		// Buscar documentos
 		// ==============================
