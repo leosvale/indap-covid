@@ -29,7 +29,7 @@
               <div class="l_blog_img">
                 <div class='slideshow-wrapper'>
                   <img style="width: 770px; height: 430px;" src="{{ $destaque_img }}"
-                            class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image"
+                            class="img-fluid"
                             alt=""/>
                 </div>
               </div>

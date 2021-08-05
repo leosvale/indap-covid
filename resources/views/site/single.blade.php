@@ -40,7 +40,7 @@
                         @if (isset($noticia['pub_midia_g']))
                             <div class="featured-image">
                                 <a href="{{ $noticia['pub_midia_g'] }}" class="image-popup">
-                                    <img width="840" height="456" src="{{ $noticia['pub_midia_g'] }}" alt="{{ $noticia['pub_titulo'] }}" class="attachment-colormag-featured-image size-colormag-featured-image wp-post-image">
+                                    <img style="width: 840; height: 456;"  src="{{ $noticia['pub_midia_g'] }}" alt="{{ $noticia['pub_titulo'] }}" class="img-fluid">
                                 </a>
                             </div>
                         @endif

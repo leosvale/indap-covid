@@ -1745,3 +1745,7 @@
     font-size: 13px;
   }
 }
+
+.darkmode-layer, .darkmode-toggle {
+  z-index: 500;
+}

@@ -46,6 +46,7 @@
           <li><a href="{{ url('/boletins') }}">Boletins</a></li>
           <li><a href="{{ url('/licitacoes') }}">Licitações e Contratos</a></li>
           <li><a href="{{ url('/ouvidoria') }}">Ouvidoria</a></li>
+          <li><a href="{{ url('/acessibilidade') }}">Acessibilidade</a></li>
         </ul>
       </div>
     </div>
@@ -113,7 +114,7 @@
                         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{$count}}"
                           aria-expanded="false" aria-controls="collapse{{$count}}">
                           {{$categoria}}
-                          <i class="linearicons-chevron-down"></i>
+                          <i class="fas fa-angle-down rotate-icon" aria-hidden="true" data-toggle="dropdown"></i>
                         </button>
                       </div>
 
@@ -193,126 +194,76 @@
                 <li><a href="{{ url('/boletins') }}">Boletins</a></li>
                 <li><a href="{{ url('/licitacoes') }}">Licitações e Contratos</a></li>
                 <li><a href="{{ url('/ouvidoria') }}">Ouvidoria</a></li>
-                @if( count($menu_principal) + count($menu_principal['']) - 2 < 4)
-                  @php
-                      $count = 0;
-                  @endphp
-                  @foreach ($menu_principal as $categoria => $paginas)
-                    @if ($categoria != '')
-                      @php
-                          $count++;
-                      @endphp
-                      <li class="dropdown submenu">
-                        <a class="dropdown-toggle" data-toggle="dropdown"role="button"  aria-haspopup="true" aria-expanded="false">{{$categoria}} <i class="fas fa-angle-down rotate-icon" aria-hidden="true" data-toggle="dropdown"></i></a>
-                        <ul class="dropdown-menu">
-                        @foreach ($paginas as $pagina)  
-                          <li>
-                            <a title="{{ $pagina['pub_titulo'] }}" 
-                                rel="noopener noreferrer"
-                                @if ($pagina['pub_url'])
-                                    href="{{ $pagina['pub_url'] }}"
-                                @else
-                                    href="{{ url('/pagina/'.$pagina['publicacao_id']) }}"
-                                @endif
-                            >
-                              {{ $pagina['pub_titulo'] }}
-                            </a>
-                          </li>
-                        @endforeach
-                        </ul>
-                      </li>
-                    @endif
-                  @endforeach 
-                  @foreach ($menu_principal as $categoria => $paginas)
-                    @if ($categoria == '')
-                      @php
-                          $count++;
-                      @endphp
-                      @foreach ($paginas as $pagina)
-                          <li>
-                              <a 
+                <li><a href="{{ url('/acessibilidade') }}">Acessibilidade</a></li>
+                <li>
+                    <a 
+                        @if ($menu_principal[''][0]['pub_url'] )
+                            href="{{ $menu_principal[''][0]['pub_url'] }}"
+                        @else
+                            href="{{ url('/pagina/'.$menu_principal[''][0]['publicacao_id']) }}"
+                        @endif
+                    >
+                        {{ $menu_principal[''][0]['pub_titulo'] }}
+                    </a>
+                </li>
+                <li class="dropdown submenu">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                    aria-expanded="false">Mais</a>
+                  <i class="fas fa-angle-down rotate-icon" aria-hidden="true" data-toggle="dropdown"></i>
+                  <ul class="dropdown-menu">
+                    @php
+                        $count = 0;
+                    @endphp
+                    @foreach ($menu_principal as $categoria => $paginas)
+                      @if ($categoria != '')
+                        @php
+                            $count++;
+                        @endphp
+                        <li class="dropdown submenu">
+                          <a class="dropdown-toggle" data-toggle="dropdown"role="button"  aria-haspopup="true" aria-expanded="false">{{$categoria}} <i class="fas fa-angle-left rotate-icon" aria-hidden="true" data-toggle="dropdown"></i></a>
+                          <ul class="dropdown-menu">
+                          @foreach ($paginas as $pagina)  
+                            <li>
+                              <a title="{{ $pagina['pub_titulo'] }}" 
+                                  rel="noopener noreferrer"
                                   @if ($pagina['pub_url'])
                                       href="{{ $pagina['pub_url'] }}"
                                   @else
                                       href="{{ url('/pagina/'.$pagina['publicacao_id']) }}"
                                   @endif
                               >
-                                  {{ $pagina['pub_titulo'] }}
-                              </a>
-                          </li>
-                      @endforeach  
-                    @endif
-                  @endforeach
-                @else
-                  <li>
-                      <a 
-                          @if ($pagina['pub_url'])
-                              href="{{ $pagina['pub_url'] }}"
-                          @else
-                              href="{{ url('/pagina/'.$pagina['publicacao_id']) }}"
-                          @endif
-                      >
-                          {{ $menu_principal[''][0]['pub_titulo'] }}
-                      </a>
-                  </li>
-                  <li class="dropdown submenu">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                      aria-expanded="false">Mais</a>
-                    <i class="fas fa-angle-down rotate-icon" aria-hidden="true" data-toggle="dropdown"></i>
-                    <ul class="dropdown-menu">
-                      @php
-                          $count = 0;
-                      @endphp
-                      @foreach ($menu_principal as $categoria => $paginas)
-                        @if ($categoria != '')
-                          @php
-                              $count++;
-                          @endphp
-                          <li class="dropdown submenu">
-                            <a class="dropdown-toggle" data-toggle="dropdown"role="button"  aria-haspopup="true" aria-expanded="false">{{$categoria}} <i class="fas fa-angle-left rotate-icon" aria-hidden="true" data-toggle="dropdown"></i></a>
-                            <ul class="dropdown-menu">
-                            @foreach ($paginas as $pagina)  
-                              <li>
-                                <a title="{{ $pagina['pub_titulo'] }}" 
-                                    rel="noopener noreferrer"
-                                    @if ($pagina['pub_url'])
-                                        href="{{ $pagina['pub_url'] }}"
-                                    @else
-                                        href="{{ url('/pagina/'.$pagina['publicacao_id']) }}"
-                                    @endif
-                                >
-                                  {{ $pagina['pub_titulo'] }}
-                                </a>
-                              </li>
-                            @endforeach
-                            </ul>
-                          </li>
-                        @endif
-                      @endforeach 
-                      @foreach ($menu_principal as $categoria => $paginas)
-                        @if ($categoria == '')
-                          @php
-                              $count++;
-                          @endphp
-                          @for ($i = 1; $i < count($paginas); $i++)
-                            <li>
-                              <a title="{{ $paginas[$i]['pub_titulo'] }}" 
-                                  rel="noopener noreferrer"
-                                  @if ($paginas[$i]['pub_url'])
-                                      href="{{ $paginas[$i]['pub_url'] }}"
-                                  @else
-                                      href="{{ url('/pagina/'.$paginas[$i]['publicacao_id']) }}"
-                                  @endif
-                              >
-                                {{ $paginas[$i]['pub_titulo'] }}
+                                {{ $pagina['pub_titulo'] }}
                               </a>
                             </li>
-                          @endfor 
-                        @endif
-                      @endforeach
-                    </ul>
-                  </li>
-                  @endif
+                          @endforeach
+                          </ul>
+                        </li>
+                      @endif
+                    @endforeach 
+                    @foreach ($menu_principal as $categoria => $paginas)
+                      @if ($categoria == '')
+                        @php
+                            $count++;
+                        @endphp
+                        @for ($i = 1; $i < count($paginas); $i++)
+                          <li>
+                            <a title="{{ $paginas[$i]['pub_titulo'] }}" 
+                                rel="noopener noreferrer"
+                                @if ($paginas[$i]['pub_url'])
+                                    href="{{ $paginas[$i]['pub_url'] }}"
+                                @else
+                                    href="{{ url('/pagina/'.$paginas[$i]['publicacao_id']) }}"
+                                @endif
+                            >
+                              {{ $paginas[$i]['pub_titulo'] }}
+                            </a>
+                          </li>
+                        @endfor 
+                      @endif
+                    @endforeach
+                  </ul>
+                </li>
+                  
                   <!-- <li>
                     @if (isset($configuracao['banner_home_img']) && 
                     isset($configuracao['banner_home_url']) && 
@@ -581,5 +532,26 @@
   <script>
     new window.VLibras.Widget('https://vlibras.gov.br/app');
   </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.3.4/lib/darkmode-js.min.js"></script>
+<script>
+
+  var options = {
+  bottom: '325px', // default: '32px'
+  right: '0px', // default: '32px'
+  left: 'unset', // default: 'unset'
+  time: '0.5s', // default: '0.3s'
+  mixColor: '#fff', // default: '#fff'
+  backgroundColor: '#fff',  // default: '#fff'
+  buttonColorDark: '#100f2c',  // default: '#100f2c'
+  buttonColorLight: '#fff', // default: '#fff'
+  saveInCookies: false, // default: true,
+  label: '🌓' // default: ''
+}
+
+const darkmode = new Darkmode(options);
+darkmode.showWidget();
+
+</script>
 
 </body>
