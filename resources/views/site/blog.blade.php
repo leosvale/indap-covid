@@ -53,7 +53,7 @@
                     <div class="small_l_blog_item">
                         <div class="l_blog_img">
                             <div class='slideshow-wrapper'>
-                                <img  width="370" height="200" src="{{ $noticia_img }}" alt="{{ $noticia['pub_titulo'] }}" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image"
+                                <img style="width: 370px; height: 200px;" src="{{ $noticia_img }}" alt="{{ $noticia['pub_titulo'] }}" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image"
                                     alt="" />
                             </div>
                         </div>

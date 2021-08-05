@@ -28,7 +28,7 @@
             <div class="big_l_blog_item">
               <div class="l_blog_img">
                 <div class='slideshow-wrapper'>
-                  <img width="770" height="430" src="{{ $destaque_img }}"
+                  <img style="width: 770px; height: 430px;" src="{{ $destaque_img }}"
                             class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image"
                             alt=""/>
                 </div>
@@ -63,10 +63,8 @@
               @if (!$loop->first)
               <div class="small_l_blog_item">
                 <div class="l_blog_img">
-                  <div class='slideshow-wrapper'>
-                    <img width="370" height="200" src="{{ $destaque_img }}" alt="{{ $destaque['pub_titulo'] }}" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image"
-                            alt="" />
-                  </div>
+                  <img style="width: 370px; height: 200px;" src="{{ $destaque_img }}" alt="{{ $destaque['pub_titulo'] }}" class="img-fluid" />
+
                 </div>
                 <div class="l_blog_text">
                   <div class="date">
@@ -89,7 +87,7 @@
     <!--================End Home Latest Blog Area =================-->
 
     <!--================Worldwide Tracker Area =================-->
-    <section class="world_wide_tracker pad_top" style="padding-top: 25px; padding-bottom: 25px;">
+    <section class="world_wide_tracker pad_top" style="padding-top: 25px; padding-bottom: 5px;">
       <div class="container">
         <div class="tracker_text">
           <h5>Covid-19</h5>
@@ -157,7 +155,6 @@
           <div class="row answer_inner">
           <div class="col-lg-12">
             <div class="question_list">
-
               <!---------- Inicio Accordion ---------------->
               <div class="accordion" id="accordionVacinometro">
                 <div class="card">
@@ -210,7 +207,6 @@
                 </div>
               </div>
               <!----------- Final Accordion ------------------------->
-
             </div>
           </div>
         </div>
@@ -220,10 +216,9 @@
     <!--================End Worldwide Tracker Area =================-->
 
     <!--================Protect Yourself Area =================-->
-    <section class="answers_area p_100" style="padding-top: 25px; padding-bottom: 25px;">
+    <section class="answers_area p_100" style="padding-top: 5px; padding-bottom: 25px;">
       <div class="container">
         <div class="main_title text-center">
-          <!-- <h5>Licitações e Contratos</h5> -->
           <h2>Licitações e Contratos</h2>
         </div>
         @php
