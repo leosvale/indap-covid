@@ -29,7 +29,7 @@
               <div class="l_blog_img">
                 <div class='slideshow-wrapper'>
                   <img width="770" height="430" src="{{ $destaque_img }}"
-                            class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image"
+                            class="img-fluid"
                             alt=""/>
                 </div>
               </div>
@@ -64,7 +64,7 @@
               <div class="small_l_blog_item">
                 <div class="l_blog_img">
                   <div class='slideshow-wrapper'>
-                    <img width="370" height="200" src="{{ $destaque_img }}" alt="{{ $destaque['pub_titulo'] }}" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image"
+                    <img width="370" height="200" src="{{ $destaque_img }}" alt="{{ $destaque['pub_titulo'] }}" class="img-fluid"
                             alt="" />
                   </div>
                 </div>
@@ -72,7 +72,7 @@
                   <div class="date">
                     <a href="{{ url('/noticia/'.$destaque['publicacao_id']) }}"><i class="linearicons-calendar-full"></i>{{ date('d/m/Y', strtotime($destaque['pub_data_visivel'] ? $destaque['pub_data_visivel'] : $destaque['pub_data_cadastro'])) }}</a>
                   </div>
-                  <a class="text_btn" href="{{ url('/noticia/'.$destaque['publicacao_id']) }}">{{ $destaque['pub_titulo'] }} <!-- <i class="linearicons-arrow-right"></i> --></a>
+                  <a class="text_btn" href="{{ url('/noticia/'.$destaque['publicacao_id']) }}">{{ $destaque['pub_titulo'] }}</a>
                 </div>
               </div>
               @endif
@@ -89,9 +89,8 @@
     <!--================End Home Latest Blog Area =================-->
 
     <!--================Worldwide Tracker Area =================-->
-    <section class="world_wide_tracker pad_top" style="padding-top: 0px; padding-bottom: 25px;">
+    <section class="world_wide_tracker pad_top" style="padding-top: 25px; padding-bottom: 25px;">
       <div class="container">
-        <!-- <img class="tracker_map" src="themes/epidemic-placeholder/assets/images/tracker-map-bg.png" alt="" /> -->
         <div class="tracker_text">
           <h5>Covid-19</h5>
           <h2>Vacinômetro</h2>
@@ -165,7 +164,7 @@
                   <div class="card-header">
                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
                             data-target="#collapseVacinometro" aria-expanded="false" aria-controls="collapseVacinometro">
-                      Classificação de vacinados
+                      Classificação de vacinados <i class="fas fa-angle-down rotate-icon" aria-hidden="true" data-toggle="dropdown"></i>
                     </button>
                   </div>
                   <div id="collapseVacinometro" class="collapse" aria-labelledby="headingVacinometro" data-parent="#accordionVacinometro">
@@ -940,7 +939,7 @@
         </div>
 
         <div class="row tracker_inner" style="padding-bottom: 75px;">
-          <div class="col-lg-4 col-6 wow fadeIn" data-wow-delay="300">
+          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="300">
             <div class="media">
               <div class="d-flex">
                 <img src="themes/epidemic-placeholder/assets/images/icon/corona-red-1.png" alt="" />
@@ -951,7 +950,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-6 wow fadeIn" data-wow-delay="400">
+          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="400">
             <div class="media">
               <div class="d-flex">
                 <img src="themes/epidemic-placeholder/assets/images/icon/corona-green-1.png" alt="" />
@@ -962,7 +961,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-6 wow fadeIn" data-wow-delay="500">
+          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="500">
             <div class="media">
               <div class="d-flex">
                 <img src="themes/epidemic-placeholder/assets/images/icon/corona-yellow-1.png" alt="" />
@@ -973,10 +972,7 @@
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="row tracker_inner" style="padding-bottom: 75px;">
-          <div class="col-lg-4 col-6 wow fadeIn" data-wow-delay="400">
+          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="400">
             <div class="media">
               <div class="d-flex">
                 <img src="themes/epidemic-placeholder/assets/images/icon/corona-black-1.png" alt="" />
@@ -987,6 +983,9 @@
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="row tracker_inner" style="padding-bottom: 75px;" >
           <div class="col-lg-4 col-6 wow fadeIn" data-wow-delay="500">
             <div class="media">
               <div class="d-flex">
@@ -1009,9 +1008,6 @@
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="row tracker_inner" style="padding-bottom: 75px;">
           <div class="col-lg-4 col-6 wow fadeIn" data-wow-delay="400">
             <div class="media">
               <div class="d-flex">
@@ -1023,8 +1019,10 @@
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="col-lg-8 col-6 wow fadeIn" data-wow-delay="500">
+        <div class="row tracker_inner" style="padding-bottom: 75px; ">
+          <div class="container">
             <div class="card">
               <div class="card-header text-center">
                 <label>
@@ -1048,8 +1046,9 @@
             </div>
           </div>
         </div>
+
         @if ($boletins)
-        <div class="row prevent_inner">
+        <div class="row prevent_inner" style="padding-bottom: 75px;">
           @foreach($boletins as $boletim)
 
               @php
@@ -1060,25 +1059,26 @@
 
               <div class="col-lg-4">
                 <div class="prevent_item_inner row">
-                  <div class="l_blog_img">
-                    <a href="{{ url('/noticia/'.$boletim['publicacao_id']) }}">
-                      <img  width="370" height="200" src="{{ $boletim_img }}" alt="{{ $boletim['pub_titulo'] }}" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image"
-                              alt="" />
-                    </a>
-                  </div>
-                  <div class="prevent_text">
-                    <a class="text_btn" href="{{ url('/noticia/'.$boletim['publicacao_id']) }}">
-                      <h4>{{ $boletim['pub_titulo'] }}</h4>
-                    </a>
-                    <p>
-                      {{ date('d/m/Y', strtotime($boletim['pub_data_visivel'] ? $boletim['pub_data_visivel'] : $boletim['pub_data_cadastro'])) }}
-                    </p>
+                  <div class="prevent_item">
+                    <div class="prevent_img">
+                      <a href="{{ url('/noticia/'.$boletim['publicacao_id']) }}">
+                        <img  width="370" height="200" src="{{ $boletim_img }}" alt="{{ $boletim['pub_titulo'] }}" class="img-fluid"
+                                alt="" />
+                      </a>
+                    </div>
+                    <div class="prevent_text">
+                      <a class="text_btn" href="{{ url('/noticia/'.$boletim['publicacao_id']) }}">
+                        <h4>{{ $boletim['pub_titulo'] }}</h4>
+                      </a>
+                      <p>
+                        {{ date('d/m/Y', strtotime($boletim['pub_data_visivel'] ? $boletim['pub_data_visivel'] : $boletim['pub_data_cadastro'])) }}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
           @endforeach
         </div>
-        <br>
         <div class="text-center maintence_img img-fluid wow fadeInRight">   
           <a class="green_btn" href="/boletins">mais boletins</a>
         </div>
@@ -1096,7 +1096,7 @@
               $configuracao['banner_home_img'] &&
               $configuracao['banner_home_url'])  
               <a href="{{ $configuracao['banner_home_url'] }}">
-                <img class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image" src="{{ $configuracao['banner_home_img'] }}" width="600" height="100" alt="">
+                <img class="img-fluid" src="{{ $configuracao['banner_home_img'] }}" width="600" height="100" alt="">
               </a>
             @endif
         </div>
@@ -1108,8 +1108,7 @@
     <section class="answers_area p_100">
       <div class="container">
         <div class="main_title">
-<!--           <h5>Have questions? Find answers!</h5>
- -->          <h2>Legislação</h2>
+         <h2>Legislação</h2>
         </div>
         <div class="row answer_inner">
           <div class="col-lg-12">
@@ -1129,7 +1128,7 @@
                       <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
                         data-target="#collapseLegislacao{{$count}}" aria-expanded="false" aria-controls="collapseLegislacao{{$count}}">
                         {{ $key }}
-                        <i class="linearicons-chevron-down"></i>
+                        <i class="fas fa-angle-down rotate-icon" aria-hidden="true" data-toggle="dropdown"></i>
                       </button>
                     </div>
                     <div id="collapseLegislacao{{$count}}" class="collapse" aria-labelledby="headingLegislacao{{$count}}"
@@ -1220,7 +1219,6 @@
           <h5>Vamos fazer a nossa parte</h5>
           <h2>Previna a Covid-19</h2>
         </div>
-
 
         <div class="prevent_item_inner row">
               <div class="col-sm-3 wow fadeInUp" data-wow-delay="400ms">
