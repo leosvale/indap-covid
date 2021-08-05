@@ -79,7 +79,7 @@ class SiteController extends Controller
 					->whereDate('pub_data_visivel', '<=', Carbon::now())
 					->orWhere('pub_data_visivel', null);
 			})
-            ->limit(3)
+            ->limit(4)
             ->orderBy('pub_data_cadastro', 'desc')
             ->get();
 

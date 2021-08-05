@@ -29,7 +29,7 @@
               <div class="l_blog_img">
                 <div class='slideshow-wrapper'>
                   <img width="770" height="430" src="{{ $destaque_img }}"
-                            class="img-fluid"
+                            class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image"
                             alt=""/>
                 </div>
               </div>
@@ -64,7 +64,7 @@
               <div class="small_l_blog_item">
                 <div class="l_blog_img">
                   <div class='slideshow-wrapper'>
-                    <img width="370" height="200" src="{{ $destaque_img }}" alt="{{ $destaque['pub_titulo'] }}" class="img-fluid"
+                    <img width="370" height="200" src="{{ $destaque_img }}" alt="{{ $destaque['pub_titulo'] }}" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image"
                             alt="" />
                   </div>
                 </div>
@@ -1048,7 +1048,7 @@
         </div>
 
         @if ($boletins)
-        <div class="row prevent_inner" style="padding-bottom: 75px;">
+        <div class="prevent_item_inner row" style="padding-bottom: 75px;">
           @foreach($boletins as $boletim)
 
               @php
@@ -1057,12 +1057,26 @@
                   $boletim_txt = (empty($boletim['pub_resumo']) ? $boletim['pub_conteudo'] : $boletim['pub_resumo']);
               @endphp
 
-              <div class="col-lg-4">
+              <div class="col-sm-3 wow fadeInUp" data-wow-delay="400ms">
+                <div class="prevent_item">
+                  <div class="prevent_img">
+                    <img width="270" height="160" class="img-fluid" src="{{ $boletim_img }}" alt="" />
+                  </div>
+                  <div class="prevent_text" style="background: white;">
+                    <h4>{{ $boletim['pub_titulo'] }}</h4>
+                    <p>
+                      {{ date('d/m/Y', strtotime($boletim['pub_data_visivel'] ? $boletim['pub_data_visivel'] : $boletim['pub_data_cadastro'])) }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="col-sm-4 wow fadeInUp">
                 <div class="prevent_item_inner row">
                   <div class="prevent_item">
                     <div class="prevent_img">
                       <a href="{{ url('/noticia/'.$boletim['publicacao_id']) }}">
-                        <img  width="370" height="200" src="{{ $boletim_img }}" alt="{{ $boletim['pub_titulo'] }}" class="img-fluid"
+                        <img  width="370" height="200" src="{{ $boletim_img }}" alt="{{ $boletim['pub_titulo'] }}" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image"
                                 alt="" />
                       </a>
                     </div>
@@ -1076,7 +1090,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
           @endforeach
         </div>
         <div class="text-center maintence_img img-fluid wow fadeInRight">   
