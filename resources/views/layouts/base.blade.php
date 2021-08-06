@@ -175,7 +175,7 @@
     </section>
     <!--================End Sidebar Form Area =================-->
 
-    <!--================Header Area =================-->
+    <!--================ Header Area ===========================-->
     <header class="header_area">
       <div class="main_menu">
         <div class="container">
@@ -263,18 +263,6 @@
                     @endforeach
                   </ul>
                 </li>
-                  
-                  <!-- <li>
-                    @if (isset($configuracao['banner_home_img']) && 
-                    isset($configuracao['banner_home_url']) && 
-                    $configuracao['banner_home_img'] &&
-                    $configuracao['banner_home_url'])  
-                      <a href="{{ $configuracao['banner_home_url'] }}">
-                        <img src="{{ $configuracao['banner_home_img'] }}" width="340" height="50" alt="">
-                      </a>
-                    @endif
-                  </li> -->
-
               </ul>
             </div>
           </nav>
@@ -296,23 +284,10 @@
         </div>
       </div>
     </header>
+    <!--================ End Header Area =========================-->
 
+    <!--========================= Main ===========================-->
     <div id="main" class="clearfix">
-
-      <!--================Home Banner Area =================-->
-      <!-- <section class="home_banner_area">
-        <div class="container">
-          <div class="text-center maintence_img img-fluid wow fadeInRight">
-              @if (isset($configuracao['banner_home_img']) && 
-                isset($configuracao['banner_home_url']) && 
-                $configuracao['banner_home_img'] &&
-                $configuracao['banner_home_url'])  
-                  <img src="{{ $configuracao['banner_home_img'] }}" width="728" height="90" alt="">
-              @endif
-          </div>
-        </div>
-      </section> -->
-    <!--================End Home Banner Area =================-->
         <div class="inner-wrap clearfix">
             @yield('carousel-home')
 
@@ -335,6 +310,19 @@
             </div>
         </div>
     </div>
+    <!--==================== End Main ++++=====================-->
+
+    <!--================== Accessibility Area =================-->
+    <div class="acess-container">
+      <button data-tooltip="Acessibilidade." data-tooltip-position="left" style="position: fixed; bottom: 320px; right: 0px;" id="jbbutton" class="btn btn-primary btn-lg btn-circle"> <i class="fas fa-universal-access"></i></button>
+
+      <div id="acess-icons" style="display: none;">        
+        <button data-tooltip="Aumentar tamanho do texto." data-tooltip-position="left" style="position: fixed; bottom: 260px; right: 0px;"  class="btn btn-danger btn-lg btn-circle" id="increaseFont"><i class="fas fa-font">+</i></button>
+        <button data-tooltip="Diminuir tamanho do texto." data-tooltip-position="left" style="position: fixed; bottom: 200px; right: 0px;"  class="btn btn-warning btn-lg btn-circle" id="decreaseFont"><i class="fas fa-font">-</i></button>
+        <button data-tooltip="Contraste." data-tooltip-position="left" style="position: fixed; bottom: 140px; right: 0px;"  class="btn btn-dark btn-lg btn-circle" onclick="myFunction()"><i class="fas fa-adjust"></i></button>
+      </div>
+    </div>
+    <!--================== End Accessibility Area =================-->
 
     <!--================Footer Area =================-->
     <footer class="footer_area">
@@ -534,24 +522,30 @@
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.3.4/lib/darkmode-js.min.js"></script>
-<script>
+  <script>
+    var options = {
+    bottom: '140px', // default: '32px'
+    right: '0px', // default: '32px'
+    left: 'unset', // default: 'unset'
+    time: '0.5s', // default: '0.3s'
+    mixColor: '#fff', // default: '#fff'
+    backgroundColor: '#fff',  // default: '#fff'
+    buttonColorDark: '#100f2c',  // default: '#100f2c'
+    buttonColorLight: '#fff', // default: '#fff'
+    saveInCookies: false, // default: true,
+    label: '🌓' // default: ''
+  }
 
-  var options = {
-  bottom: '300px', // default: '32px'
-  right: '0px', // default: '32px'
-  left: 'unset', // default: 'unset'
-  time: '0.5s', // default: '0.3s'
-  mixColor: '#fff', // default: '#fff'
-  backgroundColor: '#fff',  // default: '#fff'
-  buttonColorDark: '#100f2c',  // default: '#100f2c'
-  buttonColorLight: '#fff', // default: '#fff'
-  saveInCookies: false, // default: true,
-  label: '🌓' // default: ''
-}
+  const darkmode =  new Darkmode();
 
-const darkmode = new Darkmode(options);
-darkmode.showWidget();
+  function myFunction() {
+    
+    darkmode.toggle();
+  }
 
-</script>
+  </script>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="../../js/jbility.js"></script>
 
 </body>
