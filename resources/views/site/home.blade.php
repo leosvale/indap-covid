@@ -95,7 +95,7 @@
           <p>Última atualização: {{ date('d/m/Y - H:m', strtotime($vacinometro['doses_recebidas']->updated_at )) }}</p>
         </div>
         <div class="row tracker_inner">
-          <div style="width:20%" data-wow-delay="300">
+          <div class="col-lg-gx wow fadeIn" data-wow-delay="300">
             <div class="media">
               <div class="d-flex text-center">
                 <img height="80" width="80" src="themes/epidemic-placeholder/assets/images/icon/syringe_full.png" alt="" />
@@ -106,7 +106,7 @@
               </div>
             </div>
           </div>
-          <div style="width:20%" data-wow-delay="400">
+          <div class="col-lg-gx wow fadeIn" data-wow-delay="400">
             <div class="media">
               <div class="d-flex justify-content-center">
                 <img height="80" width="80" src="themes/epidemic-placeholder/assets/images/icon/syringe_empty.png" alt="" />
@@ -117,7 +117,7 @@
               </div>
             </div>
           </div>
-          <div style="width:20%" data-wow-delay="500">
+          <div class="col-lg-gx wow fadeIn" data-wow-delay="500">
             <div class="media">
               <div class="d-flex justify-content-center">
                 <img height="80" width="80" src="themes/epidemic-placeholder/assets/images/icon/syringe_full.png" alt="" />
@@ -128,7 +128,7 @@
               </div>
             </div>
           </div>
-          <div style="width:20%" data-wow-delay="600">
+          <div class="col-lg-gx wow fadeIn" data-wow-delay="600">
             <div class="media">
               <div class="d-flex justify-content-center">
                 <img height="80" width="80" src="themes/epidemic-placeholder/assets/images/icon/syringe_empty.png" alt=""/>
@@ -139,7 +139,7 @@
               </div>
             </div>
           </div>
-          <div style="width:20%" data-wow-delay="500">
+          <div class="col-lg-gx wow fadeIn" data-wow-delay="500">
             <div class="media">
               <div class="d-flex justify-content-center">
                 <img height="80" width="80" src="themes/epidemic-placeholder/assets/images/icon/syringe_full.png" alt="" />

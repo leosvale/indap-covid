@@ -2156,6 +2156,9 @@ button:focus {
 .world_wide_tracker .tracker_inner .col-lg-4  {
     padding-left: 75px;
   }
+  .world_wide_tracker .tracker_inner .col-lg-gx  {
+    padding-left: 25px;
+  }
 /* End WorldWide Tracker Area css
 ============================================================================================ */
 /* Symptoms Area css

@@ -537,7 +537,7 @@
 <script>
 
   var options = {
-  bottom: '325px', // default: '32px'
+  bottom: '300px', // default: '32px'
   right: '0px', // default: '32px'
   left: 'unset', // default: 'unset'
   time: '0.5s', // default: '0.3s'
