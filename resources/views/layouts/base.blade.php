@@ -47,6 +47,63 @@
           <li><a href="{{ url('/licitacoes') }}">Licitações e Contratos</a></li>
           <li><a href="{{ url('/ouvidoria') }}">Ouvidoria</a></li>
           <li><a href="{{ url('/acessibilidade') }}">Acessibilidade</a></li>
+          @foreach ($menu_principal as $categoria => $paginas)
+            @if ($categoria != '')
+              @php
+                  $count++;
+              @endphp
+              <li>
+                <a href="#">{{$categoria}} 
+                  <i class="fas fa-angle-down rotate-icon"></i>
+                </a>
+                <ul class="list">
+                @foreach ($paginas as $pagina)  
+                  <li>
+                    <a title="{{ $pagina['pub_titulo'] }}" 
+                        rel="noopener noreferrer"
+                        @if ($pagina['pub_url'])
+                            href="{{ $pagina['pub_url'] }}"
+                        @else
+                            href="{{ url('/pagina/'.$pagina['publicacao_id']) }}"
+                        @endif
+                    >
+                      {{ $pagina['pub_titulo'] }}
+                    </a>
+                  </li>
+                @endforeach
+                </ul>
+              </li>
+            @endif
+          @endforeach
+          <li>
+            <a href="#">Mais
+              <i class="fas fa-angle-down rotate-icon"></i>
+            </a>
+            <ul class="list">
+              
+              @foreach ($menu_principal as $categoria => $paginas)
+                @if ($categoria == '')
+                  @php
+                      $count++;
+                  @endphp
+                  @for ($i = 0; $i < count($paginas); $i++)
+                    <li>
+                      <a title="{{ $paginas[$i]['pub_titulo'] }}" 
+                          rel="noopener noreferrer"
+                          @if ($paginas[$i]['pub_url'])
+                              href="{{ $paginas[$i]['pub_url'] }}"
+                          @else
+                              href="{{ url('/pagina/'.$paginas[$i]['publicacao_id']) }}"
+                          @endif
+                      >
+                        {{ $paginas[$i]['pub_titulo'] }}
+                      </a>
+                    </li>
+                  @endfor 
+                @endif
+              @endforeach
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
@@ -314,12 +371,12 @@
 
     <!--================== Accessibility Area =================-->
     <div class="acess-container">
-      <button data-tooltip="Acessibilidade" data-tooltip-position="left" style="position: fixed; bottom: 320px; right: 0px;" id="jbbutton" class="btn btn-primary btn-lg btn-circle"> <i class="fas fa-universal-access"></i></button>
+      <button data-tooltip="Acessibilidade" data-tooltip-position="left" style="position: fixed; bottom: 340px; right: 0px;" id="jbbutton" class="btn btn-info btn-lg btn-circle"> <i class="fas fa-universal-access"></i></button>
 
       <div id="acess-icons" style="display: none;">        
-        <button data-tooltip="Aumentar tamanho do texto" data-tooltip-position="left" style="position: fixed; bottom: 260px; right: 0px;"  class="btn btn-danger btn-lg btn-circle" id="increaseFont"><i class="fas fa-font">+</i></button>
-        <button data-tooltip="Diminuir tamanho do texto" data-tooltip-position="left" style="position: fixed; bottom: 200px; right: 0px;"  class="btn btn-warning btn-lg btn-circle" id="decreaseFont"><i class="fas fa-font">-</i></button>
-        <button data-tooltip="Contraste" data-tooltip-position="left" style="position: fixed; bottom: 140px; right: 0px;"  class="btn btn-dark btn-lg btn-circle" onclick="myFunction()"><i class="fas fa-adjust"></i></button>
+        <button data-tooltip="Aumentar tamanho do texto" data-tooltip-position="left" style="position: fixed; bottom: 280px; right: 0px;"  class="btn btn-danger btn-lg btn-circle" id="increaseFont"><i class="fas fa-font">+</i></button>
+        <button data-tooltip="Diminuir tamanho do texto" data-tooltip-position="left" style="position: fixed; bottom: 220px; right: 0px;"  class="btn btn-warning btn-lg btn-circle" id="decreaseFont"><i class="fas fa-font">-</i></button>
+        <button data-tooltip="Contraste" data-tooltip-position="left" style="position: fixed; bottom: 160px; right: 0px;"  class="btn btn-dark btn-lg btn-circle" onclick="myFunction()"><i class="fas fa-adjust"></i></button>
       </div>
     </div>
     <!--================== End Accessibility Area =================-->
