@@ -296,7 +296,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group" v-if="documento.tipo_processo_id == '7'">
+                    <div class="form-group" v-if="documento.tipo_processo_id == '7' ||
+                        documento.tipo_processo_id == '8'">
                         <span>Campos Específicos:</span><br>
                         <div class="row">
                             <div class="col-sm-4">

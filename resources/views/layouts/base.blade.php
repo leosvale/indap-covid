@@ -314,12 +314,12 @@
 
     <!--================== Accessibility Area =================-->
     <div class="acess-container">
-      <button data-tooltip="Acessibilidade." data-tooltip-position="left" style="position: fixed; bottom: 320px; right: 0px;" id="jbbutton" class="btn btn-primary btn-lg btn-circle"> <i class="fas fa-universal-access"></i></button>
+      <button data-tooltip="Acessibilidade" data-tooltip-position="left" style="position: fixed; bottom: 320px; right: 0px;" id="jbbutton" class="btn btn-primary btn-lg btn-circle"> <i class="fas fa-universal-access"></i></button>
 
       <div id="acess-icons" style="display: none;">        
-        <button data-tooltip="Aumentar tamanho do texto." data-tooltip-position="left" style="position: fixed; bottom: 260px; right: 0px;"  class="btn btn-danger btn-lg btn-circle" id="increaseFont"><i class="fas fa-font">+</i></button>
-        <button data-tooltip="Diminuir tamanho do texto." data-tooltip-position="left" style="position: fixed; bottom: 200px; right: 0px;"  class="btn btn-warning btn-lg btn-circle" id="decreaseFont"><i class="fas fa-font">-</i></button>
-        <button data-tooltip="Contraste." data-tooltip-position="left" style="position: fixed; bottom: 140px; right: 0px;"  class="btn btn-dark btn-lg btn-circle" onclick="myFunction()"><i class="fas fa-adjust"></i></button>
+        <button data-tooltip="Aumentar tamanho do texto" data-tooltip-position="left" style="position: fixed; bottom: 260px; right: 0px;"  class="btn btn-danger btn-lg btn-circle" id="increaseFont"><i class="fas fa-font">+</i></button>
+        <button data-tooltip="Diminuir tamanho do texto" data-tooltip-position="left" style="position: fixed; bottom: 200px; right: 0px;"  class="btn btn-warning btn-lg btn-circle" id="decreaseFont"><i class="fas fa-font">-</i></button>
+        <button data-tooltip="Contraste" data-tooltip-position="left" style="position: fixed; bottom: 140px; right: 0px;"  class="btn btn-dark btn-lg btn-circle" onclick="myFunction()"><i class="fas fa-adjust"></i></button>
       </div>
     </div>
     <!--================== End Accessibility Area =================-->

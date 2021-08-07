@@ -166,7 +166,7 @@ class DocumentoController extends Controller
 	        	]);
 
         	}
-        	elseif($request->tipo_processo_id == 7){
+        	elseif($request->tipo_processo_id == 7 || $request->tipo_processo_id == 8){
 
         		DB::table('documento_campos_especificos')->insert([
 		        	'documento_id'    => $documento->documento_id,
@@ -387,7 +387,7 @@ class DocumentoController extends Controller
 		        	]);
 
 	        	}
-	        	elseif($request->tipo_processo_id == 7){
+	        	elseif($request->tipo_processo_id == 7 || $request->tipo_processo_id == 8){
 
 	        		DB::table('documento_campos_especificos')
 	        		->where('documento_id', $id)
