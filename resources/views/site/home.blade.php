@@ -934,7 +934,7 @@
         </div>
 
         <div class="row tracker_inner">
-          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="300">
+          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="400ms">
             <div class="media">
               <div class="d-flex">
                 <img src="themes/epidemic-placeholder/assets/images/icon/corona-red-1.png" alt="" />
@@ -945,7 +945,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="400">
+          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="500ms">
             <div class="media">
               <div class="d-flex">
                 <img src="themes/epidemic-placeholder/assets/images/icon/corona-green-1.png" alt="" />
@@ -956,7 +956,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="500">
+          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="600ms">
             <div class="media">
               <div class="d-flex">
                 <img src="themes/epidemic-placeholder/assets/images/icon/corona-yellow-1.png" alt="" />
@@ -967,7 +967,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="400">
+          <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="700ms">
             <div class="media">
               <div class="d-flex">
                 <img src="themes/epidemic-placeholder/assets/images/icon/corona-black-1.png" alt="" />

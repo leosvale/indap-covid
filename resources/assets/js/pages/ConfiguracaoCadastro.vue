@@ -50,14 +50,14 @@
                         <div class="col-md-6">
                             <form-control :error="errors.telefone_primario">
                                 <label for="telefone_primario">Telefone primário</label>
-                                <input id="fone_primario" type="phone" class="form-control" name="telefone_primario" v-model="configuracao.telefone_primario">
+                                <input id="fone_primario" v-mask="['(##) ####-####']" type="phone" class="form-control" name="telefone_primario" v-model="configuracao.telefone_primario">
                             </form-control>
                         </div>
 
                         <div class="col-md-6">
                             <form-control :error="errors.telefone_secundario">
                                 <label for="telefone_secundario">Telefone secundário</label>
-                                <input id="fone_secundario" type="phone" class="form-control" name="telefone_secundario" v-model="configuracao.telefone_secundario">
+                                <input id="fone_secundario" v-mask="['(##) ####-####']" type="phone" class="form-control" name="telefone_secundario" v-model="configuracao.telefone_secundario">
                             </form-control>
                         </div>
                     </div>
@@ -226,12 +226,12 @@
 <script>
 	import FormControl from '../components/FormControl.vue'
 
-  $(document).ready(function(){
-            $('#fone_primario').mask('(99)  9999-9999');
-        });
-  $(document).ready(function(){
-            $('#fone_secundario').mask('(99)  9999-9999');
-        });
+  // $(document).ready(function(){
+  //           $('#fone_primario').mask('(99)  9999-9999');
+  //       });
+  // $(document).ready(function(){
+  //           $('#fone_secundario').mask('(99)  9999-9999');
+  //       });
 
   Vue.component('col-edi', {
       props: ['data'],
