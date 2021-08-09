@@ -161,8 +161,8 @@
                             </div>
                             <div class="col-sm-4">
                                 <form-control>
-                                    <label for="previsao_orcamentaria">Previsão Orçamentária</label>
-                                    <input type="text" v-mask="mask" placeholder="R$100.00" id="previsao_orcamentaria" class="form-control" v-model="camposEspecificos.previsao_orcamentaria">
+                                    <label for="previsao_orcamentaria">Previsão Orçamentária (Ex: R$1,000.00)</label>
+                                    <input type="text" v-mask="mask" placeholder="R$1,000.00" id="previsao_orcamentaria" class="form-control" v-model="camposEspecificos.previsao_orcamentaria">
                                 </form-control>
                             </div>
                         </div>
@@ -221,8 +221,8 @@
                             </div>
                             <div class="col-sm-4">
                                 <form-control>
-                                    <label for="valor">Valor</label>
-                                    <input type="text" v-mask="mask" placeholder="R$100.00" id="valor" class="form-control" v-model="camposEspecificos.valor">
+                                    <label for="valor">Valor (Ex: R$1,000.00)</label>
+                                    <input type="text" v-mask="mask" placeholder="R$1,000.00" id="valor" class="form-control" v-model="camposEspecificos.valor">
                                 </form-control>
                             </div>
                             <div class="col-sm-4">
@@ -354,8 +354,8 @@
                             </div>
                             <div class="col-sm-4">
                                 <form-control>
-                                    <label for="previsao_orcamentaria">Previsão Orçamentária</label>
-                                    <input type="text" v-mask="mask" id="previsao_orcamentaria" placeholder="R$100.00" class="form-control" v-model="camposEspecificos.previsao_orcamentaria">
+                                    <label for="previsao_orcamentaria">Previsão Orçamentária (Ex: R$1,000.00)</label>
+                                    <input type="text" v-mask="mask" id="previsao_orcamentaria" value="R$1,000.00" placeholder="R$1,000.00" class="form-control" v-model="camposEspecificos.previsao_orcamentaria">
                                 </form-control>
                             </div>
                         </div>

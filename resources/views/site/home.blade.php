@@ -3,7 +3,7 @@
 @section('content')
     
     <!--================Home Latest Blog Area =================-->
-    <section class="related_posts_area" style="padding-top: 75px; padding-bottom: 25px;">
+    <section class="related_posts_area">
 
       @if (!empty($destaques))
             
@@ -87,7 +87,7 @@
     <!--================End Home Latest Blog Area =================-->
 
     <!--================Worldwide Tracker Area =================-->
-    <section class="world_wide_tracker pad_top" style="padding-top: 25px; padding-bottom: 5px;">
+    <section class="world_wide_tracker pad_top">
       <div class="container">
         <div class="tracker_text">
           <h5>Covid-19</h5>
@@ -216,7 +216,7 @@
     <!--================End Worldwide Tracker Area =================-->
 
     <!--================Protect Yourself Area =================-->
-    <section class="answers_area p_100" style="padding-top: 5px; padding-bottom: 25px;">
+    <section class="answers_area p_100">
       <div class="container">
         <div class="main_title text-center">
           <h2>Licitações e Contratos</h2>
@@ -925,7 +925,7 @@
     <!--================End Protect Yourself Area =================-->
 
     <!--================Home Latest Blog Area =================-->
-    <section class="world_wide_tracker pad_top" style="padding-top: 75px; padding-bottom: 25px;">
+    <section class="world_wide_tracker pad_top">
       <div class="container">
         <div class="main_title text-center">
           <h2>Boletim Epidemiológico</h2>
@@ -933,7 +933,7 @@
           <b>Fonte:</b> {{ $boletim_epidemiologico['casos_ativos']->fonte }}</p>
         </div>
 
-        <div class="row tracker_inner" style="padding-bottom: 75px;">
+        <div class="row tracker_inner">
           <div class="col-lg-3 col-6 wow fadeIn" data-wow-delay="300">
             <div class="media">
               <div class="d-flex">

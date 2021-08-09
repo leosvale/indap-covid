@@ -17,7 +17,7 @@
                         @if(!empty($noticia['categorias']))
                             @foreach (array_column($noticia['categorias'], 'tcp_nome') as $categoria)
                                 <li>
-                                    <a style="background:@if(!empty($configuracao['cor'])) {{$configuracao['cor']}} @else {{'#289dcc'}}  @endif" rel="category tag">
+                                    <a rel="category tag">
                                     {{$categoria}}
                                     </a>&nbsp;
                                 </li>
@@ -126,7 +126,7 @@
                             @if($noticia['pub_tipo'] == 'NOT')
                                 <ul class="nav flex-column">
                                     @foreach($categorias as $categoria)
-                                    <li><a href="/noticias?filter={{ $categoria->tipo_categoria_publicacao_id }}"><i class="linearicons-arrow-right"></i>
+                                    <li><a href="/noticias?filter={{ $categoria->tipo_categoria_publicacao_id }}"><i class="fas fa-angle-right"></i>
                                         {{$categoria->tcp_nome}}
                                     </a></li>
                                     @endforeach

@@ -2089,7 +2089,7 @@ button:focus {
 /* WorldWide Tracker Area css
 ============================================================================================ */
 .world_wide_tracker {
-  padding-bottom: 140px;
+  padding-bottom: 25px;"
 }
 
 .world_wide_tracker .container {
@@ -2151,14 +2151,18 @@ button:focus {
 .world_wide_tracker .tracker_btn {
   text-align: center;
   margin-top: 65px;
-  padding-bottom: 90px;
+  padding-bottom: 0px;
 }
 .world_wide_tracker .tracker_inner .col-lg-4  {
-    padding-left: 75px;
-  }
-  .world_wide_tracker .tracker_inner .col-lg-gx  {
-    padding-left: 25px;
-  }
+  padding-left: 75px;
+}
+.world_wide_tracker .tracker_inner .col-lg-gx  {
+  width: 20%;
+}
+.world_wide_tracker .row  {
+  padding-bottom: 23px;
+}
+
 /* End WorldWide Tracker Area css
 ============================================================================================ */
 /* Symptoms Area css
@@ -3923,7 +3927,7 @@ button:focus {
 .related_posts_area {
   background: #f5f5f9;
   padding-top: 60px;
-  padding-bottom: 90px;
+  padding-bottom: 25px;
 }
 
 .related_posts_area .main_title {
@@ -6405,6 +6409,10 @@ blockquote {
 /*----------------------------------------------------*/
 /* Covid Widgets Area css
 ============================================================================================ */
+.world_wide_tracker.pad_top {
+    padding-top: 10px;
+  }
+
 .world_wide_tracker.tracker_page {
   padding-top: 80px;
   padding-bottom: 0px;
