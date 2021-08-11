@@ -568,8 +568,8 @@
   <script>
     $("input[id*='valor']").maskMoney({
          prefix: "R$",
-         decimal: ".",
-         thousands: ","
+         decimal: ",",
+         thousands: "."
      });
   </script>
 

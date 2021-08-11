@@ -33,6 +33,7 @@
     "bootstrap": "^5.0.1",
     "bootstrap-vue": "^2.21.2",
     "text-mask-addons": "^3.8.0",
-    "v-mask": "^2.2.4"
+    "v-mask": "^2.2.4",
+    "v-money": "^0.8.1"
   }
 }

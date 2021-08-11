@@ -161,8 +161,8 @@
                             </div>
                             <div class="col-sm-4">
                                 <form-control>
-                                    <label for="previsao_orcamentaria">Previsão Orçamentária (Ex: R$1,000.00)</label>
-                                    <input type="text" v-mask="mask" placeholder="R$1,000.00" id="previsao_orcamentaria" class="form-control" v-model="camposEspecificos.previsao_orcamentaria">
+                                    <label for="previsao_orcamentaria">Previsão Orçamentária</label>
+                                    <input type="text" id="previsao_orcamentaria" class="form-control" v-model="camposEspecificos.previsao_orcamentaria" v-money="money">
                                 </form-control>
                             </div>
                         </div>
@@ -221,8 +221,8 @@
                             </div>
                             <div class="col-sm-4">
                                 <form-control>
-                                    <label for="valor">Valor (Ex: R$1,000.00)</label>
-                                    <input type="text" v-mask="mask" placeholder="R$1,000.00" id="valor" class="form-control" v-model="camposEspecificos.valor">
+                                    <label for="valor">Valor</label>
+                                    <input type="text" id="valor" class="form-control" v-model="camposEspecificos.valor" v-money="money">
                                 </form-control>
                             </div>
                             <div class="col-sm-4">
@@ -354,8 +354,8 @@
                             </div>
                             <div class="col-sm-4">
                                 <form-control>
-                                    <label for="previsao_orcamentaria">Previsão Orçamentária (Ex: R$1,000.00)</label>
-                                    <input type="text" v-mask="mask" id="previsao_orcamentaria" value="R$1,000.00" placeholder="R$1,000.00" class="form-control" v-model="camposEspecificos.previsao_orcamentaria">
+                                    <label for="previsao_orcamentaria">Previsão Orçamentária</label>
+                                    <input type="text" id="previsao_orcamentaria" class="form-control" v-model="camposEspecificos.previsao_orcamentaria" v-money="money">
                                 </form-control>
                             </div>
                         </div>
@@ -412,6 +412,8 @@
 <script>
     import FormControl from '../components/FormControl.vue'
 
+    import {VMoney} from 'v-money'
+
     import createNumberMask from 'text-mask-addons/dist/createNumberMask';
     const currencyMask = createNumberMask({
         prefix: 'R$',
@@ -427,6 +429,13 @@
                 tipos: [],
                 dynamicMask: '###.###.###-##',
                 mask: currencyMask,
+                money: {
+                    decimal: ',',
+                    thousands: '.',
+                    prefix: 'R$ ',
+                    precision: 2,
+                    masked: false /* doesn't work with directive */
+                  },
                 categorias: [],
                 documento: {
                     tipo_processo_id: ""
@@ -437,6 +446,7 @@
                 showSuccessMsg: false,
             }
         },
+        directives: {money: VMoney},
         components: {
             FormControl
         },
