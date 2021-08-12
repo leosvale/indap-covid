@@ -820,6 +820,10 @@
     margin-bottom: 28px;
     line-height: 42px;
   }
+  .secand_part img {
+    max-width: 100%;
+    height: auto;
+  }
   .contact_area {
     padding-bottom: 100px;
   }
