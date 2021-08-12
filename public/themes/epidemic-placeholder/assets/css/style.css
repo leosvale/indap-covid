@@ -3318,7 +3318,6 @@ button:focus {
   color: #fff;
   font: 700 18px/26px "Quicksand", sans-serif;
   max-width: 200px;
-  padding-top: 25px;
   margin-bottom: 4px;
 }
 
@@ -3326,6 +3325,11 @@ button:focus {
   color: #fff;
   font: 500 14px "Quicksand", sans-serif;
   transition: all 300ms linear 0s;
+}
+
+.small_l_blog_item .l_blog_text .text_btn p {
+  padding-top: 20px;
+  line-height: 1.8;
 }
 
 .small_l_blog_item .l_blog_text .text_btn:hover {

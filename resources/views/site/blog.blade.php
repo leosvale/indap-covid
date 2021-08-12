@@ -70,7 +70,7 @@
                                 <i class="linearicons-calendar-full"></i>{{ date('d/m/Y', strtotime($noticia['pub_data_visivel'] ? $noticia['pub_data_visivel'] : $noticia['pub_data_cadastro'])) }}
                             </a>
                           </div>
-                          <a class="text_btn" href="{{ url('/noticia/'.$noticia['publicacao_id']) }}">{{ $noticia['pub_titulo'] }}</a>
+                          <a class="text_btn" href="{{ url('/noticia/'.$noticia['publicacao_id']) }}"><p>{{ $noticia['pub_titulo'] }}</p></a>
                         </div>
                     </div>
                 </div>

@@ -71,9 +71,7 @@
                   <div class="date">
                     <a href="{{ url('/noticia/'.$destaque['publicacao_id']) }}"><i class="linearicons-calendar-full"></i>{{ date('d/m/Y', strtotime($destaque['pub_data_visivel'] ? $destaque['pub_data_visivel'] : $destaque['pub_data_cadastro'])) }}</a>
                   </div>
-                  <a href="#">
-                    <h3>{{ $destaque['pub_titulo'] }}</h3>
-                  </a>
+                   <a class="text_btn" href="{{ url('/noticia/'.$destaque['publicacao_id']) }}"><p>{{ $destaque['pub_titulo'] }}</p></a>
                 </div>
               </div>
               @endif
