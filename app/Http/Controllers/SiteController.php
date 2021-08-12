@@ -584,7 +584,7 @@ class SiteController extends Controller
 	{
 		// Página atual
 		$page  = $request->input('page', 1);
-		$limit = 10;
+		$limit = 12;
 		$skip  = $limit * ($page - 1);
 
 		// Filtros
