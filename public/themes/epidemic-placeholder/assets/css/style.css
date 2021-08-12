@@ -3318,6 +3318,7 @@ button:focus {
   color: #fff;
   font: 700 18px/26px "Quicksand", sans-serif;
   max-width: 200px;
+  padding-top: 25px;
   margin-bottom: 4px;
 }
 

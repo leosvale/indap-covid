@@ -63,14 +63,17 @@
               @if (!$loop->first)
               <div class="small_l_blog_item">
                 <div class="l_blog_img">
-                  <img style="width: 370px; height: 200px;" src="{{ $destaque_img }}" alt="{{ $destaque['pub_titulo'] }}" class="img-fluid" />
-
+                  <div class='slideshow-wrapper'>
+                    <img style="width: 370px; height: 200px;" src="{{ $destaque_img }}" alt="{{ $destaque['pub_titulo'] }}" class="img-fluid" />
+                  </div>
                 </div>
                 <div class="l_blog_text">
                   <div class="date">
                     <a href="{{ url('/noticia/'.$destaque['publicacao_id']) }}"><i class="linearicons-calendar-full"></i>{{ date('d/m/Y', strtotime($destaque['pub_data_visivel'] ? $destaque['pub_data_visivel'] : $destaque['pub_data_cadastro'])) }}</a>
                   </div>
-                  <a class="text_btn" href="{{ url('/noticia/'.$destaque['publicacao_id']) }}">{{ $destaque['pub_titulo'] }}</a>
+                  <a href="#">
+                    <h3>{{ $destaque['pub_titulo'] }}</h3>
+                  </a>
                 </div>
               </div>
               @endif
@@ -1055,37 +1058,20 @@
               <div class="col-sm-3 wow fadeInUp" data-wow-delay="400ms">
                 <div class="prevent_item">
                   <div class="prevent_img">
-                    <img width="270" height="160" class="img-fluid" src="{{ $boletim_img }}" alt="" />
+                    <a href="{{ url('/noticia/'.$boletim['publicacao_id']) }}">
+                      <img width="270" height="160" class="img-fluid" src="{{ $boletim_img }}" alt="" />
+                    </a>
                   </div>
                   <div class="prevent_text" style="background: white;">
-                    <h4>{{ $boletim['pub_titulo'] }}</h4>
+                    <a class="text_btn" href="{{ url('/noticia/'.$boletim['publicacao_id']) }}">
+                        <h4>{{ $boletim['pub_titulo'] }}</h4>
+                    </a>
                     <p>
                       {{ date('d/m/Y', strtotime($boletim['pub_data_visivel'] ? $boletim['pub_data_visivel'] : $boletim['pub_data_cadastro'])) }}
                     </p>
                   </div>
                 </div>
               </div>
-
-              <!-- <div class="col-sm-4 wow fadeInUp">
-                <div class="prevent_item_inner row">
-                  <div class="prevent_item">
-                    <div class="prevent_img">
-                      <a href="{{ url('/noticia/'.$boletim['publicacao_id']) }}">
-                        <img  width="370" height="200" src="{{ $boletim_img }}" alt="{{ $boletim['pub_titulo'] }}" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image"
-                                alt="" />
-                      </a>
-                    </div>
-                    <div class="prevent_text">
-                      <a class="text_btn" href="{{ url('/noticia/'.$boletim['publicacao_id']) }}">
-                        <h4>{{ $boletim['pub_titulo'] }}</h4>
-                      </a>
-                      <p>
-                        {{ date('d/m/Y', strtotime($boletim['pub_data_visivel'] ? $boletim['pub_data_visivel'] : $boletim['pub_data_cadastro'])) }}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
           @endforeach
         </div>
         <div class="text-center maintence_img img-fluid wow fadeInRight">   
