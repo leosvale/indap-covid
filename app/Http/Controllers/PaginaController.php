@@ -44,19 +44,7 @@ class PaginaController extends Controller
 		$orderBy   = $request->input('orderBy', 'pub_data_cadastro');
 		$ascending = $request->input('ascending', 0);
 
-		$data = Publicacao::select('publicacao_id', 
-		'autor_id',
-		'pub_tipo',
-		'pub_titulo',
-		'pub_descricao',
-		'pub_url',
-		'pub_resumo',
-		'pub_status',
-		'pub_ordem_menu',
-		'pub_menu_lateral',
-		'pub_data_visivel',
-		'tipo_categoria_servico_id')
-		->where('pub_tipo', !boolval(request()->servico) ? 'PAG' : 'SER');
+		$data = Publicacao::where('pub_tipo', !boolval(request()->servico) ? 'PAG' : 'SER');
 
 		if (boolval(request()->servico))
 			$data = $data->whereNotNull('tipo_categoria_servico_id', '<>', null);
@@ -83,6 +71,7 @@ class PaginaController extends Controller
                 $search_term = '%'.$filters->text.'%';
                 $data->where(function($query) use ($search_term) {
                     $query->where('pub_titulo', 'LIKE', $search_term)
+                    	  ->orWhere('pub_conteudo', 'LIKE', $search_term)
                           ->orWhere('pub_resumo', 'LIKE', $search_term);
                 });
             }
