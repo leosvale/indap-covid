@@ -261,8 +261,10 @@
                         @elseif( isset($menu_principal[''][0]['publicacao_id']) )
                             href="{{ url('/pagina/'.$menu_principal[''][0]['publicacao_id']) }}"
                         @endif
-                    >
+                    > 
+                      @if (isset ($menu_principal[''][0]['pub_titulo'] ))
                         {{ $menu_principal[''][0]['pub_titulo'] }}
+                      @endif
                     </a>
                 </li>
                 <li class="dropdown submenu">
