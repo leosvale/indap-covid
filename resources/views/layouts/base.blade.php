@@ -258,7 +258,7 @@
                     <a 
                         @if (isset ($menu_principal[''][0]['pub_url'] ))
                             href="{{ $menu_principal[''][0]['pub_url'] }}"
-                        @else
+                        @elseif( isset($menu_principal[''][0]['publicacao_id']) )
                             href="{{ url('/pagina/'.$menu_principal[''][0]['publicacao_id']) }}"
                         @endif
                     >
