@@ -256,7 +256,7 @@
                 <li><a href="{{ url('/acessibilidade') }}">Acessibilidade</a></li>
                 <li>
                     <a 
-                        @if ($menu_principal[''][0]['pub_url'] )
+                        @if (isset ($menu_principal[''][0]['pub_url'] ))
                             href="{{ $menu_principal[''][0]['pub_url'] }}"
                         @else
                             href="{{ url('/pagina/'.$menu_principal[''][0]['publicacao_id']) }}"
