@@ -87,6 +87,7 @@
                       $count++;
                   @endphp
                   @for ($i = 0; $i < count($paginas); $i++)
+                    @if( isset($paginas[$i]['pub_titulo'] ) )
                     <li>
                       <a title="{{ $paginas[$i]['pub_titulo'] }}" 
                           rel="noopener noreferrer"
@@ -99,6 +100,7 @@
                         {{ $paginas[$i]['pub_titulo'] }}
                       </a>
                     </li>
+                    @endif
                   @endfor 
                 @endif
               @endforeach
@@ -303,6 +305,7 @@
                             $count++;
                         @endphp
                         @for ($i = 1; $i < count($paginas); $i++)
+                          @if(  isset ( $paginas[$i]['pub_titulo'] ))
                           <li>
                             <a title="{{ $paginas[$i]['pub_titulo'] }}" 
                                 rel="noopener noreferrer"
@@ -315,6 +318,7 @@
                               {{ $paginas[$i]['pub_titulo'] }}
                             </a>
                           </li>
+                          @endif
                         @endfor 
                       @endif
                     @endforeach
