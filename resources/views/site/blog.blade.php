@@ -26,7 +26,10 @@
                             <a href="#"><i class="linearicons-icons"></i></a>
                         </li>
                         @foreach($categorias as $categoria)
-                            <li data-filter=".{{ $categoria->tcp_nome }}"><a href="#">{{ $categoria->tcp_nome }}</a></li>
+                            @php
+                                $string = str_replace(' ', '.', $categoria->tcp_nome);
+                            @endphp
+                            <li data-filter=".{{ $string }}"><a href="#">{{ $categoria->tcp_nome }}</a></li>
                         @endforeach
                         <li data-filter=".todas"><a href="#">Todas Categorias</a></li>
                     </ul>

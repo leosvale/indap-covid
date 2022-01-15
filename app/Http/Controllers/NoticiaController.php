@@ -94,7 +94,7 @@ class NoticiaController extends Controller
                 $data->where('pub_tipo', $filters->pub_tipo);
             }
 
-            if ($filters->text) {
+            if (!empty($filters->text)) {
                 $search_term = '%'.$filters->text.'%';
                 $data->where(function($query) use ($search_term) {
                     $query->where('pub_titulo', 'LIKE', $search_term)

@@ -45,7 +45,7 @@ class SiteController extends Controller
 				      ->where('pca.tipo_categoria_publicacao_id', 1);
 			})
 			->limit(3)
-			->orderBy('pub_data_cadastro', 'desc')
+			->orderBy('pub_data_visivel', 'desc')
 			->get();
 
 		$this->data['destaques'] = $destaques->toArray();
@@ -62,7 +62,7 @@ class SiteController extends Controller
 					->orWhere('pub_data_visivel', null);
 			})
             ->limit(8)
-            ->orderBy('pub_data_cadastro', 'desc')
+            ->orderBy('pub_data_visivel', 'desc')
             ->get();
 		
 		$noticias = $noticias->toArray();
@@ -80,7 +80,7 @@ class SiteController extends Controller
 					->orWhere('pub_data_visivel', null);
 			})
             ->limit(4)
-            ->orderBy('pub_data_cadastro', 'desc')
+            ->orderBy('pub_data_visivel', 'desc')
             ->get();
 
 		$boletins = $boletins->toArray();

@@ -8,8 +8,8 @@
         <div class="row">
             <div class="col-sm-2">
                 <div class="form-group">
-                    <label for="pub_data_cadastro">Data</label>
-                    <input type="date" id="pub_data_cadastro" v-model="filters.pub_data_cadastro" class="form-control">
+                    <label for="pub_data_visivel">Data</label>
+                    <input type="date" id="pub_data_visivel" v-model="filters.pub_data_visivel" class="form-control">
                 </div>
             </div>
             <div class="col-sm-2">
@@ -91,10 +91,10 @@
         template: `<abbr :title="dateFull">{{ dateAbbr }}</abbr>`,
         computed: {
             dateFull: function () {
-                return moment(this.data.pub_data_cadastro).format('DD/MM/YYYY HH:mm');
+                return moment(this.data.pub_data_visivel).format('DD/MM/YYYY HH:mm');
             },
             dateAbbr: function () {
-                return moment(this.data.pub_data_cadastro).format('DD/MM/YYYY');
+                return moment(this.data.pub_data_visivel).format('DD/MM/YYYY');
             },
         }
     });
@@ -114,7 +114,7 @@
                 },
                 categorias: [],
                 filters: {
-                    pub_data_cadastro: "",
+                    pub_data_visivel: "",
                     tipo_categoria_publicacao_id: "",
                     pub_status: "",
                     pub_tipo: "",
@@ -125,13 +125,13 @@
                     'categorias',
                     'pub_status',
                     'pub_tipo',
-                    'pub_data_cadastro',
+                    'pub_data_visivel',
                     'edit'
                 ],
             	options: {
                     skin: 'table-striped table-hover',
                     columnsClasses: {
-                        'pub_data_cadastro': 'col-data',
+                        'pub_data_visivel': 'col-data',
                         'pub_status': 'col-situacao',
                         'pub_tipo': 'col-tipo',
                         'edit': 'col-actions',
@@ -141,7 +141,7 @@
                         'categorias': 'Categorias',
                         'pub_status': 'Status',
                         'pub_tipo': 'Tipo',
-                        'pub_data_cadastro': 'Data',
+                        'pub_data_visivel': 'Data',
                         'edit': '',
                     },
                     texts: this.vueTableTexts(),
@@ -150,15 +150,15 @@
                         'pub_titulo',
                         'pub_status',
                         'pub_tipo',
-                        'pub_data_cadastro'
+                        'pub_data_visivel'
                     ],
                     orderBy: { 
                         ascending: false,
-                        column: 'pub_data_cadastro',
+                        column: 'pub_data_visivel',
                     },
                     templates: {
                         categorias: 'noticia-col-categorias',
-                        pub_data_cadastro: 'noticia-col-data',
+                        pub_data_visivel: 'noticia-col-data',
                         edit: 'noticia-col-edit',
                     },
                     params: {
