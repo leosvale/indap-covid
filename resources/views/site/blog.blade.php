@@ -82,7 +82,11 @@
             <div class="row blog_pagination">
                 <div class="col-md-2">
                     @if($prev_link)
-                        <a class="pagi_btn prev" href="{{ $prev_link }}">← Anterior</a>
+                        @if(Route::currentRouteName() == 'noticias')
+                            <a class="pagi_btn prev" href="{{ $prev_link }}">← Anterior</a>
+                        @else
+                            <a class="pagi_btn prev" href="{{ str_replace('noticias', 'boletins', $prev_link) }}">← Anterior</a>
+                        @endif
                     @endif
                 </div>
                 <div class="col-md-8">
@@ -90,7 +94,11 @@
                 </div>
                 <div class="col-md-2 text-right">
                     @if($next_link)
-                        <a class="pagi_btn next" href="{{ $next_link }}">Próxima →</a>
+                        @if(Route::currentRouteName() == 'noticias')
+                            <a class="pagi_btn next" href="{{ $next_link }}">Próxima → </a>
+                        @else
+                            <a class="pagi_btn prev" href="{{ str_replace('noticias', 'boletins', $next_link) }}">Próxima →</a>
+                        @endif
                     @endif
                 </div>
             </div>
