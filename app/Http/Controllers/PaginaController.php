@@ -67,7 +67,7 @@ class PaginaController extends Controller
 	        if (!empty($filters->pub_status)) {
                 $data->where('pub_status', $filters->pub_status);
 	        }
-            if ($filters->text) {
+            if (isset($filters) && $filters->text) {
                 $search_term = '%'.$filters->text.'%';
                 $data->where(function($query) use ($search_term) {
                     $query->where('pub_titulo', 'LIKE', $search_term)
